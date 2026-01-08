@@ -99,6 +99,110 @@
             border-color: #667eea;
         }
 
+        .tool-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            overflow: hidden;
+        }
+
+        .tool-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-images {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 8px;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .carousel-btn {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #333;
+            transition: all 0.3s ease;
+            pointer-events: all;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+            z-index: 5;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: #667eea;
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .dot:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
         .tool-card-body {
             padding: 1.5rem;
             display: flex;
@@ -113,10 +217,29 @@
             margin-bottom: 0.75rem;
         }
 
-        .tool-description {
-            font-size: 0.9rem;
+        .tool-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+        }
+
+        .tool-stars {
+            display: flex;
+            gap: 0.2rem;
+            color: #ffc107;
+        }
+
+        .tool-rating-text {
             color: #666;
-            line-height: 1.5;
+            font-size: 0.8rem;
+        }
+
+        .tool-description {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.4;
             margin-bottom: 1rem;
             flex-grow: 1;
         }
@@ -282,14 +405,36 @@
 
 <div class="tools-scroll-container" id="toolsContainer">
     <div class="tools-row">
-        <!-- Tool 1: Plough -->
+        <!-- Tool 1: Rake -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="0">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/rake/1.jpg') }}" alt="Rake" class="carousel-image active">
+                        <img src="{{ asset('images/tools/rake/2.webp') }}" alt="Rake" class="carousel-image">
+                        <img src="{{ asset('images/tools/rake/3.webp') }}" alt="Rake" class="carousel-image">
+                        <img src="{{ asset('images/tools/rake/4.jpg') }}" alt="Rake" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(0)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(0)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(0, 0)"></span>
+                        <span class="dot" onclick="goToImage(0, 1)"></span>
+                        <span class="dot" onclick="goToImage(0, 2)"></span>
+                        <span class="dot" onclick="goToImage(0, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🌾 Plough (Plow)</h5>
+                <h5 class="tool-title">Rake</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★★</div>
+                    <span class="tool-rating-text">(328 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A tool or machine that turns over and breaks up soil before planting.<br>
-                    <strong>Uses:</strong> Prepares the soil by loosening it, burying crop residues, and controlling weeds — making land ready for sowing seeds.<br>
-                    <strong>Type:</strong> Can be simple (animal-drawn) or tractor-mounted.
+                    A tool that turns over and breaks up soil before planting. Prepares the soil, buries residues, and controls weeds for optimal seed sowing.
                 </p>
                 <div class="tool-price">$450.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -300,14 +445,36 @@
             </div>
         </div>
 
-        <!-- Tool 2: Hoe -->
+        <!-- Tool 2: spading fork -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="1">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/spading fork/1.jpg') }}" alt="spading fork" class="carousel-image active">
+                        <img src="{{ asset('images/tools/spading fork/2.jpg') }}" alt="spading fork" class="carousel-image">
+                        <img src="{{ asset('images/tools/spading fork/3.jpg') }}" alt="spading fork" class="carousel-image">
+                        <img src="{{ asset('images/tools/spading fork/4.webp') }}" alt="spading fork" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(1)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(1)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(1, 0)"></span>
+                        <span class="dot" onclick="goToImage(1, 1)"></span>
+                        <span class="dot" onclick="goToImage(1, 2)"></span>
+                        <span class="dot" onclick="goToImage(1, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🔧 Hoe</h5>
+                <h5 class="tool-title">spading fork</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★☆</div>
+                    <span class="tool-rating-text">(245 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A traditional hand tool with a flat blade attached to a long handle.<br>
-                    <strong>Uses:</strong> Breaking up soil, removing weeds, shaping beds, and digging shallow furrows for planting.<br>
-                    <strong>Type:</strong> Manual tool, widely used in gardens and small farms.
+                    A traditional hand tool with a flat blade for breaking soil, removing weeds, shaping beds, and digging shallow furrows for planting.
                 </p>
                 <div class="tool-price">$25.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -318,14 +485,36 @@
             </div>
         </div>
 
-        <!-- Tool 3: Seed Drill -->
+        <!-- Tool 3: Scythe -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="2">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/scythe/1.webp') }}" alt="Scythe" class="carousel-image active">
+                        <img src="{{ asset('images/tools/scythe/2.webp') }}" alt="Scythe" class="carousel-image">
+                        <img src="{{ asset('images/tools/scythe/3.webp') }}" alt="Scythe" class="carousel-image">
+                        <img src="{{ asset('images/tools/scythe/4.avif') }}" alt="Scythe" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(2)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(2)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(2, 0)"></span>
+                        <span class="dot" onclick="goToImage(2, 1)"></span>
+                        <span class="dot" onclick="goToImage(2, 2)"></span>
+                        <span class="dot" onclick="goToImage(2, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🌱 Seed Drill</h5>
+                <h5 class="tool-title">scythe </h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★★</div>
+                    <span class="tool-rating-text">(412 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A planting machine that places seeds at a specific depth and spacing.<br>
-                    <strong>Uses:</strong> Ensures even seed distribution, better seed germination, and higher yields than hand broadcasting.<br>
-                    <strong>Type:</strong> Tractor-mounted or walk-behind models.
+                    A planting machine that places seeds at precise depth and spacing for even distribution and better germination with higher yields.
                 </p>
                 <div class="tool-price">$1,299.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -336,14 +525,36 @@
             </div>
         </div>
 
-        <!-- Tool 4: Wheelbarrow -->
+        <!-- Tool 4: weeding hoe -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="3">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/weeding hoe/1.png') }}" alt="Weeding Hoe" class="carousel-image active">
+                        <img src="{{ asset('images/tools/weeding hoe/2.jpg') }}" alt="Weeding Hoe" class="carousel-image">
+                        <img src="{{ asset('images/tools/weeding hoe/3.jpg') }}" alt="Weeding Hoe" class="carousel-image">
+                        <img src="{{ asset('images/tools/weeding hoe/4.jpg') }}" alt="Weeding Hoe" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(3)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(3)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(3, 0)"></span>
+                        <span class="dot" onclick="goToImage(3, 1)"></span>
+                        <span class="dot" onclick="goToImage(3, 2)"></span>
+                        <span class="dot" onclick="goToImage(3, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🛠 Wheelbarrow</h5>
+                <h5 class="tool-title">weeding hoe</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★☆</div>
+                    <span class="tool-rating-text">(189 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A one-wheel, manually pushed container.<br>
-                    <strong>Uses:</strong> Transporting soil, compost, seeds, fertilizers, tools, and crops around the farm easily.<br>
-                    <strong>Type:</strong> Manual tool useful for small farms and gardens.
+                    A one-wheel manually pushed container for transporting soil, compost, seeds, fertilizers, tools, and crops around the farm.
                 </p>
                 <div class="tool-price">$89.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -354,14 +565,36 @@
             </div>
         </div>
 
-        <!-- Tool 5: Rake -->
+        <!-- Tool 5: sickle -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="4">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/sickle/1.webp') }}" alt="sickle" class="carousel-image active">
+                        <img src="{{ asset('images/tools/sickle/2.avif') }}" alt="sickle" class="carousel-image">
+                        <img src="{{ asset('images/tools/sickle/3.jpg') }}" alt="sickle" class="carousel-image">
+                        <img src="{{ asset('images/tools/sickle/4.avif') }}" alt="sickle" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(4)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(4)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(4, 0)"></span>
+                        <span class="dot" onclick="goToImage(4, 1)"></span>
+                        <span class="dot" onclick="goToImage(4, 2)"></span>
+                        <span class="dot" onclick="goToImage(4, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🌾 Rake</h5>
+                <h5 class="tool-title">sickle</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★★</div>
+                    <span class="tool-rating-text">(267 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A tool with a row of metal or plastic tines on a handle.<br>
-                    <strong>Uses:</strong> Leveling soil, gathering debris, removing weeds, and spreading mulch.<br>
-                    <strong>Type:</strong> Manual tool used after ploughing or planting.
+                    A tool with metal tines for leveling soil, gathering debris, removing weeds, and spreading mulch after ploughing or planting.
                 </p>
                 <div class="tool-price">$18.50</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -372,14 +605,36 @@
             </div>
         </div>
 
-        <!-- Tool 6: Sickle -->
+        <!-- Tool 6: spreyer -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="5">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/spreyer/1.jpg') }}" alt="Spreyer" class="carousel-image active">
+                        <img src="{{ asset('images/tools/spreyer/2.jpg') }}" alt="Spreyer" class="carousel-image">
+                        <img src="{{ asset('images/tools/spreyer/3.png') }}" alt="Spreyer" class="carousel-image">
+                        <img src="{{ asset('images/tools/spreyer/4.jpg') }}" alt="Spreyer" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(5)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(5)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(5, 0)"></span>
+                        <span class="dot" onclick="goToImage(5, 1)"></span>
+                        <span class="dot" onclick="goToImage(5, 2)"></span>
+                        <span class="dot" onclick="goToImage(5, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🔪 Sickle</h5>
+                <h5 class="tool-title">Backpack Spreyer</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★☆</div>
+                    <span class="tool-rating-text">(156 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A hand tool with a curved blade.<br>
-                    <strong>Uses:</strong> Cutting grasses, harvesting cereals, and trimming vegetation.<br>
-                    <strong>Type:</strong> Traditional handheld tool.
+                    A hand tool with a curved blade for cutting grasses, harvesting cereals, and trimming vegetation with precision and efficiency.
                 </p>
                 <div class="tool-price">$15.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -390,14 +645,36 @@
             </div>
         </div>
 
-        <!-- Tool 7: Shovel and Spade -->
+        <!-- Tool 7: irregration pump -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="6">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/irrigation pump/1.png') }}" alt="Irrigation Pump" class="carousel-image active">
+                        <img src="{{ asset('images/tools/irrigation pump/2.jpg') }}" alt="Irrigation Pump" class="carousel-image">
+                        <img src="{{ asset('images/tools/irrigation pump/3.jpg') }}" alt="Irrigation Pump" class="carousel-image">
+                        <img src="{{ asset('images/tools/irrigation pump/4.jpg') }}" alt="Irrigation Pump" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(6)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(6)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(6, 0)"></span>
+                        <span class="dot" onclick="goToImage(6, 1)"></span>
+                        <span class="dot" onclick="goToImage(6, 2)"></span>
+                        <span class="dot" onclick="goToImage(6, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🪓 Shovel and Spade</h5>
+                <h5 class="tool-title">Irrigation Pump</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★★</div>
+                    <span class="tool-rating-text">(334 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What they are:</strong> Tools with broad blades for digging and soil handling.<br>
-                    <strong>Uses:</strong> Digging holes, lifting soil, mixing compost, and planting.<br>
-                    <strong>Type:</strong> Manual tools essential in planting and soil preparation.
+                    Tools with broad blades for digging holes, lifting soil, mixing compost, and planting. Essential for soil preparation tasks.
                 </p>
                 <div class="tool-price">$32.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -408,14 +685,36 @@
             </div>
         </div>
 
-        <!-- Tool 8: Sprayers -->
+        <!-- Tool 8: lawn mower -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="7">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/lawn mower/1.jpg') }}" alt="Lawn Mower" class="carousel-image active">
+                        <img src="{{ asset('images/tools/lawn mower/2.webp') }}" alt="Lawn Mower" class="carousel-image">
+                        <img src="{{ asset('images/tools/lawn mower/3.jpg') }}" alt="Lawn Mower" class="carousel-image">
+                        <img src="{{ asset('images/tools/lawn mower/4.jpg') }}" alt="Lawn Mower" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(7)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(7)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(7, 0)"></span>
+                        <span class="dot" onclick="goToImage(7, 1)"></span>
+                        <span class="dot" onclick="goToImage(7, 2)"></span>
+                        <span class="dot" onclick="goToImage(7, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🌿 Sprayers</h5>
+                <h5 class="tool-title">Lawn Mower</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★☆</div>
+                    <span class="tool-rating-text">(298 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> Tools or machines that spray liquids like water, pesticide, or fertilizer.<br>
-                    <strong>Uses:</strong> Protecting crops from pests, applying nutrients, and increasing growth.<br>
-                    <strong>Type:</strong> Handheld, backpack, or tractor-mounted.
+                    Tools or machines that spray water, pesticides, or fertilizers to protect crops from pests and apply nutrients for better growth.
                 </p>
                 <div class="tool-price">$149.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
@@ -426,17 +725,39 @@
             </div>
         </div>
 
-        <!-- Tool 9: Tractor -->
+        <!-- Tool 9: sprinkler -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="8">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/sprinkler/1.jpg') }}" alt="Sprinkler" class="carousel-image active">
+                        <img src="{{ asset('images/tools/sprinkler/2.jpg') }}" alt="Sprinkler" class="carousel-image">
+                        <img src="{{ asset('images/tools/sprinkler/3.jpg') }}" alt="Sprinkler" class="carousel-image">
+                        <img src="{{ asset('images/tools/sprinkler/4.jpeg') }}" alt="Sprinkler" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(8)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(8)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(8, 0)"></span>
+                        <span class="dot" onclick="goToImage(8, 1)"></span>
+                        <span class="dot" onclick="goToImage(8, 2)"></span>
+                        <span class="dot" onclick="goToImage(8, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">🚜 Tractor</h5>
+                <h5 class="tool-title">Sprinkler</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★★</div>
+                    <span class="tool-rating-text">(521 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A powerful vehicle used to pull and power multiple farm implements.<br>
-                    <strong>Uses:</strong> Tilling, ploughing, planting, hauling, and powering modern tools like seed drills and sprayers.<br>
-                    <strong>Type:</strong> Mechanized equipment for large farms and heavy tasks.
+                    A powerful vehicle used to pull and power multiple farm implements for tilling, ploughing, planting, and hauling on large farms.
                 </p>
                 <div class="tool-price">$35,999.00</div>
-                <p class="tool-status limited">⚠ Limited Stock</p>
+                <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <button class="btn btn-primary">Add to Cart</button>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
@@ -444,17 +765,39 @@
             </div>
         </div>
 
-        <!-- Tool 10: Rotavator -->
+        <!-- Tool 10: seed drill -->
         <div class="tool-card">
+            <div class="tool-card-image">
+                <div class="image-carousel" data-carousel="9">
+                    <div class="carousel-images">
+                        <img src="{{ asset('images/tools/seed drill/1.jpg') }}" alt="Seed Drill" class="carousel-image active">
+                        <img src="{{ asset('images/tools/seed drill/2.jpg') }}" alt="Seed Drill" class="carousel-image">
+                        <img src="{{ asset('images/tools/seed drill/3.png') }}" alt="Seed Drill" class="carousel-image">
+                        <img src="{{ asset('images/tools/seed drill/4.jpg') }}" alt="Seed Drill" class="carousel-image">
+                    </div>
+                    <div class="carousel-nav">
+                        <button class="carousel-btn prev" onclick="prevImage(9)">‹</button>
+                        <button class="carousel-btn next" onclick="nextImage(9)">›</button>
+                    </div>
+                    <div class="carousel-dots">
+                        <span class="dot active" onclick="goToImage(9, 0)"></span>
+                        <span class="dot" onclick="goToImage(9, 1)"></span>
+                        <span class="dot" onclick="goToImage(9, 2)"></span>
+                        <span class="dot" onclick="goToImage(9, 3)"></span>
+                    </div>
+                </div>
+            </div>
             <div class="tool-card-body">
-                <h5 class="tool-title">⚙️ Rotavator (Rotary Tiller)</h5>
+                <h5 class="tool-title">Seed Drill (manually)</h5>
+                <div class="tool-rating">
+                    <div class="tool-stars">★★★★☆</div>
+                    <span class="tool-rating-text">(403 reviews)</span>
+                </div>
                 <p class="tool-description">
-                    <strong>What it is:</strong> A machine with rotating blades.<br>
-                    <strong>Uses:</strong> Breaking soil into fine particles, mixing residues, and preparing seedbeds quickly.<br>
-                    <strong>Type:</strong> Tractor-driven tillage tool.
+                    A machine with rotating blades that breaks soil into fine particles, mixes residues, and prepares seedbeds quickly and efficiently.
                 </p>
                 <div class="tool-price">$2,499.00</div>
-                <p class="tool-status in-stock">✓ In Stock</p>
+                <p class="tool-status limited">⚠ Limited Stock</p>
                 <div class="tool-buttons">
                     <button class="btn btn-primary">Add to Cart</button>
                     <a href="https://www.farmonaut.com" target="_blank" class="btn btn-outline">Learn More</a>
@@ -483,10 +826,81 @@
         });
     }
 
-    // Add scroll buttons if needed
+    // Carousel functionality
+    let currentImageIndex = {};
+
+    function nextImage(carouselId) {
+        const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+        const images = carousel.querySelectorAll('.carousel-image');
+        const dots = carousel.querySelectorAll('.dot');
+
+        if (!currentImageIndex[carouselId]) {
+            currentImageIndex[carouselId] = 0;
+        }
+
+        currentImageIndex[carouselId] = (currentImageIndex[carouselId] + 1) % images.length;
+        updateCarousel(carousel, currentImageIndex[carouselId]);
+    }
+
+    function prevImage(carouselId) {
+        const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+        const images = carousel.querySelectorAll('.carousel-image');
+        const dots = carousel.querySelectorAll('.dot');
+
+        if (!currentImageIndex[carouselId]) {
+            currentImageIndex[carouselId] = 0;
+        }
+
+        currentImageIndex[carouselId] = (currentImageIndex[carouselId] - 1 + images.length) % images.length;
+        updateCarousel(carousel, currentImageIndex[carouselId]);
+    }
+
+    function goToImage(carouselId, index) {
+        const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+        currentImageIndex[carouselId] = index;
+        updateCarousel(carousel, index);
+    }
+
+    function updateCarousel(carousel, index) {
+        const images = carousel.querySelectorAll('.carousel-image');
+        const dots = carousel.querySelectorAll('.dot');
+
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        images[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    // Swipe functionality
+    let touchStartX = 0;
+    let touchEndX = 0;
+
     document.addEventListener('DOMContentLoaded', function() {
-        // You can use this for dynamic button creation if needed
+        const carousels = document.querySelectorAll('.image-carousel');
+
+        carousels.forEach((carousel, index) => {
+            carousel.setAttribute('data-carousel', index);
+
+            carousel.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, false);
+
+            carousel.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe(index);
+            }, false);
+        });
     });
+
+    function handleSwipe(carouselId) {
+        if (touchStartX - touchEndX > 50) {
+            nextImage(carouselId);
+        }
+        if (touchEndX - touchStartX > 50) {
+            prevImage(carouselId);
+        }
+    }
 </script>
 
 </body>
