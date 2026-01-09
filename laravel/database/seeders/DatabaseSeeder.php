@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
 
             $this->call([
                 ToolsTableSeeder::class,
+                FertilizersTableSeeder::class,
             ]);
     }
 }

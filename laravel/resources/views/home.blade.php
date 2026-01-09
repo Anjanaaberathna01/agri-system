@@ -141,5 +141,10 @@
     @include('tools.index')
 </div>
 
+<!-- Fertilizers Section -->
+<div class="fertilizers-section">
+    @include('fertilizers.index')
+</div>
+
 </body>
 </html>

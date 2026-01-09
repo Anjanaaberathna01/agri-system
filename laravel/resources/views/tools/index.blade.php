@@ -64,12 +64,12 @@
         }
 
         .tools-scroll-container::-webkit-scrollbar-thumb {
-            background: #667eea;
+            background: #FA891A;
             border-radius: 10px;
         }
 
         .tools-scroll-container::-webkit-scrollbar-thumb:hover {
-            background: #764ba2;
+            background: #FF9013;
         }
 
         /* Tools Row Container */
@@ -96,13 +96,13 @@
         .tool-card:hover {
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
-            border-color: #667eea;
+            border-color: #F87B1B;
         }
 
         .tool-card-image {
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -194,7 +194,7 @@
         }
 
         .dot.active {
-            background: #667eea;
+            background: #FF9013;
             width: 24px;
             border-radius: 4px;
         }
@@ -250,7 +250,8 @@
 
         .tool-price {
             font-size: 1.5rem;
-            color: #28a745;
+            color: #F25912;
+;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
@@ -262,7 +263,7 @@
         }
 
         .tool-status.in-stock {
-            color: #28a745;
+            color: #F87B1B;
         }
 
         .tool-status.limited {
@@ -291,26 +292,26 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             color: white;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 12px rgba(238, 153, 68, 0.3);
         }
 
         .btn-primary:hover {
-            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 16px rgba(238, 153, 68, 0.4);
             transform: translateY(-2px);
         }
 
         .btn-outline {
             background: white;
-            color: #667eea;
-            border: 2px solid #667eea;
+            color: #F25912;
+            border: 2px solid #F87B1B;
         }
 
         .btn-outline:hover {
             background: #f0f0ff;
-            border-color: #764ba2;
-            color: #764ba2;
+            border-color: #F87B1B;
+            color: #F25912;
         }
 
         /* Scroll Indicators */
@@ -319,7 +320,7 @@
             top: 50%;
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             border: none;
             border-radius: 50%;
             color: white;
@@ -330,11 +331,11 @@
             font-size: 1.25rem;
             z-index: 10;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 12px rgba(238, 153, 68, 0.3);
         }
 
         .scroll-indicator:hover {
-            box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 16px rgba(238, 153, 68, 0.4);
             transform: scale(1.1);
         }
 

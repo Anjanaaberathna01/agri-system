@@ -3,10 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ToolsController;
+use App\Http\Controllers\FertilizersController;
+use App\Models\Tool;
 
 // Home page (first page)
 Route::get('/', function () {
-    return view('home');
+    $tools = Tool::orderBy('title')->get();
+    return view('home', compact('tools'));
 })->name('home');
 
 // Authentication Routes
@@ -18,11 +22,7 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->na
 Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
 
 // Tools Routes
-Route::get('/tools', function () {
-    return view('tools.index');
-})->name('tools.index');
+Route::get('/tools', [ToolsController::class, 'index'])->name('tools.index');
 
 // Fertilizers Routes
-Route::get('/fertilizers', function () {
-    return view('fertilizers.index');
-})->name('fertilizers.index');
+Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
