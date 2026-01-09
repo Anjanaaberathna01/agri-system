@@ -150,23 +150,24 @@
             justify-content: space-between;
             padding: 0 8px;
             z-index: 5;
-            pointer-events: none;
         }
 
         .carousel-btn {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             border: none;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            color: #333;
+            font-size: 20px;
+            color: #F87B1B;
             transition: all 0.3s ease;
             pointer-events: all;
+            box-shadow: 0 2px 8px rgba(248, 123, 27, 0.2);
+            font-weight: bold;
         }
 
         .carousel-btn:hover {
@@ -417,14 +418,14 @@
                         <img src="{{ asset('images/tools/rake/4.jpg') }}" alt="Rake" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(0)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(0)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(0)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(0)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(0, 0)"></span>
-                        <span class="dot" onclick="goToImage(0, 1)"></span>
-                        <span class="dot" onclick="goToImage(0, 2)"></span>
-                        <span class="dot" onclick="goToImage(0, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(0, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(0, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(0, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(0, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -457,14 +458,14 @@
                         <img src="{{ asset('images/tools/spading fork/4.webp') }}" alt="spading fork" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(1)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(1)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(1)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(1)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(1, 0)"></span>
-                        <span class="dot" onclick="goToImage(1, 1)"></span>
-                        <span class="dot" onclick="goToImage(1, 2)"></span>
-                        <span class="dot" onclick="goToImage(1, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(1, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(1, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(1, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(1, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -497,14 +498,14 @@
                         <img src="{{ asset('images/tools/scythe/4.avif') }}" alt="Scythe" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(2)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(2)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(2)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(2)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(2, 0)"></span>
-                        <span class="dot" onclick="goToImage(2, 1)"></span>
-                        <span class="dot" onclick="goToImage(2, 2)"></span>
-                        <span class="dot" onclick="goToImage(2, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(2, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(2, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(2, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(2, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -537,14 +538,14 @@
                         <img src="{{ asset('images/tools/weeding hoe/4.jpg') }}" alt="Weeding Hoe" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(3)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(3)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(3)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(3)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(3, 0)"></span>
-                        <span class="dot" onclick="goToImage(3, 1)"></span>
-                        <span class="dot" onclick="goToImage(3, 2)"></span>
-                        <span class="dot" onclick="goToImage(3, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(3, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(3, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(3, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(3, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -577,14 +578,14 @@
                         <img src="{{ asset('images/tools/sickle/4.avif') }}" alt="sickle" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(4)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(4)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(4)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(4)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(4, 0)"></span>
-                        <span class="dot" onclick="goToImage(4, 1)"></span>
-                        <span class="dot" onclick="goToImage(4, 2)"></span>
-                        <span class="dot" onclick="goToImage(4, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(4, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(4, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(4, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(4, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -617,14 +618,14 @@
                         <img src="{{ asset('images/tools/spreyer/4.jpg') }}" alt="Spreyer" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(5)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(5)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(5)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(5)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(5, 0)"></span>
-                        <span class="dot" onclick="goToImage(5, 1)"></span>
-                        <span class="dot" onclick="goToImage(5, 2)"></span>
-                        <span class="dot" onclick="goToImage(5, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(5, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(5, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(5, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(5, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -657,14 +658,14 @@
                         <img src="{{ asset('images/tools/irrigation pump/4.jpg') }}" alt="Irrigation Pump" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(6)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(6)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(6)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(6)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(6, 0)"></span>
-                        <span class="dot" onclick="goToImage(6, 1)"></span>
-                        <span class="dot" onclick="goToImage(6, 2)"></span>
-                        <span class="dot" onclick="goToImage(6, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(6, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(6, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(6, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(6, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -697,14 +698,14 @@
                         <img src="{{ asset('images/tools/lawn mower/4.jpg') }}" alt="Lawn Mower" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(7)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(7)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(7)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(7)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(7, 0)"></span>
-                        <span class="dot" onclick="goToImage(7, 1)"></span>
-                        <span class="dot" onclick="goToImage(7, 2)"></span>
-                        <span class="dot" onclick="goToImage(7, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(7, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(7, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(7, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(7, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -737,14 +738,14 @@
                         <img src="{{ asset('images/tools/sprinkler/4.jpeg') }}" alt="Sprinkler" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(8)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(8)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(8)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(8)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(8, 0)"></span>
-                        <span class="dot" onclick="goToImage(8, 1)"></span>
-                        <span class="dot" onclick="goToImage(8, 2)"></span>
-                        <span class="dot" onclick="goToImage(8, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(8, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(8, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(8, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(8, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -777,14 +778,14 @@
                         <img src="{{ asset('images/tools/seed drill/4.jpg') }}" alt="Seed Drill" class="carousel-image">
                     </div>
                     <div class="carousel-nav">
-                        <button class="carousel-btn prev" onclick="prevImage(9)">‹</button>
-                        <button class="carousel-btn next" onclick="nextImage(9)">›</button>
+                        <button class="carousel-btn prev" onclick="ToolsApp.prevImage(9)">‹</button>
+                        <button class="carousel-btn next" onclick="ToolsApp.nextImage(9)">›</button>
                     </div>
                     <div class="carousel-dots">
-                        <span class="dot active" onclick="goToImage(9, 0)"></span>
-                        <span class="dot" onclick="goToImage(9, 1)"></span>
-                        <span class="dot" onclick="goToImage(9, 2)"></span>
-                        <span class="dot" onclick="goToImage(9, 3)"></span>
+                        <span class="dot active" onclick="ToolsApp.goToImage(9, 0)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(9, 1)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(9, 2)"></span>
+                        <span class="dot" onclick="ToolsApp.goToImage(9, 3)"></span>
                     </div>
                 </div>
             </div>
@@ -809,99 +810,119 @@
 </div>
 
 <script>
-    // Scroll functionality
-    const container = document.getElementById('toolsContainer');
-    const scrollAmount = 350;
+    // Tools Page - Isolated Functions
+    const ToolsApp = {
+        container: null,
+        scrollAmount: 350,
+        currentImageIndex: {},
+        touchStartX: 0,
+        touchEndX: 0,
 
-    function scrollLeft() {
-        container.scrollBy({
-            left: -scrollAmount,
-            behavior: 'smooth'
-        });
-    }
+        init() {
+            this.container = document.getElementById('toolsContainer');
+            this.setupTouchListeners();
+        },
 
-    function scrollRight() {
-        container.scrollBy({
-            left: scrollAmount,
-            behavior: 'smooth'
-        });
-    }
+        scrollLeft() {
+            if (this.container) {
+                this.container.scrollBy({
+                    left: -this.scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        },
 
-    // Carousel functionality
-    let currentImageIndex = {};
+        scrollRight() {
+            if (this.container) {
+                this.container.scrollBy({
+                    left: this.scrollAmount,
+                    behavior: 'smooth'
+                });
+            }
+        },
 
-    function nextImage(carouselId) {
-        const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
-        const images = carousel.querySelectorAll('.carousel-image');
-        const dots = carousel.querySelectorAll('.dot');
+        nextImage(carouselId) {
+            const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+            if (!carousel) return;
 
-        if (!currentImageIndex[carouselId]) {
-            currentImageIndex[carouselId] = 0;
+            const images = carousel.querySelectorAll('.carousel-image');
+            if (images.length === 0) return;
+
+            if (!this.currentImageIndex[carouselId]) {
+                this.currentImageIndex[carouselId] = 0;
+            }
+
+            this.currentImageIndex[carouselId] = (this.currentImageIndex[carouselId] + 1) % images.length;
+            this.updateCarousel(carousel, this.currentImageIndex[carouselId]);
+        },
+
+        prevImage(carouselId) {
+            const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+            if (!carousel) return;
+
+            const images = carousel.querySelectorAll('.carousel-image');
+            if (images.length === 0) return;
+
+            if (!this.currentImageIndex[carouselId]) {
+                this.currentImageIndex[carouselId] = 0;
+            }
+
+            this.currentImageIndex[carouselId] = (this.currentImageIndex[carouselId] - 1 + images.length) % images.length;
+            this.updateCarousel(carousel, this.currentImageIndex[carouselId]);
+        },
+
+        goToImage(carouselId, index) {
+            const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
+            if (!carousel) return;
+
+            this.currentImageIndex[carouselId] = index;
+            this.updateCarousel(carousel, index);
+        },
+
+        updateCarousel(carousel, index) {
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.dot');
+
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            if (images[index]) images[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
+        },
+
+        setupTouchListeners() {
+            const carousels = document.querySelectorAll('.image-carousel');
+
+            carousels.forEach((carousel, index) => {
+                carousel.setAttribute('data-carousel', index);
+
+                carousel.addEventListener('touchstart', (e) => {
+                    this.touchStartX = e.changedTouches[0].screenX;
+                }, false);
+
+                carousel.addEventListener('touchend', (e) => {
+                    this.touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(index);
+                }, false);
+            });
+        },
+
+        handleSwipe(carouselId) {
+            if (this.touchStartX - this.touchEndX > 50) {
+                this.nextImage(carouselId);
+            }
+            if (this.touchEndX - this.touchStartX > 50) {
+                this.prevImage(carouselId);
+            }
         }
+    };
 
-        currentImageIndex[carouselId] = (currentImageIndex[carouselId] + 1) % images.length;
-        updateCarousel(carousel, currentImageIndex[carouselId]);
-    }
-
-    function prevImage(carouselId) {
-        const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
-        const images = carousel.querySelectorAll('.carousel-image');
-        const dots = carousel.querySelectorAll('.dot');
-
-        if (!currentImageIndex[carouselId]) {
-            currentImageIndex[carouselId] = 0;
-        }
-
-        currentImageIndex[carouselId] = (currentImageIndex[carouselId] - 1 + images.length) % images.length;
-        updateCarousel(carousel, currentImageIndex[carouselId]);
-    }
-
-    function goToImage(carouselId, index) {
-        const carousel = document.querySelector(`[data-carousel="${carouselId}"]`);
-        currentImageIndex[carouselId] = index;
-        updateCarousel(carousel, index);
-    }
-
-    function updateCarousel(carousel, index) {
-        const images = carousel.querySelectorAll('.carousel-image');
-        const dots = carousel.querySelectorAll('.dot');
-
-        images.forEach(img => img.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-
-        images[index].classList.add('active');
-        dots[index].classList.add('active');
-    }
-
-    // Swipe functionality
-    let touchStartX = 0;
-    let touchEndX = 0;
+    // Expose ToolsApp globally for inline onclick handlers
+    window.ToolsApp = ToolsApp;
 
     document.addEventListener('DOMContentLoaded', function() {
-        const carousels = document.querySelectorAll('.image-carousel');
-
-        carousels.forEach((carousel, index) => {
-            carousel.setAttribute('data-carousel', index);
-
-            carousel.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            }, false);
-
-            carousel.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe(index);
-            }, false);
-        });
+        ToolsApp.init();
     });
-
-    function handleSwipe(carouselId) {
-        if (touchStartX - touchEndX > 50) {
-            nextImage(carouselId);
-        }
-        if (touchEndX - touchStartX > 50) {
-            prevImage(carouselId);
-        }
-    }
 </script>
 
 </body>

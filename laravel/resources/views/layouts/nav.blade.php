@@ -345,6 +345,7 @@
             <li><a href="{{ route('login') }}">Home</a></li>
             <li><a href="{{ route('tools.index') }}">Tools</a></li>
             <li><a href="{{ route('fertilizers.index') }}">Fertilizers</a></li>
+            <li><a href="">Crops</a></li>
         </ul>
     </div>
 
