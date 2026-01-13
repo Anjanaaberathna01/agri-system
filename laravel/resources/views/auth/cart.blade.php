@@ -355,33 +355,37 @@
                     </div>
                 @else
                     @foreach($cart as $key => $item)
-                        <div class="cart-item">
-                            <div class="item-image">
-                                @if($item['type'] === 'tool')
-                                    🔨
-                                @elseif($item['type'] === 'fertilizer')
-                                    🌾
-                                @else
-                                    🌻
-                                @endif
+                        <div class="cart-item" style="align-items: flex-start;">
+                            <div class="item-image" style="display: flex; align-items: center; justify-content: center; min-width: 100px; min-height: 100px;">
+                                @php
+                                    if ($item['type'] === 'tool') {
+                                        $imageFolder = 'tools';
+                                    } elseif ($item['type'] === 'fertilizer') {
+                                        $imageFolder = 'fertilizer';
+                                    } else {
+                                        $imageFolder = 'crop';
+                                    }
+                                    $itemSubfolder = isset($item['name']) ? strtolower($item['name']) : '';
+                                    $imageFile = !empty($item['image']) ? $item['image'] : '1.jpg';
+                                @endphp
+                                <img src="{{ asset('images/' . $imageFolder . '/' . $itemSubfolder . '/' . $imageFile) }}" alt="{{ $item['name'] }}" style="width:90px;height:90px;border-radius:10px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
                             </div>
 
-                            <div class="item-details">
-                                <h3>{{ $item['name'] }}</h3>
-                                <span class="item-type">{{ ucfirst($item['type']) }}</span>
-                                <div class="item-price">Rs. {{ number_format($item['price'], 2) }}</div>
-
-                                <form action="{{ route('cart.update', $key) }}" method="POST" class="item-quantity">
+                            <div class="item-details" style="padding-left:10px;flex:1;">
+                                <h3 style="margin-bottom:6px;">{{ $item['name'] }}</h3>
+                                <span class="item-type" style="margin-bottom:6px;">{{ ucfirst($item['type']) }}</span>
+                                <div class="item-price" style="margin-bottom:8px;">Rs. {{ number_format($item['price'], 2) }}</div>
+                                <form action="{{ route('cart.update', $key) }}" method="POST" class="item-quantity" style="margin-bottom:8px;">
                                     @csrf
                                     @method('PUT')
-                                    <label>Qty:</label>
-                                    <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" required>
-                                    <button type="submit">Update</button>
+                                    <label style="margin-right:4px;">Qty:</label>
+                                    <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" required style="width:50px;">
+                                    <button type="submit" style="margin-left:6px;">Update</button>
                                 </form>
                             </div>
 
-                            <div class="item-actions">
-                                <div class="item-total">Rs. {{ number_format($item['price'] * $item['quantity'], 2) }}</div>
+                            <div class="item-actions" style="min-width:110px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+                                <div class="item-total" style="margin-bottom:8px;">Rs. {{ number_format($item['price'] * $item['quantity'], 2) }}</div>
                                 <a href="{{ route('cart.remove', $key) }}" class="item-remove" onclick="return confirm('Remove this item?')">Remove</a>
                             </div>
                         </div>
@@ -414,9 +418,11 @@
                 </div>
 
                 @if(!empty($cart))
-                    <a class="checkout-btn" href="{{ route('auth.check_out') }}">Proceed to Checkout</a>
-                    <a href="{{ route('home') }}" class="continue-shopping">Continue Shopping</a>
-                    <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-top: 5px;">Clear Cart</a>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+                    <a class="checkout-btn" href="{{ route('auth.check_out') }}" style="margin-bottom:0;">Proceed to Checkout</a>
+                    <a href="{{ route('home') }}" class="continue-shopping" style="margin-bottom:0;">Continue Shopping</a>
+                    <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-top:0;">Clear Cart</a>
+                </div>
                 @endif
             </div>
         </div>

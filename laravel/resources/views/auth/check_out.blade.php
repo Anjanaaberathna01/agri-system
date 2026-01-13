@@ -79,9 +79,10 @@
                                     <div class="item-image">
                                         @php
                                             $imageFolder = $item['type'] === 'tool' ? 'tools' : ($item['type'] === 'fertilizer' ? 'fertilizer' : 'crop');
-                                            $imageFile = !empty($item['image']) ? $item['image'] : 'default.png';
+                                            $itemSubfolder = isset($item['name']) ? strtolower($item['name']) : '';
+                                            $imageFile = !empty($item['image']) ? $item['image'] : '1.jpg';
                                         @endphp
-                                        <img src="{{ asset('images/' . $imageFolder . '/' . $imageFile) }}" alt="{{ $item['name'] }}" style="width:70px;height:70px;border-radius:10px;object-fit:cover;">
+                                        <img src="{{ asset('images/' . $imageFolder . '/' . $itemSubfolder . '/' . $imageFile) }}" alt="{{ $item['name'] }}" style="width:70px;height:70px;border-radius:10px;object-fit:cover;">
                                     </div>
                                     <div class="item-details">
                                         <h4>{{ $item['name'] }}</h4>
