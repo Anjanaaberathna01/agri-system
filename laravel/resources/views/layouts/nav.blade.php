@@ -378,7 +378,7 @@
 
                 <!-- Dropdown Menu -->
                 <div class="dropdown-menu" id="dropdownMenu">
-                    <a href=>👤 My Profile</a>
+                    <a href="{{ route('profile.show') }}">👤 My Profile</a>
                     <a href="">📦 My Orders</a>
                     <a href="">⚙️ Settings</a>
                     <a href="{{ route('logout') }}"

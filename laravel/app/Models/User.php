@@ -7,6 +7,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+/**
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property string $password
+ * @property string|null $phone
+ * @property string|null $mobile_number_2
+ * @property string|null $profile_photo
+ * @property string|null $address
+ * @property string|null $city
+ * @property string|null $state
+ * @property string|null $postal_code
+ * @property string $role
+ * @property bool $is_active
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -23,6 +38,8 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'mobile_number_2',
+        'profile_photo',
         'address',
         'city',
         'state',
