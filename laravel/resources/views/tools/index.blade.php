@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agricultural Tools - SpasilaLahanPetani</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -396,9 +389,7 @@
                 font-size: 0.9rem;
             }
         }
-    </style>
-</head>
-<body>
+</style>
 
 <div class="header-section">
     <h1>Agricultural Tools & Equipment Store</h1>
@@ -441,7 +432,15 @@
                 <div class="tool-price">$450.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="1">
+                        <input type="hidden" name="name" value="Rake">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="450.00">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Plough" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -481,7 +480,15 @@
                 <div class="tool-price">$25.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="2">
+                        <input type="hidden" name="name" value="Spading Fork">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="25.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Hoe_(tool)" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -521,7 +528,15 @@
                 <div class="tool-price">$1,299.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="3">
+                        <input type="hidden" name="name" value="Scythe">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="1299.00">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Seed_drill" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -561,7 +576,15 @@
                 <div class="tool-price">$89.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="4">
+                        <input type="hidden" name="name" value="Weeding Hoe">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="89.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -601,7 +624,15 @@
                 <div class="tool-price">$18.50</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="5">
+                        <input type="hidden" name="name" value="Sickle">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="18.50">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -641,7 +672,15 @@
                 <div class="tool-price">$15.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="6">
+                        <input type="hidden" name="name" value="Backpack Sprayer">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="15.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -681,7 +720,15 @@
                 <div class="tool-price">$32.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="7">
+                        <input type="hidden" name="name" value="Irrigation Pump">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="32.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -721,7 +768,15 @@
                 <div class="tool-price">$149.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="8">
+                        <input type="hidden" name="name" value="Lawn Mower">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="149.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -761,7 +816,15 @@
                 <div class="tool-price">$35,999.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="9">
+                        <input type="hidden" name="name" value="Sprinkler">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="35999.00">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.legit.ng" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -801,7 +864,15 @@
                 <div class="tool-price">$2,499.00</div>
                 <p class="tool-status limited">⚠ Limited Stock</p>
                 <div class="tool-buttons">
-                    <button class="btn btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="10">
+                        <input type="hidden" name="name" value="Seed Drill">
+                        <input type="hidden" name="type" value="tool">
+                        <input type="hidden" name="price" value="2499.00">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://www.farmonaut.com" target="_blank" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
@@ -924,6 +995,3 @@
         ToolsApp.init();
     });
 </script>
-
-</body>
-</html>

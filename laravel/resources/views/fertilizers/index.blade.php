@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fertilizers - SpasilaLahanPetani</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -406,9 +399,7 @@
                 font-size: 0.9rem;
             }
         }
-    </style>
-</head>
-<body>
+</style>
 
 <div class="header-section">
     <h1>Premium Fertilizers & Nutrients Store</h1>
@@ -452,7 +443,15 @@
                 <div class="fertilizer-price">$45.99</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="1">
+                        <input type="hidden" name="name" value="Gypsum Fertilizer">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="45.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Fertilizer" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -493,7 +492,15 @@
                 <div class="fertilizer-price">$32.50</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="2">
+                        <input type="hidden" name="name" value="Urea 46% Nitrogen">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="32.50">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Urea" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -534,7 +541,15 @@
                 <div class="fertilizer-price">$38.75</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="3">
+                        <input type="hidden" name="name" value="Boron Complex">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="38.75">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Phosphate_fertilizer" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -575,7 +590,15 @@
                 <div class="fertilizer-price">$29.99</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="4">
+                        <input type="hidden" name="name" value="Potassium Chloride 60% K₂O">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="29.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Potassium_chloride" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -616,7 +639,15 @@
                 <div class="fertilizer-price">$18.50</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="5">
+                        <input type="hidden" name="name" value="Organic Sulfur Premium">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="18.50">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Compost" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -657,7 +688,15 @@
                 <div class="fertilizer-price">$41.75</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="6">
+                        <input type="hidden" name="name" value="Diammonium phosphate 18:46:0">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="41.75">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Diammonium_phosphate" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -698,7 +737,15 @@
                 <div class="fertilizer-price">$24.99</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="7">
+                        <input type="hidden" name="name" value="Zinc Complex">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="24.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Micronutrient" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -739,7 +786,15 @@
                 <div class="fertilizer-price">$19.99</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="8">
+                        <input type="hidden" name="name" value="Molybdenum Complex">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="19.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Calcium_nitrate" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -780,7 +835,15 @@
                 <div class="fertilizer-price">$22.75</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="9">
+                        <input type="hidden" name="name" value="Mixed Nutrient Blend">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="22.75">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Foliar_feeding" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -821,7 +884,15 @@
                 <div class="fertilizer-price">$52.99</div>
                 <p class="fertilizer-status limited">⚠ Limited Stock</p>
                 <div class="fertilizer-buttons">
-                    <button class="fertilizer-btn fertilizer-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="10">
+                        <input type="hidden" name="name" value="Magnesium Sulfate">
+                        <input type="hidden" name="type" value="fertilizer">
+                        <input type="hidden" name="price" value="52.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Slow-release_fertilizer" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -944,6 +1015,3 @@
         FertilizerApp.init();
     });
 </script>
-
-</body>
-</html>

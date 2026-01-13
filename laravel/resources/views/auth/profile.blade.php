@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile | SpasilaLahanPetani</title>
-    
+
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         * {
             margin: 0;
@@ -19,16 +19,17 @@
             font-family: 'Poppins', sans-serif;
             background: #f5f7fa;
             min-height: 100vh;
-            padding: 20px;
+            padding: 0;
         }
 
         .container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 20px;
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             color: white;
             padding: 30px;
             border-radius: 15px;
@@ -58,7 +59,6 @@
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            height: fit-content;
         }
 
         .profile-photo-section {
@@ -71,7 +71,7 @@
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #667eea;
+            border: 5px solid #ff9500;
             margin-bottom: 15px;
         }
 
@@ -79,12 +79,12 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
-            border: 5px solid #667eea;
+            border: 5px solid #ff9500;
         }
 
         .profile-photo-placeholder span {
@@ -96,7 +96,7 @@
         .photo-upload-btn {
             display: inline-block;
             padding: 10px 20px;
-            background: #667eea;
+            background: #ff9500;
             color: white;
             border-radius: 8px;
             cursor: pointer;
@@ -106,7 +106,7 @@
         }
 
         .photo-upload-btn:hover {
-            background: #764ba2;
+            background: #ff7c00;
             transform: translateY(-2px);
         }
 
@@ -160,12 +160,12 @@
         }
 
         .nav-tab.active {
-            color: #667eea;
-            border-bottom-color: #667eea;
+            color: #ff9500;
+            border-bottom-color: #ff9500;
         }
 
         .nav-tab:hover {
-            color: #667eea;
+            color: #ff9500;
         }
 
         .tab-content {
@@ -229,8 +229,8 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            border-color: #ff9500;
+            box-shadow: 0 0 0 4px rgba(255, 149, 0, 0.1);
         }
 
         .form-group input[readonly] {
@@ -250,14 +250,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             color: white;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.6);
         }
 
         .btn-secondary {
@@ -295,19 +295,6 @@
             margin-top: 5px;
         }
 
-        .back-link {
-            display: inline-block;
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: #764ba2;
-        }
-
         @media (max-width: 768px) {
             .profile-container {
                 grid-template-columns: 1fr;
@@ -324,8 +311,9 @@
     </style>
 </head>
 <body>
+    @include('layouts.nav')
+
     <div class="container">
-        <a href="{{ route('home') }}" class="back-link">← Back to Home</a>
 
         <div class="header">
             <h1>My Profile</h1>
@@ -355,7 +343,7 @@
                             <span>{{ strtoupper(substr($user->first_name ?? 'U', 0, 1)) }}</span>
                         </div>
                     @endif
-                    
+
                     <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" id="photoForm">
                         @csrf
                         @method('PUT')
@@ -514,7 +502,7 @@
                 reader.onload = function(e) {
                     const placeholder = document.getElementById('profilePlaceholder');
                     const preview = document.getElementById('profilePreview');
-                    
+
                     if (placeholder) {
                         placeholder.outerHTML = '<img src="' + e.target.result + '" alt="Profile Photo" class="profile-photo" id="profilePreview">';
                     } else if (preview) {

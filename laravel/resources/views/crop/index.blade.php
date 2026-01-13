@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Crops - SpasilaLahanPetani</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
+<style>
         * {
             margin: 0;
             padding: 0;
@@ -406,9 +399,7 @@
                 font-size: 0.9rem;
             }
         }
-    </style>
-</head>
-<body>
+</style>
 
 <div class="header-section">
     <h1>Premium Crops Selection</h1>
@@ -452,7 +443,15 @@
                 <div class="crop-price">$45.99</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="1">
+                        <input type="hidden" name="name" value="Black Cowpea">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="45.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Fertilizer" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -493,7 +492,15 @@
                 <div class="crop-price">$32.50</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="2">
+                        <input type="hidden" name="name" value="Chikpea">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="32.50">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Urea" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -534,7 +541,15 @@
                 <div class="crop-price">$38.75</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="3">
+                        <input type="hidden" name="name" value="Corn">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="38.75">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Phosphate_fertilizer" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -575,7 +590,15 @@
                 <div class="crop-price">$29.99</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="4">
+                        <input type="hidden" name="name" value="Cowpea">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="29.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Potassium_chloride" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -616,7 +639,15 @@
                 <div class="crop-price">$18.50</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="5">
+                        <input type="hidden" name="name" value="Field Pea">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="18.50">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Compost" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -657,7 +688,15 @@
                 <div class="crop-price">$41.75</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="6">
+                        <input type="hidden" name="name" value="Mung">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="41.75">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Diammonium_phosphate" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -698,7 +737,15 @@
                 <div class="crop-price">$24.99</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="7">
+                        <input type="hidden" name="name" value="Peanut">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="24.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Micronutrient" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -739,7 +786,15 @@
                 <div class="crop-price">$19.99</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="8">
+                        <input type="hidden" name="name" value="Red Pepper">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="19.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Calcium_nitrate" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -780,7 +835,15 @@
                 <div class="crop-price">$22.75</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="9">
+                        <input type="hidden" name="name" value="Sorghum">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="22.75">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Foliar_feeding" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -821,7 +884,15 @@
                 <div class="crop-price">$52.99</div>
                 <p class="crop-status limited">⚠ Limited Stock</p>
                 <div class="crop-buttons">
-                    <button class="crop-btn crop-btn-primary">Add to Cart</button>
+                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                        @csrf
+                        <input type="hidden" name="id" value="10">
+                        <input type="hidden" name="name" value="Sunflower">
+                        <input type="hidden" name="type" value="crop">
+                        <input type="hidden" name="price" value="52.99">
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
+                    </form>
                     <a href="https://en.wikipedia.org/wiki/Slow-release_fertilizer" target="_blank" class="crop-btn crop-btn-outline">Learn More</a>
                 </div>
             </div>
@@ -944,6 +1015,3 @@
         CropApp.init();
     });
 </script>
-
-</body>
-</html>

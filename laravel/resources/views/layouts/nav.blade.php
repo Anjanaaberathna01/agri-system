@@ -180,13 +180,42 @@
             width: 35px;
             height: 35px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
             font-size: 14px;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            color: #ff7c00;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.1);
+            color: #ff9500;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
         }
 
         .dropdown-menu {
@@ -342,10 +371,10 @@
 
         <!-- Navigation Links -->
         <ul class="nav-links">
-            <li><a href="{{ route('login') }}">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('tools.index') }}">Tools</a></li>
             <li><a href="{{ route('fertilizers.index') }}">Fertilizers</a></li>
-            <li><a href="">Crops</a></li>
+            <li><a href="{{ route('crops.index') }}">Crops</a></li>
         </ul>
     </div>
 
@@ -361,8 +390,13 @@
         </div>
     </div>
 
-    <!-- RIGHT SIDE: Login/User Menu -->
+    <!-- RIGHT SIDE: Cart & Login/User Menu -->
     <div class="nav-right">
+        <!-- Cart Icon -->
+        <a href="{{ route('cart.index') }}" class="cart-icon" title="Shopping Cart">
+            🛒
+            <span class="cart-badge">{{ count(session()->get('cart', [])) }}</span>
+        </a>
         <div class="nav-auth">
             @auth
                 <!-- User is logged in -->
@@ -378,12 +412,12 @@
 
                 <!-- Dropdown Menu -->
                 <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="{{ route('profile.show') }}">👤 My Profile</a>
-                    <a href="">📦 My Orders</a>
-                    <a href="">⚙️ Settings</a>
+                    <a href="{{ route('profile.show') }}">My Profile</a>
+                    <a href="">My Orders</a>
+                    <a href="">Settings</a>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        🚪 Logout
+                        Logout
                     </a>
                 </div>
 

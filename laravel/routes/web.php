@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\FertilizersController;
 use App\Http\Controllers\CropsController;
@@ -39,3 +40,10 @@ Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('ferti
 // Crops Routes
 Route::get('/crops', [CropsController::class, 'index'])->name('crops.index');
 Route::get('/crops/{crop}', [CropsController::class, 'show'])->name('crops.show');
+
+// Cart Routes
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+Route::get('/cart/remove/{itemKey}', [CartController::class, 'remove'])->name('cart.remove');
+Route::put('/cart/update/{itemKey}', [CartController::class, 'update'])->name('cart.update');
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
