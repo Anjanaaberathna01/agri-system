@@ -116,6 +116,27 @@
 
 @include('layouts.nav')
 
+<!-- Success Message -->
+@if ($message = Session::get('success'))
+<div style="background-color: #10b981; color: white; padding: 1rem 2rem; margin: 1rem 0; border-radius: 8px; font-weight: 500; animation: slideDown 0.3s ease;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        {{ $message }}
+    </div>
+</div>
+<style>
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+@endif
+
 <!-- Hero Section -->
 <div class="hero-section">
     <!-- Left Column: Text -->
@@ -144,6 +165,11 @@
 <!-- Fertilizers Section -->
 <div class="fertilizers-section">
     @include('fertilizers.index')
+</div>
+
+<!-- crop Section -->
+<div class="crop-section">
+    @include('crop.index')
 </div>
 
 </body>

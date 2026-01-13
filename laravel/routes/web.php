@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\FertilizersController;
+use App\Http\Controllers\CropsController;
 use App\Models\Tool;
 
 // Home page (first page)
@@ -26,3 +27,7 @@ Route::get('/tools', [ToolsController::class, 'index'])->name('tools.index');
 
 // Fertilizers Routes
 Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
+
+// Crops Routes
+Route::get('/crops', [CropsController::class, 'index'])->name('crops.index');
+Route::get('/crops/{crop}', [CropsController::class, 'show'])->name('crops.show');

@@ -378,9 +378,9 @@
 
                 <!-- Dropdown Menu -->
                 <div class="dropdown-menu" id="dropdownMenu">
-                    <a href="{{ route('profile.index') }}">👤 My Profile</a>
-                    <a href="{{ route('orders.index') }}">📦 My Orders</a>
-                    <a href="{{ route('settings.index') }}">⚙️ Settings</a>
+                    <a href=>👤 My Profile</a>
+                    <a href="">📦 My Orders</a>
+                    <a href="">⚙️ Settings</a>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         🚪 Logout
