@@ -414,7 +414,7 @@
                 </div>
 
                 @if(!empty($cart))
-                    <button class="checkout-btn">Proceed to Checkout</button>
+                    <a class="checkout-btn" href="{{ route('auth.check_out') }}">Proceed to Checkout</a>
                     <a href="{{ route('home') }}" class="continue-shopping">Continue Shopping</a>
                     <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-top: 5px;">Clear Cart</a>
                 @endif

@@ -47,3 +47,6 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart/remove/{itemKey}', [CartController::class, 'remove'])->name('cart.remove');
 Route::put('/cart/update/{itemKey}', [CartController::class, 'update'])->name('cart.update');
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('auth.check_out');
+
+Route::post('/checkout/place', [App\Http\Controllers\CartController::class, 'placeOrder'])->name('checkout.place');

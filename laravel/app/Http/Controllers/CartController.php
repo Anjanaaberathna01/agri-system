@@ -7,7 +7,20 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     /**
-     * Display the shopping cart
+     * Show the checkout page.
+     */
+
+    public function checkout()
+    {
+        $cart = session()->get('cart', []);
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+        return view('auth.check_out', compact('cart', 'total'));
+    }
+
+    /* Display the shopping cart
      */
     public function index()
     {
