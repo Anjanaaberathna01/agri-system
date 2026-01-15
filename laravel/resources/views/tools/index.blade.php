@@ -759,6 +759,7 @@
         </a>
 
         <!-- Tool 8: lawn mower -->
+        <a href="{{ route('tools.lawn_mower') }}" style="text-decoration: none; color: inherit;">
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="7">
@@ -805,8 +806,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Tool 9: sprinkler -->
+        <a href="{{ route('tools.sprinkler') }}" style="text-decoration: none; color: inherit;">
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="8">
@@ -853,8 +856,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Tool 10: seed drill -->
+        <a href="{{ route('tools.seed_drill') }}" style="text-decoration: none; color: inherit;">
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="9">
@@ -903,6 +908,7 @@
         </div>
     </div>
 </div>
+</a>
 
 <script>
     // Tools Page - Isolated Functions
