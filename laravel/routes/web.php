@@ -38,7 +38,8 @@ Route::get('/tools/spading_fork', function () {return view('tools.spading_fork.i
 Route::get('/tools/scythe', function () {return view('tools.scythe.index');})->name('tools.scythe');
 Route::get('/tools/weeding_hoe', function () {return view('tools.weeding_hoe.index');})->name('tools.weeding_hoe');
 Route::get('/tools/sickle', function () {return view('tools.sickle.index');})->name('tools.sickle');
-
+Route::get('/tools/spreyer', function () {return view('tools.spreyer.index');})->name('tools.spreyer');
+Route::get('/tools/irrigation_pump', function () {return view('tools.irrigation_pump.index');})->name('tools.irrigation_pump');
 // Fertilizers Routes
 Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
 
