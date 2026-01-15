@@ -33,6 +33,11 @@ Route::middleware('auth')->group(function () {
 
 // Tools Routes
 Route::get('/tools', [ToolsController::class, 'index'])->name('tools.index');
+Route::get('/tools/rake', function () {return view('tools.rake.index');})->name('tools.rake');
+Route::get('/tools/spading_fork', function () {return view('tools.spading_fork.index');})->name('tools.spading_fork');
+Route::get('/tools/scythe', function () {return view('tools.scythe.index');})->name('tools.scythe');
+Route::get('/tools/weeding_hoe', function () {return view('tools.weeding_hoe.index');})->name('tools.weeding_hoe');
+Route::get('/tools/sickle', function () {return view('tools.sickle.index');})->name('tools.sickle');
 
 // Fertilizers Routes
 Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
@@ -47,6 +52,8 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart/remove/{itemKey}', [CartController::class, 'remove'])->name('cart.remove');
 Route::put('/cart/update/{itemKey}', [CartController::class, 'update'])->name('cart.update');
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
-Route::get('/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('auth.check_out');
 
-Route::post('/checkout/place', [App\Http\Controllers\CartController::class, 'placeOrder'])->name('checkout.place');
+Route::middleware('auth')->group(function () {
+    Route::get('/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('auth.check_out');
+    Route::post('/checkout/place', [App\Http\Controllers\CartController::class, 'placeOrder'])->name('checkout.place');
+});

@@ -19,7 +19,7 @@
         nav {
             background: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px 40px;
+            padding: 1rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -48,7 +48,7 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 10px;
             list-style: none;
         }
 
@@ -143,7 +143,7 @@
 
         .login-btn {
             padding: 10px 24px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             color: white;
             text-decoration: none;
             border-radius: 8px;
