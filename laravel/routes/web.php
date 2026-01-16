@@ -46,6 +46,16 @@ Route::get('/tools/seed_drill', function () {return view('tools.Seed_Drill.index
 
 // Fertilizers Routes
 Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
+Route::get('/fertilizers/gypsum', function () {return view('fertilizers.gypsum.index');})->name('fertilizers.gypsum');
+Route::get('/fertilizers/urea', function () {return view('fertilizers.urea.index');})->name('fertilizers.urea');
+Route::get('/fertilizers/boron', function () {return view('fertilizers.boron.index');})->name('fertilizers.boron');
+Route::get('/fertilizers/magnesium', function () {return view('fertilizers.magnesium.index');})->name('fertilizers.magnesium');
+Route::get('/fertilizers/mixed', function () {return view('fertilizers.mixed.index');})->name('fertilizers.mixed');
+Route::get('/fertilizers/molybdenum', function () {return view('fertilizers.molybdenum.index');})->name('fertilizers.molybdenum');
+Route::get('/fertilizers/zinc', function () {return view('fertilizers.zinc.index');})->name('fertilizers.zinc');
+Route::get('/fertilizers/phosphate', function () {return view('fertilizers.phosphate.index');})->name('fertilizers.phosphate');
+Route::get('/fertilizers/potassium', function () {return view('fertilizers.potassium.index');})->name('fertilizers.potassium');
+Route::get('/fertilizers/sulfur', function () {return view('fertilizers.sulfur.index');})->name('fertilizers.sulfur');
 
 // Crops Routes
 Route::get('/crops', [CropsController::class, 'index'])->name('crops.index');

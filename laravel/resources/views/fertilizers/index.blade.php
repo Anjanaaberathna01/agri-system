@@ -419,6 +419,7 @@
 <div class="fertilizer-scroll-container" id="fertilizer-container">
     <div class="fertilizer-row">
         <!-- Fertilizer 1: gypsum -->
+        <a href="{{ route('fertilizers.gypsum') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="0">
@@ -466,8 +467,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 2: Urea -->
+        <a href="{{ route('fertilizers.urea') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="1">
@@ -515,8 +518,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 3: boron -->
+        <a href="{{ route('fertilizers.boron') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="2">
@@ -564,8 +569,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 4: Potassium Chloride -->
+
+        <a href="{{ route('fertilizers.potassium') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="3">
@@ -613,8 +621,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 5: Organic sulfur -->
+
+        <a href="{{ route('fertilizers.sulfur') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="4">
@@ -662,8 +673,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 6: DAP (Diammonium Phosphate) -->
+
+        <a href="{{ route('fertilizers.phosphate') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="5">
@@ -711,8 +725,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 7: zinc -->
+
+        <a href="{{ route('fertilizers.zinc') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="6">
@@ -760,8 +777,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 8: molybdenum -->
+
+        <a href="{{ route('fertilizers.molybdenum') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="7">
@@ -809,8 +829,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 9: mixed -->
+
+        <a href="{{ route('fertilizers.mixed') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="8">
@@ -858,8 +881,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- Fertilizer 10: magnesium -->
+        <a href="{{ route('fertilizers.magnesium') }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="9">
@@ -909,6 +934,7 @@
         </div>
     </div>
 </div>
+</a>
 
 <script>
     // Fertilizer Page - Isolated Functions
