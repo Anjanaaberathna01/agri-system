@@ -59,6 +59,16 @@ Route::get('/fertilizers/sulfur', function () {return view('fertilizers.sulfur.i
 
 // Crops Routes
 Route::get('/crops', [CropsController::class, 'index'])->name('crops.index');
+Route::get('/crops/blackcowpea', function () {return view('crop.blackcowpea.index');})->name('crops.blackcowpea');
+Route::get('/crops/corn', function () {return view('crop.corn.index');})->name('crops.corn');
+Route::get('/crops/peanut', function () {return view('crop.peanut.index');})->name('crops.peanut');
+Route::get('/crops/redpepper', function () {return view('crop.redpepper.index');})->name('crops.redpepper');
+Route::get('/crops/sorghum', function () {return view('crop.sorghum.index');})->name('crops.sorghum');
+Route::get('/crops/sunflower', function () {return view('crop.sunflower.index');})->name('crops.sunflower');
+Route::get('/crops/mung', function () {return view('crop.mung.index');})->name('crops.mung');
+Route::get('/crops/cowpea', function () {return view('crop.cowpea.index');})->name('crops.cowpea');
+Route::get('/crops/fieldpea', function () {return view('crop.fieldpea.index');})->name('crops.fieldpea');
+Route::get('/crops/chikpea', function () {return view('crop.chikpea.index');})->name('crops.chikpea');
 Route::get('/crops/{crop}', [CropsController::class, 'show'])->name('crops.show');
 
 // Cart Routes

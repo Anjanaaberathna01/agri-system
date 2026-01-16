@@ -420,6 +420,7 @@
 <div class="crop-scroll-container" id="crop-container">
     <div class="crop-row">
         <!-- Crop 1: black cowpea -->
+        <a href="{{ route('crops.blackcowpea') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="0">
@@ -467,8 +468,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 2: chikpea -->
+        <a href="{{ route('crops.chikpea') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="1">
@@ -516,8 +519,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 3: corn -->
+
+        <a href="{{ route('crops.corn') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="2">
@@ -565,8 +571,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 4:  cowpea -->
+        <a href="{{ route('crops.cowpea') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="3">
@@ -614,8 +622,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 5:  field pea -->
+        <a href="{{ route('crops.fieldpea') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="4">
@@ -663,8 +673,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 6:  mung  -->
+        <a href="{{ route('crops.mung') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="5">
@@ -712,8 +724,10 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 7: peanut -->
+        <a href="{{ route('crops.peanut') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="6">
@@ -761,8 +775,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 8: red pepper -->
+
+        <a href="{{ route('crops.redpepper') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="7">
@@ -810,8 +827,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 9: sorghum -->
+
+        <a href="{{ route('crops.sorghum') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="8">
@@ -859,8 +879,11 @@
                 </div>
             </div>
         </div>
+        </a>
 
         <!-- crop 10: sunflower -->
+
+        <a href="{{ route('crops.sunflower') }}" style="text-decoration: none; color: inherit;">
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="9">
@@ -910,6 +933,7 @@
         </div>
     </div>
 </div>
+</a>
 
 <script>
     // Fertilizer Page - Isolated Functions
