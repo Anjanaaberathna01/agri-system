@@ -468,7 +468,7 @@
             <div class="sidebar-card">
                 <!-- Price Section -->
                 <div class="price-section">
-                    <div class="price">$41.75</div>
+                    <div class="price">Rs 410.00</div>
                 </div>
 
                 <!-- Rating Section -->
@@ -489,7 +489,7 @@
                         <input type="hidden" name="id" value="6">
                         <input type="hidden" name="name" value="Mung">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="41.75">
+                        <input type="hidden" name="price" value="410.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="btn btn-primary">🛒 Add to Cart</button>
                     </form>

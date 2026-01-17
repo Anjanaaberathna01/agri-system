@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class CartController extends Controller
 {
@@ -116,5 +117,89 @@ class CartController extends Controller
     {
         $cart = session()->get('cart', []);
         return count($cart);
+    }
+
+    /**
+     * Place order
+     */
+    public function placeOrder(Request $request)
+    {
+        $validated = $request->validate([
+            'payment_method' => 'required|string|in:visa,paypal,cod',
+            'cod_fee' => 'nullable|numeric',
+        ]);
+
+        $cart = session()->get('cart', []);
+
+        if (empty($cart)) {
+            return redirect()->route('cart.index')->with('error', 'Your cart is empty!');
+        }
+
+        // Calculate total
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+
+        $codFee = $validated['payment_method'] === 'cod' ? ($validated['cod_fee'] ?? 200) : 0;
+
+        // Generate unique order number
+        $orderNumber = 'ORD-' . strtoupper(uniqid());
+
+        // Create order
+        $order = Order::create([
+            'user_id' => auth()->id(),
+            'order_number' => $orderNumber,
+            'total_amount' => $total,
+            'cod_fee' => $codFee,
+            'payment_method' => $validated['payment_method'],
+            'status' => 'pending',
+            'items' => $cart,
+            'shipping_address' => auth()->user()->address . ', ' . auth()->user()->city . ', ' . auth()->user()->state . ', ' . auth()->user()->postal_code,
+            'phone' => auth()->user()->phone,
+        ]);
+
+        // Clear cart
+        session()->forget('cart');
+
+        return redirect()->route('orders.index')->with('success', 'Order placed successfully! Order Number: ' . $orderNumber);
+    }
+
+    /**
+     * View user orders
+     */
+    public function orders()
+    {
+        $orders = Order::where('user_id', auth()->id())
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        return view('auth.order', compact('orders'));
+    }
+
+    /**
+     * Cancel order
+     */
+    public function cancelOrder($id)
+    {
+        $order = Order::where('id', $id)
+            ->where('user_id', auth()->id())
+            ->first();
+
+        if (!$order) {
+            return redirect()->back()->with('error', 'Order not found!');
+        }
+
+        if ($order->status === 'cancelled') {
+            return redirect()->back()->with('error', 'Order is already cancelled!');
+        }
+
+        if (in_array($order->status, ['completed', 'processing'])) {
+            return redirect()->back()->with('error', 'Cannot cancel order in ' . $order->status . ' status!');
+        }
+
+        $order->update(['status' => 'cancelled']);
+
+        return redirect()->back()->with('success', 'Order cancelled successfully!');
     }
 }

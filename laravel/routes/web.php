@@ -17,12 +17,14 @@ Route::get('/', function () {
 })->name('home');
 
 // Authentication Routes
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.store');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::middleware('web')->group(function () {
+    Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.store');
+    Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
+    Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+    Route::post('/register', [RegisterController::class, 'register'])->name('register.store');
+});
 
 // Profile Routes (Protected)
 Route::middleware('auth')->group(function () {
@@ -81,4 +83,20 @@ Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 Route::middleware('auth')->group(function () {
     Route::get('/checkout', [App\Http\Controllers\CartController::class, 'checkout'])->name('auth.check_out');
     Route::post('/checkout/place', [App\Http\Controllers\CartController::class, 'placeOrder'])->name('checkout.place');
+    Route::get('/orders', [App\Http\Controllers\CartController::class, 'orders'])->name('orders.index');
+    Route::post('/orders/{id}/cancel', [App\Http\Controllers\CartController::class, 'cancelOrder'])->name('orders.cancel');
+});
+
+// Admin Routes
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+
+    // Dashboard
+    Route::get('/dashboard', [ToolsController::class, 'dashboard'])->name('dashboard');
+
+    // Tools Management
+    Route::get('/tools/create', [ToolsController::class, 'create'])->name('tools.create');
+    Route::post('/tools', [ToolsController::class, 'store'])->name('tools.store');
+    Route::get('/tools/{id}/edit', [ToolsController::class, 'edit'])->name('tools.edit');
+    Route::put('/tools/{id}', [ToolsController::class, 'update'])->name('tools.update');
+    Route::delete('/tools/{id}', [ToolsController::class, 'destroy'])->name('tools.destroy');
 });

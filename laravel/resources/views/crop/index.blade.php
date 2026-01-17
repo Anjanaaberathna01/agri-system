@@ -420,7 +420,7 @@
 <div class="crop-scroll-container" id="crop-container">
     <div class="crop-row">
         <!-- Crop 1: black cowpea -->
-        <a href="{{ route('crops.blackcowpea') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="0">
@@ -443,6 +443,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.blackcowpea') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Black Cowpea</h5>
                 <span class="crop-type">Legume Crop</span>
                 <div class="crop-rating">
@@ -452,7 +453,7 @@
                 <p class="crop-description">
                     <strong>Nitrogen-fixing legume</strong> improves soil fertility and provides high protein content. Excellent for crop rotation and sustainable farming practices.
                 </p>
-                <div class="crop-price">$45.99</div>
+                <div class="crop-price">Rs 300.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -460,7 +461,7 @@
                         <input type="hidden" name="id" value="1">
                         <input type="hidden" name="name" value="Black Cowpea">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="45.99">
+                        <input type="hidden" name="price" value="300.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -471,7 +472,7 @@
         </a>
 
         <!-- crop 2: chikpea -->
-        <a href="{{ route('crops.chikpea') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="1">
@@ -494,6 +495,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.chikpea') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Chikpea</h5>
                 <span class="crop-type">Pulse Crop</span>
                 <div class="crop-rating">
@@ -503,7 +505,7 @@
                 <p class="crop-description">
                     <strong>Rich protein source</strong> with excellent nutritional value. Drought-tolerant and improves soil quality through nitrogen fixation in crop rotation systems.
                 </p>
-                <div class="crop-price">$32.50</div>
+                <div class="crop-price">Rs 325.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -511,7 +513,7 @@
                         <input type="hidden" name="id" value="2">
                         <input type="hidden" name="name" value="Chikpea">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="32.50">
+                        <input type="hidden" name="price" value="325.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -523,7 +525,7 @@
 
         <!-- crop 3: corn -->
 
-        <a href="{{ route('crops.corn') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="2">
@@ -546,7 +548,8 @@
                 </div>
             </div>
             <div class="crop-card-body">
-                <h5 class="crop-title">Corn</h5>
+                <a href="{{ route('crops.corn') }}" style="text-decoration: none; color: inherit;">
+                    <h5 class="crop-title">Corn</h5>
                 <span class="crop-type">Cereal Crop</span>
                 <div class="crop-rating">
                     <div class="crop-stars">★★★★★</div>
@@ -555,7 +558,7 @@
                 <p class="crop-description">
                     <strong>Versatile grain crop</strong> with high yield potential and multiple uses. Suitable for food, feed, and industrial applications with good market demand.
                 </p>
-                <div class="crop-price">$38.75</div>
+                <div class="crop-price">Rs 300.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -563,7 +566,7 @@
                         <input type="hidden" name="id" value="3">
                         <input type="hidden" name="name" value="Corn">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="38.75">
+                        <input type="hidden" name="price" value="300.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -574,7 +577,7 @@
         </a>
 
         <!-- crop 4:  cowpea -->
-        <a href="{{ route('crops.cowpea') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="3">
@@ -597,6 +600,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.cowpea') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Cowpea</h5>
                 <span class="crop-type">Legume Crop</span>
                 <div class="crop-rating">
@@ -606,7 +610,8 @@
                 <p class="crop-description">
                     <strong>Drought-tolerant pulse</strong> with high protein content for nutrition and livestock feed. Improves soil fertility and yields well in arid regions.
                 </p>
-                <div class="crop-price">$29.99</div>
+                <div class="crop-price">Rs 300.00
+                </div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -614,7 +619,7 @@
                         <input type="hidden" name="id" value="4">
                         <input type="hidden" name="name" value="Cowpea">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="29.99">
+                        <input type="hidden" name="price" value="300.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -625,7 +630,7 @@
         </a>
 
         <!-- crop 5:  field pea -->
-        <a href="{{ route('crops.fieldpea') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="4">
@@ -648,6 +653,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.fieldpea') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Field Pea</h5>
                 <span class="crop-type">Pulse Crop</span>
                 <div class="crop-rating">
@@ -657,7 +663,7 @@
                 <p class="crop-description">
                     <strong>Cold-season legume</strong> with high protein content and excellent market value. Enriches soil with nitrogen and reduces disease pressure in rotation.
                 </p>
-                <div class="crop-price">$18.50</div>
+                <div class="crop-price">Rs 250.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -665,7 +671,7 @@
                         <input type="hidden" name="id" value="5">
                         <input type="hidden" name="name" value="Field Pea">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="18.50">
+                        <input type="hidden" name="price" value="250.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -676,7 +682,7 @@
         </a>
 
         <!-- crop 6:  mung  -->
-        <a href="{{ route('crops.mung') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="5">
@@ -699,6 +705,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.mung') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Mung</h5>
                 <span class="crop-type">Pulse Crop</span>
                 <div class="crop-rating">
@@ -708,7 +715,7 @@
                 <p class="crop-description">
                     <strong>Fast-growing legume</strong> with high protein and mineral content. Perfect for hot climates with minimal water requirements and quick harvest cycle.
                 </p>
-                <div class="crop-price">$41.75</div>
+                <div class="crop-price">Rs 410.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -716,7 +723,7 @@
                         <input type="hidden" name="id" value="6">
                         <input type="hidden" name="name" value="Mung">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="41.75">
+                        <input type="hidden" name="price" value="410.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -727,7 +734,7 @@
         </a>
 
         <!-- crop 7: peanut -->
-        <a href="{{ route('crops.peanut') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="6">
@@ -750,6 +757,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.peanut') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Peanut</h5>
                 <span class="crop-type">Oil & Nut Crop</span>
                 <div class="crop-rating">
@@ -759,7 +767,7 @@
                 <p class="crop-description">
                     <strong>High-value cash crop</strong> with excellent oil and protein content for multiple uses. Improves soil structure and nitrogen content through nodulation.
                 </p>
-                <div class="crop-price">$24.99</div>
+                <div class="crop-price">Rs 300.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -767,7 +775,7 @@
                         <input type="hidden" name="id" value="7">
                         <input type="hidden" name="name" value="Peanut">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="24.99">
+                        <input type="hidden" name="price" value="300.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -779,7 +787,7 @@
 
         <!-- crop 8: red pepper -->
 
-        <a href="{{ route('crops.redpepper') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="7">
@@ -802,6 +810,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.redpepper') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Red Pepper</h5>
                 <span class="crop-type">Vegetable Crop</span>
                 <div class="crop-rating">
@@ -811,7 +820,7 @@
                 <p class="crop-description">
                     <strong>High-value vegetable</strong> rich in vitamins and antioxidants with strong market demand. Requires good sunlight and warm temperatures for optimal growth.
                 </p>
-                <div class="crop-price">$19.99</div>
+                <div class="crop-price">Rs 200.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -819,7 +828,7 @@
                         <input type="hidden" name="id" value="8">
                         <input type="hidden" name="name" value="Red Pepper">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="19.99">
+                        <input type="hidden" name="price" value="200.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -831,7 +840,7 @@
 
         <!-- crop 9: sorghum -->
 
-        <a href="{{ route('crops.sorghum') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="8">
@@ -854,6 +863,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.sorghum') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Sorghum</h5>
                 <span class="crop-type">Cereal Crop</span>
                 <div class="crop-rating">
@@ -863,7 +873,7 @@
                 <p class="crop-description">
                     <strong>Drought-resistant grain</strong> used for food, feed, and biofuel production. Highly adaptable to poor soils and arid conditions with excellent yield.
                 </p>
-                <div class="crop-price">$22.75</div>
+                <div class="crop-price">Rs 300.00</div>
                 <p class="crop-status in-stock">✓ In Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -871,7 +881,7 @@
                         <input type="hidden" name="id" value="9">
                         <input type="hidden" name="name" value="Sorghum">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="22.75">
+                        <input type="hidden" name="price" value="300.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -883,7 +893,7 @@
 
         <!-- crop 10: sunflower -->
 
-        <a href="{{ route('crops.sunflower') }}" style="text-decoration: none; color: inherit;">
+
         <div class="crop-card">
             <div class="crop-card-image">
                 <div class="crop-carousel" data-crop-carousel="9">
@@ -906,6 +916,7 @@
                 </div>
             </div>
             <div class="crop-card-body">
+                <a href="{{ route('crops.sunflower') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="crop-title">Sunflower</h5>
                 <span class="crop-type">Oil Crop</span>
                 <div class="crop-rating">
@@ -915,7 +926,7 @@
                 <p class="crop-description">
                     <strong>High-oil producing crop</strong> with multiple industrial and food applications. Adaptable to various soils and climates with relatively low input requirements.
                 </p>
-                <div class="crop-price">$52.99</div>
+                <div class="crop-price">Rs 300.00</div>
                 <p class="crop-status limited">⚠ Limited Stock</p>
                 <div class="crop-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -923,7 +934,7 @@
                         <input type="hidden" name="id" value="10">
                         <input type="hidden" name="name" value="Sunflower">
                         <input type="hidden" name="type" value="crop">
-                        <input type="hidden" name="price" value="52.99">
+                        <input type="hidden" name="price" value="300.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="crop-btn crop-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>

@@ -419,7 +419,7 @@
 <div class="fertilizer-scroll-container" id="fertilizer-container">
     <div class="fertilizer-row">
         <!-- Fertilizer 1: gypsum -->
-        <a href="{{ route('fertilizers.gypsum') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="0">
@@ -441,7 +441,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.gypsum') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Gypsum Fertilizer</h5>
                 <span class="fertilizer-type">Calcium Sulfate</span>
                 <div class="fertilizer-rating">
@@ -451,7 +453,7 @@
                 <p class="fertilizer-description">
                     <strong>Calcium and sulfur source</strong> improves soil structure and provides essential minerals. Enhances root development and reduces soil compaction for better drainage.
                 </p>
-                <div class="fertilizer-price">$45.99</div>
+                <div class="fertilizer-price">Rs 1,599.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -459,7 +461,7 @@
                         <input type="hidden" name="id" value="1">
                         <input type="hidden" name="name" value="Gypsum Fertilizer">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="45.99">
+                        <input type="hidden" name="price" value="1599.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -470,7 +472,7 @@
         </a>
 
         <!-- Fertilizer 2: Urea -->
-        <a href="{{ route('fertilizers.urea') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="1">
@@ -492,7 +494,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.urea') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Urea 46% Nitrogen</h5>
                 <span class="fertilizer-type">Nitrogen Source</span>
                 <div class="fertilizer-rating">
@@ -502,7 +506,7 @@
                 <p class="fertilizer-description">
                     <strong>High nitrogen content</strong> for vigorous leaf and stem growth. Perfect for leafy vegetables and early-stage crop development.
                 </p>
-                <div class="fertilizer-price">$32.50</div>
+                <div class="fertilizer-price">Rs 1,250.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -510,7 +514,7 @@
                         <input type="hidden" name="id" value="2">
                         <input type="hidden" name="name" value="Urea 46% Nitrogen">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="32.50">
+                        <input type="hidden" name="price" value="1250.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -521,7 +525,7 @@
         </a>
 
         <!-- Fertilizer 3: boron -->
-        <a href="{{ route('fertilizers.boron') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="2">
@@ -543,7 +547,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.boron') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Boron Complex</h5>
                 <span class="fertilizer-type">Trace Element</span>
                 <div class="fertilizer-rating">
@@ -553,7 +559,7 @@
                 <p class="fertilizer-description">
                     <strong>Essential boron compound</strong> improves flowering and fruit set. Prevents bud necrosis and enhances pollination success significantly.
                 </p>
-                <div class="fertilizer-price">$38.75</div>
+                <div class="fertilizer-price">Rs 1,875.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -561,7 +567,7 @@
                         <input type="hidden" name="id" value="3">
                         <input type="hidden" name="name" value="Boron Complex">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="38.75">
+                        <input type="hidden" name="price" value="1875.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -573,7 +579,7 @@
 
         <!-- Fertilizer 4: Potassium Chloride -->
 
-        <a href="{{ route('fertilizers.potassium') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="3">
@@ -595,7 +601,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.potassium') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Potassium Chloride 60% K₂O</h5>
                 <span class="fertilizer-type">Potassium Source</span>
                 <div class="fertilizer-rating">
@@ -605,7 +613,7 @@
                 <p class="fertilizer-description">
                     <strong>High potassium content</strong> for disease resistance and crop quality. Improves color, taste, and shelf life of fruits and vegetables.
                 </p>
-                <div class="fertilizer-price">$29.99</div>
+                <div class="fertilizer-price">Rs 1,000.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -613,7 +621,7 @@
                         <input type="hidden" name="id" value="4">
                         <input type="hidden" name="name" value="Potassium Chloride 60% K₂O">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="29.99">
+                        <input type="hidden" name="price" value="1000.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -625,7 +633,7 @@
 
         <!-- Fertilizer 5: Organic sulfur -->
 
-        <a href="{{ route('fertilizers.sulfur') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="4">
@@ -647,7 +655,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.sulfur') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Organic Sulfur Premium</h5>
                 <span class="fertilizer-type">Sulfur Source</span>
                 <div class="fertilizer-rating">
@@ -657,7 +667,7 @@
                 <p class="fertilizer-description">
                     <strong>100% organic sulfur</strong> enhances nutrient availability and soil health. Improves crop quality and supports beneficial microbial activity in soil.
                 </p>
-                <div class="fertilizer-price">$18.50</div>
+                <div class="fertilizer-price">Rs 1,250.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -665,7 +675,7 @@
                         <input type="hidden" name="id" value="5">
                         <input type="hidden" name="name" value="Organic Sulfur Premium">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="18.50">
+                        <input type="hidden" name="price" value="1250.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -677,7 +687,7 @@
 
         <!-- Fertilizer 6: DAP (Diammonium Phosphate) -->
 
-        <a href="{{ route('fertilizers.phosphate') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="5">
@@ -699,7 +709,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.phosphate') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Diammonium phosphate 18:46:0</h5>
                 <span class="fertilizer-type">Complex NPK</span>
                 <div class="fertilizer-rating">
@@ -709,7 +721,7 @@
                 <p class="fertilizer-description">
                     <strong>Nitrogen and phosphorus blend</strong> ideal for early crop growth. Promotes root development and early flowering for increased yields.
                 </p>
-                <div class="fertilizer-price">$41.75</div>
+                <div class="fertilizer-price">Rs 1,175.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -717,7 +729,7 @@
                         <input type="hidden" name="id" value="6">
                         <input type="hidden" name="name" value="Diammonium phosphate 18:46:0">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="41.75">
+                        <input type="hidden" name="price" value="1175.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -729,7 +741,7 @@
 
         <!-- Fertilizer 7: zinc -->
 
-        <a href="{{ route('fertilizers.zinc') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="6">
@@ -751,7 +763,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.zinc') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Zinc Complex</h5>
                 <span class="fertilizer-type">Micronutrient</span>
                 <div class="fertilizer-rating">
@@ -761,7 +775,7 @@
                 <p class="fertilizer-description">
                     <strong>Zinc-based micronutrient</strong> essential for enzyme function and plant growth. Prevents deficiency symptoms and improves overall crop productivity.
                 </p>
-                <div class="fertilizer-price">$24.99</div>
+                <div class="fertilizer-price">Rs 1,099.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -769,7 +783,7 @@
                         <input type="hidden" name="id" value="7">
                         <input type="hidden" name="name" value="Zinc Complex">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="24.99">
+                        <input type="hidden" name="price" value="1099.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -781,7 +795,7 @@
 
         <!-- Fertilizer 8: molybdenum -->
 
-        <a href="{{ route('fertilizers.molybdenum') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="7">
@@ -803,7 +817,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.molybdenum') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Molybdenum Complex</h5>
                 <span class="fertilizer-type">Trace Element</span>
                 <div class="fertilizer-rating">
@@ -813,7 +829,7 @@
                 <p class="fertilizer-description">
                     <strong>Molybdenum micronutrient</strong> essential for nitrogen fixation in legumes. Improves nitrogen utilization and enhances crop nodulation.
                 </p>
-                <div class="fertilizer-price">$19.99</div>
+                <div class="fertilizer-price">Rs 1199.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -821,7 +837,7 @@
                         <input type="hidden" name="id" value="8">
                         <input type="hidden" name="name" value="Molybdenum Complex">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="19.99">
+                        <input type="hidden" name="price" value="1199.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -833,7 +849,7 @@
 
         <!-- Fertilizer 9: mixed -->
 
-        <a href="{{ route('fertilizers.mixed') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="8">
@@ -856,6 +872,7 @@
                 </div>
             </div>
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.mixed') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="fertilizer-title">Mixed Nutrient Blend</h5>
                 <span class="fertilizer-type">All-Purpose Formula</span>
                 <div class="fertilizer-rating">
@@ -865,7 +882,7 @@
                 <p class="fertilizer-description">
                     <strong>Complete nutrient mix</strong> with balanced NPK and micronutrients. Versatile formula suitable for all crop types and growing stages throughout the season.
                 </p>
-                <div class="fertilizer-price">$22.75</div>
+                <div class="fertilizer-price">Rs 1075.00</div>
                 <p class="fertilizer-status in-stock">✓ In Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -873,7 +890,7 @@
                         <input type="hidden" name="id" value="9">
                         <input type="hidden" name="name" value="Mixed Nutrient Blend">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="22.75">
+                        <input type="hidden" name="price" value="1075.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>
@@ -884,7 +901,7 @@
         </a>
 
         <!-- Fertilizer 10: magnesium -->
-        <a href="{{ route('fertilizers.magnesium') }}" style="text-decoration: none; color: inherit;">
+
         <div class="fertilizer-card">
             <div class="fertilizer-card-image">
                 <div class="fertilizer-carousel" data-fertilizer-carousel="9">
@@ -906,7 +923,9 @@
                     </div>
                 </div>
             </div>
+            
             <div class="fertilizer-card-body">
+                <a href="{{ route('fertilizers.magnesium') }}" style="text-decoration: none; color: inherit;"></a>
                 <h5 class="fertilizer-title">Magnesium Sulfate</h5>
                 <span class="fertilizer-type">Secondary Nutrient</span>
                 <div class="fertilizer-rating">
@@ -916,7 +935,7 @@
                 <p class="fertilizer-description">
                     <strong>Magnesium-rich compound</strong> prevents yellowing and enhances photosynthesis. Improves plant vigor and increases yield potential significantly.
                 </p>
-                <div class="fertilizer-price">$52.99</div>
+                <div class="fertilizer-price">Rs 1075.00</div>
                 <p class="fertilizer-status limited">⚠ Limited Stock</p>
                 <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -924,7 +943,7 @@
                         <input type="hidden" name="id" value="10">
                         <input type="hidden" name="name" value="Magnesium Sulfate">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="52.99">
+                        <input type="hidden" name="price" value="1075.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
                     </form>

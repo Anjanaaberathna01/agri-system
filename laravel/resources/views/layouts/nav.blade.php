@@ -372,9 +372,9 @@
         <!-- Navigation Links -->
         <ul class="nav-links">
             <li><a href="{{ route('home') }}">Home</a></li>
-            <li><a href="{{ route('tools.index') }}">Tools</a></li>
-            <li><a href="{{ route('fertilizers.index') }}">Fertilizers</a></li>
-            <li><a href="{{ route('crops.index') }}">Crops</a></li>
+            <li><a href="{{ route('home') }}#tools-section">Tools</a></li>
+            <li><a href="{{ route('home') }}#fertilizers-section">Fertilizers</a></li>
+            <li><a href="{{ route('home') }}#crop-section">Crops</a></li>
         </ul>
     </div>
 
@@ -413,7 +413,7 @@
                 <!-- Dropdown Menu -->
                 <div class="dropdown-menu" id="dropdownMenu">
                     <a href="{{ route('profile.show') }}">My Profile</a>
-                    <a href="">My Orders</a>
+                    <a href="{{ route('orders.index') }}">My Orders</a>
                     <a href="">Settings</a>
                     <a href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

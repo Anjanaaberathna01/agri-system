@@ -158,17 +158,17 @@
 </div>
 
 <!-- Tools Section -->
-<div class="tools-section">
+<div class="tools-section" id="tools-section">
     @include('tools.index')
 </div>
 
 <!-- Fertilizers Section -->
-<div class="fertilizers-section">
+<div class="fertilizers-section" id="fertilizers-section">
     @include('fertilizers.index')
 </div>
 
 <!-- crop Section -->
-<div class="crop-section">
+<div class="crop-section" id="crop-section">
     @include('crop.index')
 </div>
 

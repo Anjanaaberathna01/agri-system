@@ -409,7 +409,6 @@
 <div class="tools-scroll-container" id="toolsContainer">
     <div class="tools-row">
         <!-- Tool 1: Rake -->
-        <a href="{{ route('tools.rake') }}" style="text-decoration: none; color: inherit;">
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="0">
@@ -431,7 +430,10 @@
                     </div>
                 </div>
             </div>
+
+            <!-- tool card body -->
             <div class="tool-card-body">
+                <a href="{{ route('tools.rake') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">Rake</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★★</div>
@@ -440,7 +442,7 @@
                 <p class="tool-description">
                     A tool that turns over and breaks up soil before planting. Prepares the soil, buries residues, and controls weeds for optimal seed sowing.
                 </p>
-                <div class="tool-price">rs1450.00</div>
+                <div class="tool-price">Rs 1450.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -459,7 +461,7 @@
         </a>
 
         <!-- Tool 2: spading fork -->
-        <a href="{{ route('tools.spading_fork') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="1">
@@ -481,7 +483,10 @@
                     </div>
                 </div>
             </div>
+
+            <!-- tool card body -->
             <div class="tool-card-body">
+                <a href="{{ route('tools.spading_fork') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">spading fork</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★☆</div>
@@ -490,7 +495,7 @@
                 <p class="tool-description">
                     A traditional hand tool with a flat blade for breaking soil, removing weeds, shaping beds, and digging shallow furrows for planting.
                 </p>
-                <div class="tool-price">rs1250.00</div>
+                <div class="tool-price">Rs 1,250.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -509,7 +514,7 @@
         </a>
 
         <!-- Tool 3: Scythe -->
-        <a href="{{ route('tools.scythe') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="2">
@@ -531,7 +536,10 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="tool-card-body">
+                <a href="{{ route('tools.scythe') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">scythe </h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★★</div>
@@ -540,7 +548,7 @@
                 <p class="tool-description">
                     A planting machine that places seeds at precise depth and spacing for even distribution and better germination with higher yields.
                 </p>
-                <div class="tool-price">rs1,299.00</div>
+                <div class="tool-price">Rs 1,299.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -559,7 +567,7 @@
         </a>
 
         <!-- Tool 4: weeding hoe -->
-        <a href={{ route('tools.weeding_hoe') }} style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="3">
@@ -581,7 +589,10 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="tool-card-body">
+                <a href={{ route('tools.weeding_hoe') }} style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">weeding hoe</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★☆</div>
@@ -590,7 +601,7 @@
                 <p class="tool-description">
                     A one-wheel manually pushed container for transporting soil, compost, seeds, fertilizers, tools, and crops around the farm.
                 </p>
-                <div class="tool-price">rs1890.00</div>
+                <div class="tool-price">Rs 1,890.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -609,7 +620,7 @@
         </a>
 
         <!-- Tool 5: sickle -->
-        <a href="{{ route('tools.sickle') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="4">
@@ -631,7 +642,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="tool-card-body">
+                <a href="{{ route('tools.sickle') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">sickle</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★★</div>
@@ -640,7 +653,7 @@
                 <p class="tool-description">
                     A tool with metal tines for leveling soil, gathering debris, removing weeds, and spreading mulch after ploughing or planting.
                 </p>
-                <div class="tool-price">rs1800.00</div>
+                <div class="tool-price">Rs 1,800.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -659,7 +672,7 @@
         </a>
 
         <!-- Tool 6: spreyer -->
-        <a href="{{ route('tools.spreyer') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="5">
@@ -681,7 +694,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="tool-card-body">
+                <a href="{{ route('tools.spreyer') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">Backpack Spreyer</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★☆</div>
@@ -690,7 +705,7 @@
                 <p class="tool-description">
                     A hand tool with a curved blade for cutting grasses, harvesting cereals, and trimming vegetation with precision and efficiency.
                 </p>
-                <div class="tool-price">rs1500.99</div>
+                <div class="tool-price">Rs 1,500.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -709,7 +724,7 @@
         </a>
 
         <!-- Tool 7: irregration pump -->
-        <a href="{{ route('tools.irrigation_pump') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="6">
@@ -731,7 +746,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="tool-card-body">
+                <a href="{{ route('tools.irrigation_pump') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">Irrigation Pump</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★★</div>
@@ -740,7 +757,7 @@
                 <p class="tool-description">
                     Tools with broad blades for digging holes, lifting soil, mixing compost, and planting. Essential for soil preparation tasks.
                 </p>
-                <div class="tool-price">rs3299.00</div>
+                <div class="tool-price">Rs 3,299.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -759,7 +776,7 @@
         </a>
 
         <!-- Tool 8: lawn mower -->
-        <a href="{{ route('tools.lawn_mower') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="7">
@@ -781,7 +798,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="tool-card-body">
+                <a href="{{ route('tools.lawn_mower') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">Lawn Mower</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★☆</div>
@@ -790,7 +809,7 @@
                 <p class="tool-description">
                     Tools or machines that spray water, pesticides, or fertilizers to protect crops from pests and apply nutrients for better growth.
                 </p>
-                <div class="tool-price">rs14,999.99</div>
+                <div class="tool-price">Rs 14,999.99</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -809,7 +828,7 @@
         </a>
 
         <!-- Tool 9: sprinkler -->
-        <a href="{{ route('tools.sprinkler') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="8">
@@ -831,7 +850,9 @@
                     </div>
                 </div>
             </div>
+
             <div class="tool-card-body">
+                <a href="{{ route('tools.sprinkler') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">Sprinkler</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★★</div>
@@ -840,7 +861,7 @@
                 <p class="tool-description">
                     A powerful vehicle used to pull and power multiple farm implements for tilling, ploughing, planting, and hauling on large farms.
                 </p>
-                <div class="tool-price">rs3,999.00</div>
+                <div class="tool-price">Rs 3,999.00</div>
                 <p class="tool-status in-stock">✓ In Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
@@ -859,7 +880,7 @@
         </a>
 
         <!-- Tool 10: seed drill -->
-        <a href="{{ route('tools.seed_drill') }}" style="text-decoration: none; color: inherit;">
+
         <div class="tool-card">
             <div class="tool-card-image">
                 <div class="image-carousel" data-carousel="9">
@@ -881,7 +902,9 @@
                     </div>
                 </div>
             </div>
+            
             <div class="tool-card-body">
+                <a href="{{ route('tools.seed_drill') }}" style="text-decoration: none; color: inherit;">
                 <h5 class="tool-title">Seed Drill (manually)</h5>
                 <div class="tool-rating">
                     <div class="tool-stars">★★★★☆</div>
@@ -890,7 +913,7 @@
                 <p class="tool-description">
                     A machine with rotating blades that breaks soil into fine particles, mixes residues, and prepares seedbeds quickly and efficiently.
                 </p>
-                <div class="tool-price">rs20,499.00</div>
+                <div class="tool-price">Rs 20,499.00</div>
                 <p class="tool-status limited">⚠ Limited Stock</p>
                 <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">

@@ -468,7 +468,7 @@
             <div class="sidebar-card">
                 <!-- Price Section -->
                 <div class="price-section">
-                    <div class="price">$36.99</div>
+                    <div class="price">Rs 1075.00</div>
                 </div>
 
                 <!-- Rating Section -->
@@ -489,7 +489,7 @@
                         <input type="hidden" name="id" value="9">
                         <input type="hidden" name="name" value="Mixed NPK Fertilizer">
                         <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="36.99">
+                        <input type="hidden" name="price" value="1075.00">
                         <input type="hidden" name="quantity" value="1">
                         <button type="submit" class="btn btn-primary">🛒 Add to Cart</button>
                     </form>
@@ -500,7 +500,7 @@
                 <!-- Additional Info -->
                 <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 2px solid #f0f0f0;">
                     <p style="font-size: 0.85rem; color: #558b2f; line-height: 1.6;">
-                        ✓ Free Delivery on orders above $100<br>
+                        ✓ Free Delivery on orders above Rs 1000<br>
                         ✓ 30-day money-back guarantee<br>
                         ✓ 24/7 Customer support
                     </p>
