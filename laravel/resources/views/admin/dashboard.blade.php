@@ -561,10 +561,6 @@
                 </a>
             </div>
 
-            @php
-                $fertilizers = \App\Models\Fertilizer::orderBy('created_at', 'desc')->get();
-            @endphp
-
             @if($fertilizers->count() > 0)
                 <div class="table-responsive">
                     <table class="management-table">
@@ -640,24 +636,123 @@
             @endif
         </div>
 
+        <!-- Crops Management Section -->
+        <div class="management-section">
+            <div class="section-header">
+                <h2><i class="fas fa-leaf"></i> Crops Management</h2>
+                <a href="{{ route('admin.crops.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add New Crop
+                </a>
+            </div>
+
+            @if($crops->count() > 0)
+                <div class="table-responsive">
+                    <table class="management-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Crop Name</th>
+                                <th>Type</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Rating</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($crops->take(5) as $crop)
+                            <tr>
+                                @php
+                                    $cropStatus = str_replace('-', '_', $crop->status);
+                                    $primaryImage = null;
+                                    if ($crop->image_folder) {
+                                        if (str_contains($crop->image_folder, '/')) {
+                                            $primaryImage = asset('storage/' . $crop->image_folder);
+                                        } else {
+                                            foreach (['jpg', 'jpeg', 'png', 'webp', 'gif'] as $ext) {
+                                                $path = public_path('images/crop/' . $crop->image_folder . '/1.' . $ext);
+                                                if (file_exists($path)) {
+                                                    $primaryImage = asset('images/crop/' . $crop->image_folder . '/1.' . $ext);
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
+                                @endphp
+                                <td>
+                                    @if($primaryImage)
+                                        <img src="{{ $primaryImage }}" alt="{{ $crop->name }}" class="item-image">
+                                    @else
+                                        <div class="item-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-image" style="color: #ccc;"></i>
+                                        </div>
+                                    @endif
+                                </td>
+                                <td><strong>{{ $crop->name }}</strong></td>
+                                <td>{{ $crop->type }}</td>
+                                <td><strong>Rs {{ number_format($crop->price, 2) }}</strong></td>
+                                <td>
+                                    <span class="status-badge {{ $cropStatus }}">
+                                        @if($cropStatus === 'in_stock')
+                                            In Stock
+                                        @elseif($cropStatus === 'limited')
+                                            Limited
+                                        @else
+                                            Unavailable
+                                        @endif
+                                    </span>
+                                </td>
+                                <td>{{ $crop->rating ?? '—' }} ★ ({{ $crop->reviews ?? 0 }})</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="{{ route('admin.crops.edit', $crop) }}" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <form action="{{ route('admin.crops.destroy', $crop) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete this crop?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @if($crops->count() > 5)
+                    <p style="text-align: right; margin-top: 1rem;">
+                        <a href="{{ route('admin.crops.index') }}" class="view-all-link">View all {{ $crops->count() }} crops →</a>
+                    </p>
+                @endif
+            @else
+                <div class="empty-state">
+                    <i class="fas fa-leaf"></i>
+                    <p>No crops added yet. Click "Add New Crop" to get started.</p>
+                </div>
+            @endif
+        </div>
+
         <!-- Quick Actions Section -->
         <div class="management-section">
             <h2 style="margin-bottom: 2rem; font-size: 1.6rem; color: #333;"><i class="fas fa-bolt" style="color: #4CAF50; margin-right: 0.8rem;"></i> Quick Management</h2>
 
             <div class="quick-actions">
-                <a href="{{ route('admin.tools.create') }}" class="quick-action-card tools">
+                <a href="{{ route('admin.tools.index') }}" class="quick-action-card tools">
                     <i class="fas fa-plus-circle" style="color: #FA891A;"></i>
                     <h3>Add Tools</h3>
                     <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Add new agricultural tools</p>
                 </a>
 
-                <a href="{{ route('admin.fertilizers.create') }}" class="quick-action-card fertilizers">
+                <a href="{{ route('admin.fertilizers.index') }}" class="quick-action-card fertilizers">
                     <i class="fas fa-droplet" style="color: #4CAF50;"></i>
                     <h3>Add Fertilizers</h3>
                     <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Add new fertilizer products</p>
                 </a>
 
-                <a href="{{ route('home') }}" class="quick-action-card crops">
+                <a href="{{ route('admin.crops.index') }}" class="quick-action-card crops">
                     <i class="fas fa-leaf" style="color: #2196F3;"></i>
                     <h3>Manage Crops</h3>
                     <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Control crop information</p>

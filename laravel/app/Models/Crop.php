@@ -9,8 +9,11 @@ class Crop extends Model
     protected $fillable = [
         'name',
         'type',
-        'image',
         'description',
+        'price',
+        'rating',
+        'reviews',
         'status',
+        'image_folder',
     ];
 }

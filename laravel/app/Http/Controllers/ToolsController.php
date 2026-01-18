@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tool;
+use App\Models\Fertilizer;
+use App\Models\Crop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -28,7 +30,9 @@ class ToolsController extends Controller
 	public function dashboard()
 	{
 		$tools = Tool::orderBy('created_at', 'desc')->get();
-		return view('admin.dashboard', compact('tools'));
+		$fertilizers = \App\Models\Fertilizer::orderBy('created_at', 'desc')->get();
+		$crops = \App\Models\Crop::orderBy('created_at', 'desc')->get();
+		return view('admin.dashboard', compact('tools', 'fertilizers', 'crops'));
 	}
 
 	// Admin - List all tools

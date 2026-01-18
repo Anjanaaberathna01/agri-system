@@ -10,12 +10,14 @@ use App\Http\Controllers\FertilizersController;
 use App\Http\Controllers\CropsController;
 use App\Models\Tool;
 use App\Models\Fertilizer;
+use App\Models\Crop;
 
 // Home page (first page)
 Route::get('/', function () {
     $tools = Tool::orderBy('title')->get();
     $fertilizers = Fertilizer::orderBy('title')->get();
-    return view('home', compact('tools', 'fertilizers'));
+    $crops = Crop::orderBy('name')->get();
+    return view('home', compact('tools', 'fertilizers', 'crops'));
 })->name('home');
 
 // Authentication Routes
@@ -111,6 +113,14 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/fertilizers/{id}/edit', [FertilizersController::class, 'edit'])->name('fertilizers.edit');
     Route::put('/fertilizers/{id}', [FertilizersController::class, 'update'])->name('fertilizers.update');
     Route::delete('/fertilizers/{id}', [FertilizersController::class, 'destroy'])->name('fertilizers.destroy');
+
+    // Crops Management
+    Route::get('/crops', [CropsController::class, 'adminIndex'])->name('crops.index');
+    Route::get('/crops/create', [CropsController::class, 'create'])->name('crops.create');
+    Route::post('/crops', [CropsController::class, 'store'])->name('crops.store');
+    Route::get('/crops/{crop}/edit', [CropsController::class, 'edit'])->name('crops.edit');
+    Route::put('/crops/{crop}', [CropsController::class, 'update'])->name('crops.update');
+    Route::delete('/crops/{crop}', [CropsController::class, 'destroy'])->name('crops.destroy');
 
     // Orders Management
     Route::get('/orders', [CartController::class, 'adminOrders'])->name('orders');
