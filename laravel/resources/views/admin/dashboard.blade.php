@@ -541,13 +541,101 @@
                 </div>
                 @if($tools->count() > 5)
                     <p style="text-align: right; margin-top: 1rem;">
-                        <a href="{{ route('admin.tools.create') }}" class="view-all-link">View all {{ $tools->count() }} tools →</a>
+                        <a href="{{ route('admin.tools.index') }}" class="view-all-link">View all {{ $tools->count() }} tools →</a>
                     </p>
                 @endif
             @else
                 <div class="empty-state">
                     <i class="fas fa-tools"></i>
                     <p>No tools added yet. Click "Add New Tool" to get started.</p>
+                </div>
+            @endif
+        </div>
+
+        <!-- Fertilizers Management Section -->
+        <div class="management-section">
+            <div class="section-header">
+                <h2><i class="fas fa-droplet"></i> Fertilizers Management</h2>
+                <a href="{{ route('admin.fertilizers.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add New Fertilizer
+                </a>
+            </div>
+
+            @php
+                $fertilizers = \App\Models\Fertilizer::orderBy('created_at', 'desc')->get();
+            @endphp
+
+            @if($fertilizers->count() > 0)
+                <div class="table-responsive">
+                    <table class="management-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Fertilizer Name</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Description</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($fertilizers->take(5) as $fertilizer)
+                            <tr>
+                                <td>
+                                    @if($fertilizer->image)
+                                        @if(strpos($fertilizer->image, 'images/') !== false)
+                                            <img src="{{ asset($fertilizer->image) }}" alt="{{ $fertilizer->title }}" class="item-image">
+                                        @else
+                                            <img src="{{ asset('storage/' . $fertilizer->image) }}" alt="{{ $fertilizer->title }}" class="item-image">
+                                        @endif
+                                    @else
+                                        <div class="item-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-image" style="color: #ccc;"></i>
+                                        </div>
+                                    @endif
+                                </td>
+                                <td><strong>{{ $fertilizer->title }}</strong></td>
+                                <td><strong>Rs {{ number_format($fertilizer->price, 2) }}</strong></td>
+                                <td>
+                                    <span class="status-badge {{ $fertilizer->status === 'in_stock' ? 'available' : 'unavailable' }}">
+                                        @if($fertilizer->status === 'in_stock')
+                                            In Stock
+                                        @elseif($fertilizer->status === 'limited')
+                                            Limited
+                                        @else
+                                            Unavailable
+                                        @endif
+                                    </span>
+                                </td>
+                                <td>{{ Str::limit($fertilizer->description, 40) }}</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="{{ route('admin.fertilizers.edit', $fertilizer->id) }}" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <form action="{{ route('admin.fertilizers.destroy', $fertilizer->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete this fertilizer?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @if($fertilizers->count() > 5)
+                    <p style="text-align: right; margin-top: 1rem;">
+                        <a href="{{ route('admin.fertilizers.index') }}" class="view-all-link">View all {{ $fertilizers->count() }} fertilizers →</a>
+                    </p>
+                @endif
+            @else
+                <div class="empty-state">
+                    <i class="fas fa-droplet"></i>
+                    <p>No fertilizers added yet. Click "Add New Fertilizer" to get started.</p>
                 </div>
             @endif
         </div>
@@ -563,10 +651,10 @@
                     <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Add new agricultural tools</p>
                 </a>
 
-                <a href="{{ route('home') }}" class="quick-action-card fertilizers">
+                <a href="{{ route('admin.fertilizers.create') }}" class="quick-action-card fertilizers">
                     <i class="fas fa-droplet" style="color: #4CAF50;"></i>
-                    <h3>Manage Fertilizers</h3>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Handle fertilizer inventory</p>
+                    <h3>Add Fertilizers</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Add new fertilizer products</p>
                 </a>
 
                 <a href="{{ route('home') }}" class="quick-action-card crops">

@@ -31,6 +31,13 @@ class ToolsController extends Controller
 		return view('admin.dashboard', compact('tools'));
 	}
 
+	// Admin - List all tools
+	public function adminIndex()
+	{
+		$tools = Tool::orderBy('created_at', 'desc')->get();
+		return view('admin.tools.index', compact('tools'));
+	}
+
 	// Show create form
 	public function create()
 	{

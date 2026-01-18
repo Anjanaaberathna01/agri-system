@@ -51,7 +51,7 @@ class ToolsTableSeeder extends Seeder
             [
                 'title' => 'Backpack Spreyer',
                 'price' => 1500.00,
-                'image' => 'images/tools/spreyer/1.jpg',
+                'image' => 'images/tools/Backpack spreyer/1.jpg',
                 'description' => 'A hand tool with a curved blade for cutting grasses, harvesting cereals, and trimming vegetation with precision and efficiency.',
                 'status' => 'in_stock',
             ],
@@ -79,7 +79,7 @@ class ToolsTableSeeder extends Seeder
             [
                 'title' => 'Seed Drill (manually)',
                 'price' => 20499.00,
-                'image' => 'images/tools/seed drill/1.jpg',
+                'image' => 'images/tools/seed drill (manually)/1.jpg',
                 'description' => 'A machine with rotating blades that breaks soil into fine particles, mixes residues, and prepares seedbeds quickly and efficiently.',
                 'status' => 'limited',
             ],

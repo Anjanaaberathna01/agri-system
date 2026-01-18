@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fertilizers - SpasilaLahanPetani</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
@@ -17,7 +18,7 @@
         }
 
         body {
-            background-color: #f0f8f5;
+            background-color: #f8f9fa;
         }
 
         .container {
@@ -34,19 +35,19 @@
 
         .header-section h1 {
             margin-bottom: 1rem;
-            color: #1b5e20;
+            color: #333;
             font-size: 2.5rem;
             font-weight: 700;
         }
 
         .header-section p {
-            color: #2e7d32;
+            color: #666;
             font-size: 1.125rem;
             margin: 0;
         }
 
         /* Horizontal Scroll Container */
-        .fertilizer-scroll-container {
+        .fertilizers-scroll-container {
             overflow-x: auto;
             overflow-y: hidden;
             padding: 2rem;
@@ -57,26 +58,26 @@
         }
 
         /* Custom Scrollbar */
-        .fertilizer-scroll-container::-webkit-scrollbar {
+        .fertilizers-scroll-container::-webkit-scrollbar {
             height: 8px;
         }
 
-        .fertilizer-scroll-container::-webkit-scrollbar-track {
-            background: #e8f5e9;
+        .fertilizers-scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
             border-radius: 10px;
         }
 
-        .fertilizer-scroll-container::-webkit-scrollbar-thumb {
-            background: #43a047;
+        .fertilizers-scroll-container::-webkit-scrollbar-thumb {
+            background: #4CAF50;
             border-radius: 10px;
         }
 
-        .fertilizer-scroll-container::-webkit-scrollbar-thumb:hover {
-            background: #66bb6a;
+        .fertilizers-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #45a049;
         }
 
         /* Fertilizers Row Container */
-        .fertilizer-row {
+        .fertilizers-row {
             display: flex;
             gap: 1.5rem;
             min-width: min-content;
@@ -99,13 +100,44 @@
         .fertilizer-card:hover {
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             transform: translateY(-5px);
-            border-color: #43a047;
+            border-color: #4CAF50;
         }
 
-        .fertilizer-card-image {
+        .fertilizer-card-image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            z-index: 2;
+        }
+
+        .fertilizer-card-image-nav:hover {
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .fertilizer-card-image-nav.left {
+            left: 10px;
+        }
+
+        .fertilizer-card-image-nav.right {
+            right: 10px;
+        }
+
+        .fertilizer-card-image-wrapper {
+            position: relative;
             width: 100%;
             height: 200px;
-            background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+            background: linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -113,98 +145,15 @@
             overflow: hidden;
         }
 
+        .fertilizer-card-image {
+            width: 100%;
+            height: 100%;
+        }
+
         .fertilizer-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .fertilizer-carousel {
-            position: relative;
-            width: 100%;
-            height: 100%;
-        }
-
-        .fertilizer-carousel-images {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .fertilizer-carousel-image {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-
-        .fertilizer-carousel-image.active {
-            opacity: 1;
-        }
-
-        .fertilizer-carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 8px;
-            z-index: 5;
-        }
-
-        .fertilizer-carousel-btn {
-            background: rgba(255, 255, 255, 0.85);
-            border: none;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: #1b5e20;
-            transition: all 0.3s ease;
-            pointer-events: all;
-            box-shadow: 0 2px 8px rgba(27, 94, 32, 0.2);
-            font-weight: bold;
-        }
-
-        .fertilizer-carousel-btn:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: scale(1.1);
-        }
-
-        .fertilizer-carousel-dots {
-            position: absolute;
-            bottom: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 6px;
-            z-index: 5;
-        }
-
-        .fertilizer-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.6);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .fertilizer-dot.active {
-            background: #43a047;
-            width: 24px;
-            border-radius: 4px;
-        }
-
-        .fertilizer-dot:hover {
-            background: rgba(255, 255, 255, 0.9);
         }
 
         .fertilizer-card-body {
@@ -217,50 +166,16 @@
         .fertilizer-title {
             font-size: 1.125rem;
             font-weight: 600;
-            color: #1b5e20;
+            color: #333;
             margin-bottom: 0.75rem;
-        }
-
-        .fertilizer-rating {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 0.85rem;
-        }
-
-        .fertilizer-stars {
-            display: flex;
-            gap: 0.2rem;
-            color: #43a047;
-        }
-
-        .fertilizer-rating-text {
-            color: #558b2f;
-            font-size: 0.8rem;
         }
 
         .fertilizer-description {
             font-size: 0.85rem;
-            color: #558b2f;
+            color: #666;
             line-height: 1.4;
             margin-bottom: 1rem;
             flex-grow: 1;
-        }
-
-        .fertilizer-description strong {
-            color: #1b5e20;
-        }
-
-        .fertilizer-type {
-            font-size: 0.8rem;
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
         }
 
         .fertilizer-price {
@@ -272,16 +187,16 @@
 
         .fertilizer-status {
             font-size: 0.85rem;
-            color: #558b2f;
+            color: #666;
             margin-bottom: 1rem;
         }
 
-        .fertilizer-status.in-stock {
-            color: #43a047;
+        .fertilizer-status.in_stock {
+            color: #4CAF50;
         }
 
         .fertilizer-status.limited {
-            color: #7cb342;
+            color: #ff9800;
         }
 
         .fertilizer-buttons {
@@ -306,7 +221,7 @@
         }
 
         .fertilizer-btn-primary {
-            background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+            background: linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%);
             color: white;
             box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3);
         }
@@ -319,46 +234,41 @@
         .fertilizer-btn-outline {
             background: white;
             color: #2e7d32;
-            border: 2px solid #43a047;
+            border: 2px solid #4CAF50;
         }
 
-        .fertilizer-btn-outline:hover {
-            background: #f1f8e9;
-            border-color: #43a047;
+        .fertilizerbtn-outline:hover {
+            background: #f0f0f0;
+            border-color: #4CAF50;
             color: #2e7d32;
         }
 
-        /* Scroll Indicators */
-        .fertilizer-scroll-indicator {
-            position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            cursor: pointer;
+        .empty-state {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: #666;
+            width: 100%;
+        }
+
+        .empty-state i {
+            font-size: 3.5rem;
+            color: #ddd;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .quantity-input {
+            width: 60px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+        }
+
+        .cart-form {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            z-index: 10;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3);
-        }
-
-        .fertilizer-scroll-indicator:hover {
-            box-shadow: 0 6px 16px rgba(102, 187, 106, 0.4);
-            transform: scale(1.1);
-        }
-
-        .fertilizer-scroll-left {
-            left: 1rem;
-        }
-
-        .fertilizer-scroll-right {
-            right: 1rem;
+            gap: 0.75rem;
         }
 
         /* Responsive */
@@ -375,14 +285,8 @@
                 font-size: 1rem;
             }
 
-            .fertilizer-scroll-container {
+            .fertilizers-scroll-container {
                 padding: 1.5rem;
-            }
-
-            .fertilizer-scroll-indicator {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
             }
         }
 
@@ -402,12 +306,6 @@
             .fertilizer-card-body {
                 padding: 1rem;
             }
-
-            .fertilizer-scroll-indicator {
-                width: 32px;
-                height: 32px;
-                font-size: 0.9rem;
-            }
         }
 </style>
 
@@ -416,557 +314,109 @@
     <p>High-quality fertilizers for optimal crop growth - Scroll Right to Explore More!</p>
 </div>
 
-<div class="fertilizer-scroll-container" id="fertilizer-container">
-    <div class="fertilizer-row">
-        <!-- Fertilizer 1: gypsum -->
-
+<div class="fertilizers-scroll-container" id="fertilizersContainer">
+    <div class="fertilizers-row">
+        @forelse($fertilizers as $index => $fertilizer)
+        <a href="{{ route('fertilizers.show', $fertilizer->id) }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="0">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/gypsum/1.jpg') }}" alt="Gypsum Fertilizer" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/gypsum/2.jpg') }}" alt="Gypsum Fertilizer" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/gypsum/3.jpg') }}" alt="Gypsum Fertilizer" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/gypsum/4.jpg') }}" alt="Gypsum Fertilizer" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(0)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(0)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(0, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(0, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(0, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(0, 3)"></span>
-                    </div>
-                </div>
+            @php
+                $galleryFolder = $fertilizer->title;
+                $galleryFiles = [];
+                foreach (['jpg', 'jpeg', 'png', 'gif', 'bmp', 'webp'] as $ext) {
+                    $matches = glob(public_path('images/fertilizer/' . $galleryFolder . '/*.' . $ext)) ?: [];
+                    $galleryFiles = array_merge($galleryFiles, $matches);
+                }
+                $galleryUrls = array_map(function ($file) use ($galleryFolder) {
+                    return asset('images/fertilizer/' . rawurlencode($galleryFolder) . '/' . rawurlencode(basename($file)));
+                }, $galleryFiles);
+
+                $primaryImage = $galleryUrls[0] ?? null;
+                if (!$primaryImage && $fertilizer->image) {
+                    $primaryImage = strpos($fertilizer->image, 'images/fertilizers') !== false
+                        ? asset($fertilizer->image)
+                        : asset('storage/' . $fertilizer->image);
+                }
+            @endphp
+
+            <div class="fertilizer-card-image-wrapper">
+                @if(count($galleryUrls) > 1)
+                    <button type="button" class="fertilizer-card-image-nav left" onclick="event.preventDefault(); event.stopPropagation(); changeFertilizerImage('fertilizer-image-{{ $fertilizer->id }}', -1);">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                @endif
+
+                @if($primaryImage)
+                    <img
+                        id="fertilizer-image-{{ $fertilizer->id }}"
+                        class="fertilizer-card-image"
+                        data-gallery="true"
+                        data-images='@json($galleryUrls)'
+                        data-index="0"
+                        src="{{ $primaryImage }}"
+                        alt="{{ $fertilizer->title }}"
+                    >
+                @else
+                    <i class="fas fa-image"></i>
+                @endif
+
+                @if(count($galleryUrls) > 1)
+                    <button type="button" class="fertilizer-card-image-nav right" onclick="event.preventDefault(); event.stopPropagation(); changeFertilizerImage('fertilizer-image-{{ $fertilizer->id }}', 1);">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                @endif
             </div>
 
             <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.gypsum') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Gypsum Fertilizer</h5>
-                <span class="fertilizer-type">Calcium Sulfate</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★★</div>
-                    <span class="fertilizer-rating-text">(328 reviews)</span>
-                </div>
+                <h5 class="fertilizer-title">{{ $fertilizer->title }}</h5>
                 <p class="fertilizer-description">
-                    <strong>Calcium and sulfur source</strong> improves soil structure and provides essential minerals. Enhances root development and reduces soil compaction for better drainage.
+                    {{ Str::limit($fertilizer->description, 100) }}
                 </p>
-                <div class="fertilizer-price">Rs 1,599.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
+                <div class="fertilizer-price">Rs {{ number_format($fertilizer->price, 2) }}</div>
+                <p class="fertilizer-status {{ $fertilizer->status }}">
+                    @if($fertilizer->status === 'in_stock')
+                        ✓ In Stock
+                    @elseif($fertilizer->status === 'limited')
+                        ⚠ Limited Stock
+                    @else
+                        ✗ Out of Stock
+                    @endif
+                </p>
+                <div class="fertilizer-buttons" onclick="event.preventDefault(); event.stopPropagation();">
+                    <form action="{{ route('cart.add') }}" method="POST" class="cart-form">
                         @csrf
-                        <input type="hidden" name="id" value="1">
-                        <input type="hidden" name="name" value="Gypsum Fertilizer">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1599.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
+                        <input type="hidden" name="fertilizer_id" value="{{ $fertilizer->id }}">
+                        <input type="hidden" name="price" value="{{ $fertilizer->price }}">
+                        <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="flex: 1;">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
                     </form>
-                    <a href="https://en.wikipedia.org/wiki/Fertilizer" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
+                    <a href="#" class="fertilizer-btn fertilizer-btn-outline" onclick="event.preventDefault(); event.stopPropagation();">
+                        <i class="fas fa-heart"></i> Wishlist
+                    </a>
                 </div>
             </div>
         </div>
         </a>
-
-        <!-- Fertilizer 2: Urea -->
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="1">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/nitrogen/1.webp') }}" alt="Urea" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/nitrogen/2.webp') }}" alt="Urea" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/nitrogen/3.webp') }}" alt="Urea" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/nitrogen/4.jpg') }}" alt="Urea" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(1)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(1)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(1, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(1, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(1, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(1, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.urea') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Urea 46% Nitrogen</h5>
-                <span class="fertilizer-type">Nitrogen Source</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★☆</div>
-                    <span class="fertilizer-rating-text">(245 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>High nitrogen content</strong> for vigorous leaf and stem growth. Perfect for leafy vegetables and early-stage crop development.
-                </p>
-                <div class="fertilizer-price">Rs 1,250.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="2">
-                        <input type="hidden" name="name" value="Urea 46% Nitrogen">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1250.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Urea" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
+        @empty
+        <div class="empty-state">
+            <i class="fas fa-droplet"></i>
+            <h3>No Fertilizers Available</h3>
+            <p>No fertilizers are currently available. Please check back later!</p>
         </div>
-        </a>
-
-        <!-- Fertilizer 3: boron -->
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="2">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/boron/1.webp') }}" alt="Boron" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/boron/2.jpg') }}" alt="Boron" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/boron/3.webp') }}" alt="Boron" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/boron/4.jpeg') }}" alt="Boron" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(2)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(2)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(2, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(2, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(2, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(2, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.boron') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Boron Complex</h5>
-                <span class="fertilizer-type">Trace Element</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★★</div>
-                    <span class="fertilizer-rating-text">(412 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>Essential boron compound</strong> improves flowering and fruit set. Prevents bud necrosis and enhances pollination success significantly.
-                </p>
-                <div class="fertilizer-price">Rs 1,875.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="3">
-                        <input type="hidden" name="name" value="Boron Complex">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1875.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Phosphate_fertilizer" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 4: Potassium Chloride -->
-
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="3">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/potassium/1.jpg') }}" alt="Potassium Chloride" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/potassium/2.jpg') }}" alt="Potassium Chloride" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/potassium/3.webp') }}" alt="Potassium Chloride" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/potassium/4.avif') }}" alt="Potassium Chloride" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(3)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(3)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(3, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(3, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(3, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(3, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.potassium') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Potassium Chloride 60% K₂O</h5>
-                <span class="fertilizer-type">Potassium Source</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★☆</div>
-                    <span class="fertilizer-rating-text">(189 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>High potassium content</strong> for disease resistance and crop quality. Improves color, taste, and shelf life of fruits and vegetables.
-                </p>
-                <div class="fertilizer-price">Rs 1,000.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="4">
-                        <input type="hidden" name="name" value="Potassium Chloride 60% K₂O">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1000.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Potassium_chloride" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 5: Organic sulfur -->
-
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="4">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/sulphur/1.webp') }}" alt="Organic Compost" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/sulphur/2.webp') }}" alt="Organic Compost" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/sulphur/3.jpg') }}" alt="Organic Compost" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/sulphur/4.jpg') }}" alt="Organic Compost" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(4)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(4)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(4, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(4, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(4, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(4, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.sulfur') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Organic Sulfur Premium</h5>
-                <span class="fertilizer-type">Sulfur Source</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★★</div>
-                    <span class="fertilizer-rating-text">(267 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>100% organic sulfur</strong> enhances nutrient availability and soil health. Improves crop quality and supports beneficial microbial activity in soil.
-                </p>
-                <div class="fertilizer-price">Rs 1,250.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="5">
-                        <input type="hidden" name="name" value="Organic Sulfur Premium">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1250.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Compost" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 6: DAP (Diammonium Phosphate) -->
-
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="5">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/phosphate/1.jpg') }}" alt="DAP" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/phosphate/2.webp') }}" alt="DAP" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/phosphate/3.jpg') }}" alt="DAP" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/phosphate/4.webp') }}" alt="DAP" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(5)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(5)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(5, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(5, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(5, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(5, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.phosphate') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Diammonium phosphate 18:46:0</h5>
-                <span class="fertilizer-type">Complex NPK</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★☆</div>
-                    <span class="fertilizer-rating-text">(156 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>Nitrogen and phosphorus blend</strong> ideal for early crop growth. Promotes root development and early flowering for increased yields.
-                </p>
-                <div class="fertilizer-price">Rs 1,175.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="6">
-                        <input type="hidden" name="name" value="Diammonium phosphate 18:46:0">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1175.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Diammonium_phosphate" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 7: zinc -->
-
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="6">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/zinc/1.jpg') }}" alt="Micronutrients" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/zinc/2.webp') }}" alt="Micronutrients" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/zinc/3.jpg') }}" alt="Micronutrients" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/zinc/4.jpg') }}" alt="Micronutrients" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(6)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(6)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(6, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(6, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(6, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(6, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.zinc') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Zinc Complex</h5>
-                <span class="fertilizer-type">Micronutrient</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★★</div>
-                    <span class="fertilizer-rating-text">(334 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>Zinc-based micronutrient</strong> essential for enzyme function and plant growth. Prevents deficiency symptoms and improves overall crop productivity.
-                </p>
-                <div class="fertilizer-price">Rs 1,099.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="7">
-                        <input type="hidden" name="name" value="Zinc Complex">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1099.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Micronutrient" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 8: molybdenum -->
-
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="7">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/molybdenum/1.jpg') }}" alt="Molybdenum" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/molybdenum/2.webp') }}" alt="Molybdenum" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/molybdenum/3.jpg') }}" alt="Molybdenum" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/molybdenum/4.jpg') }}" alt="Molybdenum" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(7)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(7)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(7, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(7, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(7, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(7, 3)"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.molybdenum') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Molybdenum Complex</h5>
-                <span class="fertilizer-type">Trace Element</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★☆</div>
-                    <span class="fertilizer-rating-text">(298 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>Molybdenum micronutrient</strong> essential for nitrogen fixation in legumes. Improves nitrogen utilization and enhances crop nodulation.
-                </p>
-                <div class="fertilizer-price">Rs 1199.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="8">
-                        <input type="hidden" name="name" value="Molybdenum Complex">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1199.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Calcium_nitrate" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 9: mixed -->
-
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="8">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/mixed/1.webp') }}" alt="Mixed Fertilizer" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/mixed/2.jpg') }}" alt="Mixed Fertilizer" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/mixed/3.jpg') }}" alt="Mixed Fertilizer" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/mixed/4.avif') }}" alt="Mixed Fertilizer" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(8)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(8)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(8, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(8, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(8, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(8, 3)"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.mixed') }}" style="text-decoration: none; color: inherit;">
-                <h5 class="fertilizer-title">Mixed Nutrient Blend</h5>
-                <span class="fertilizer-type">All-Purpose Formula</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★★</div>
-                    <span class="fertilizer-rating-text">(521 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>Complete nutrient mix</strong> with balanced NPK and micronutrients. Versatile formula suitable for all crop types and growing stages throughout the season.
-                </p>
-                <div class="fertilizer-price">Rs 1075.00</div>
-                <p class="fertilizer-status in-stock">✓ In Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="9">
-                        <input type="hidden" name="name" value="Mixed Nutrient Blend">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1075.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Foliar_feeding" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-        </a>
-
-        <!-- Fertilizer 10: magnesium -->
-
-        <div class="fertilizer-card">
-            <div class="fertilizer-card-image">
-                <div class="fertilizer-carousel" data-fertilizer-carousel="9">
-                    <div class="fertilizer-carousel-images">
-                        <img src="{{ asset('images/fertilizer/magnesium/1.png') }}" alt="Magnesium" class="fertilizer-carousel-image active">
-                        <img src="{{ asset('images/fertilizer/magnesium/2.webp') }}" alt="Magnesium" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/magnesium/3.jpg') }}" alt="Magnesium" class="fertilizer-carousel-image">
-                        <img src="{{ asset('images/fertilizer/magnesium/4.jpg') }}" alt="Magnesium" class="fertilizer-carousel-image">
-                    </div>
-                    <div class="fertilizer-carousel-nav">
-                        <button class="fertilizer-carousel-btn prev" onclick="FertilizerApp.prevImage(9)">‹</button>
-                        <button class="fertilizer-carousel-btn next" onclick="FertilizerApp.nextImage(9)">›</button>
-                    </div>
-                    <div class="fertilizer-carousel-dots">
-                        <span class="fertilizer-dot active" onclick="FertilizerApp.goToImage(9, 0)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(9, 1)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(9, 2)"></span>
-                        <span class="fertilizer-dot" onclick="FertilizerApp.goToImage(9, 3)"></span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="fertilizer-card-body">
-                <a href="{{ route('fertilizers.magnesium') }}" style="text-decoration: none; color: inherit;"></a>
-                <h5 class="fertilizer-title">Magnesium Sulfate</h5>
-                <span class="fertilizer-type">Secondary Nutrient</span>
-                <div class="fertilizer-rating">
-                    <div class="fertilizer-stars">★★★★☆</div>
-                    <span class="fertilizer-rating-text">(403 reviews)</span>
-                </div>
-                <p class="fertilizer-description">
-                    <strong>Magnesium-rich compound</strong> prevents yellowing and enhances photosynthesis. Improves plant vigor and increases yield potential significantly.
-                </p>
-                <div class="fertilizer-price">Rs 1075.00</div>
-                <p class="fertilizer-status limited">⚠ Limited Stock</p>
-                <div class="fertilizer-buttons">
-                    <form action="{{ route('cart.add') }}" method="POST" style="width: 100%;">
-                        @csrf
-                        <input type="hidden" name="id" value="10">
-                        <input type="hidden" name="name" value="Magnesium Sulfate">
-                        <input type="hidden" name="type" value="fertilizer">
-                        <input type="hidden" name="price" value="1075.00">
-                        <input type="hidden" name="quantity" value="1">
-                        <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="width: 100%;">Add to Cart</button>
-                    </form>
-                    <a href="https://en.wikipedia.org/wiki/Slow-release_fertilizer" target="_blank" class="fertilizer-btn fertilizer-btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
+        @endforelse
     </div>
 </div>
-</a>
 
 <script>
-    // Fertilizer Page - Isolated Functions
-    const FertilizerApp = {
+    // Fertilizers Page - Scroll Functions
+    const FertilizersApp = {
         container: null,
         scrollAmount: 350,
-        currentImageIndex: {},
-        touchStartX: 0,
-        touchEndX: 0,
 
         init() {
-            this.container = document.getElementById('fertilizer-container');
-            this.setupTouchListeners();
+            this.container = document.getElementById('fertilizersContainer');
+            initFertilizerGalleries();
         },
 
         scrollLeft() {
@@ -985,89 +435,50 @@
                     behavior: 'smooth'
                 });
             }
-        },
-
-        nextImage(carouselId) {
-            const carousel = document.querySelector(`[data-fertilizer-carousel="${carouselId}"]`);
-            if (!carousel) return;
-
-            const images = carousel.querySelectorAll('.fertilizer-carousel-image');
-            if (images.length === 0) return;
-
-            if (!this.currentImageIndex[carouselId]) {
-                this.currentImageIndex[carouselId] = 0;
-            }
-
-            this.currentImageIndex[carouselId] = (this.currentImageIndex[carouselId] + 1) % images.length;
-            this.updateCarousel(carousel, this.currentImageIndex[carouselId]);
-        },
-
-        prevImage(carouselId) {
-            const carousel = document.querySelector(`[data-fertilizer-carousel="${carouselId}"]`);
-            if (!carousel) return;
-
-            const images = carousel.querySelectorAll('.fertilizer-carousel-image');
-            if (images.length === 0) return;
-
-            if (!this.currentImageIndex[carouselId]) {
-                this.currentImageIndex[carouselId] = 0;
-            }
-
-            this.currentImageIndex[carouselId] = (this.currentImageIndex[carouselId] - 1 + images.length) % images.length;
-            this.updateCarousel(carousel, this.currentImageIndex[carouselId]);
-        },
-
-        goToImage(carouselId, index) {
-            const carousel = document.querySelector(`[data-fertilizer-carousel="${carouselId}"]`);
-            if (!carousel) return;
-
-            this.currentImageIndex[carouselId] = index;
-            this.updateCarousel(carousel, index);
-        },
-
-        updateCarousel(carousel, index) {
-            const images = carousel.querySelectorAll('.fertilizer-carousel-image');
-            const dots = carousel.querySelectorAll('.fertilizer-dot');
-
-            images.forEach(img => img.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-
-            if (images[index]) images[index].classList.add('active');
-            if (dots[index]) dots[index].classList.add('active');
-        },
-
-        setupTouchListeners() {
-            const carousels = document.querySelectorAll('.fertilizer-carousel');
-
-            carousels.forEach((carousel, index) => {
-                carousel.setAttribute('data-fertilizer-carousel', index);
-
-                carousel.addEventListener('touchstart', (e) => {
-                    this.touchStartX = e.changedTouches[0].screenX;
-                }, false);
-
-                carousel.addEventListener('touchend', (e) => {
-                    this.touchEndX = e.changedTouches[0].screenX;
-                    this.handleSwipe(index);
-                }, false);
-            });
-        },
-
-        handleSwipe(carouselId) {
-            if (this.touchStartX - this.touchEndX > 50) {
-                this.nextImage(carouselId);
-            }
-            if (this.touchEndX - this.touchStartX > 50) {
-                this.prevImage(carouselId);
-            }
         }
     };
 
-    // Expose functions globally for inline onclick handlers
-    window.FertilizerApp = FertilizerApp;
+    // Expose FertilizersApp globally
+    window.FertilizersApp = FertilizersApp;
+
+    function initFertilizerGalleries() {
+        document.querySelectorAll('[data-gallery="true"]').forEach(img => {
+            try {
+                img._images = JSON.parse(img.dataset.images || '[]');
+            } catch (e) {
+                img._images = [];
+            }
+
+            if (img._images.length > 0) {
+                img.dataset.index = 0;
+                img.src = img._images[0];
+            }
+        });
+    }
+
+    function changeFertilizerImage(imageId, delta) {
+        const img = document.getElementById(imageId);
+        if (!img) return;
+
+        if (!img._images) {
+            try {
+                img._images = JSON.parse(img.dataset.images || '[]');
+            } catch (e) {
+                img._images = [];
+            }
+        }
+
+        const images = img._images;
+        if (!images || images.length === 0) return;
+
+        const currentIndex = parseInt(img.dataset.index || '0', 10);
+        const nextIndex = (currentIndex + delta + images.length) % images.length;
+        img.dataset.index = nextIndex;
+        img.src = images[nextIndex];
+    }
 
     document.addEventListener('DOMContentLoaded', function() {
-        FertilizerApp.init();
+        FertilizersApp.init();
     });
 </script>
 

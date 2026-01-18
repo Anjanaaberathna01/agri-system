@@ -9,11 +9,13 @@ use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\FertilizersController;
 use App\Http\Controllers\CropsController;
 use App\Models\Tool;
+use App\Models\Fertilizer;
 
 // Home page (first page)
 Route::get('/', function () {
     $tools = Tool::orderBy('title')->get();
-    return view('home', compact('tools'));
+    $fertilizers = Fertilizer::orderBy('title')->get();
+    return view('home', compact('tools', 'fertilizers'));
 })->name('home');
 
 // Authentication Routes
@@ -48,6 +50,7 @@ Route::get('/tools/seed_drill', function () {return view('tools.Seed_Drill.index
 
 // Fertilizers Routes
 Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
+Route::get('/fertilizers/{id}', [FertilizersController::class, 'show'])->name('fertilizers.show');
 Route::get('/fertilizers/gypsum', function () {return view('fertilizers.gypsum.index');})->name('fertilizers.gypsum');
 Route::get('/fertilizers/urea', function () {return view('fertilizers.urea.index');})->name('fertilizers.urea');
 Route::get('/fertilizers/boron', function () {return view('fertilizers.boron.index');})->name('fertilizers.boron');
@@ -94,11 +97,20 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/dashboard', [ToolsController::class, 'dashboard'])->name('dashboard');
 
     // Tools Management
+    Route::get('/tools', [ToolsController::class, 'adminIndex'])->name('tools.index');
     Route::get('/tools/create', [ToolsController::class, 'create'])->name('tools.create');
     Route::post('/tools', [ToolsController::class, 'store'])->name('tools.store');
     Route::get('/tools/{id}/edit', [ToolsController::class, 'edit'])->name('tools.edit');
     Route::put('/tools/{id}', [ToolsController::class, 'update'])->name('tools.update');
     Route::delete('/tools/{id}', [ToolsController::class, 'destroy'])->name('tools.destroy');
+
+    // Fertilizers Management
+    Route::get('/fertilizers', [FertilizersController::class, 'adminIndex'])->name('fertilizers.index');
+    Route::get('/fertilizers/create', [FertilizersController::class, 'create'])->name('fertilizers.create');
+    Route::post('/fertilizers', [FertilizersController::class, 'store'])->name('fertilizers.store');
+    Route::get('/fertilizers/{id}/edit', [FertilizersController::class, 'edit'])->name('fertilizers.edit');
+    Route::put('/fertilizers/{id}', [FertilizersController::class, 'update'])->name('fertilizers.update');
+    Route::delete('/fertilizers/{id}', [FertilizersController::class, 'destroy'])->name('fertilizers.destroy');
 
     // Orders Management
     Route::get('/orders', [CartController::class, 'adminOrders'])->name('orders');
