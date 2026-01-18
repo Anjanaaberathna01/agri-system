@@ -178,6 +178,59 @@ class CartController extends Controller
     }
 
     /**
+     * Admin view specific order
+     */
+    public function viewOrder($id)
+    {
+        $order = Order::with('user')->findOrFail($id);
+        
+        // Check if user is admin or order belongs to user
+        if (auth()->user()->role !== 'admin' && $order->user_id !== auth()->id()) {
+            abort(403, 'Unauthorized');
+        }
+
+        return view('admin.view_order', compact('order'));
+    }
+
+    /**
+     * Admin update order status
+     */
+    public function updateOrderStatus(Request $request, $id)
+    {
+        $order = Order::findOrFail($id);
+
+        // Verify user is admin
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Unauthorized');
+        }
+
+        $validated = $request->validate([
+            'status' => 'required|string|in:pending,processing,completed,cancelled',
+        ]);
+
+        $order->update(['status' => $validated['status']]);
+
+        return redirect()->back()->with('success', 'Order status updated to ' . ucfirst($validated['status']));
+    }
+
+    /**
+     * Admin view all orders
+     */
+    public function adminOrders()
+    {
+        // Verify user is admin
+        if (auth()->user()->role !== 'admin') {
+            abort(403, 'Unauthorized');
+        }
+
+        $orders = Order::with('user')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('admin.orders', compact('orders'));
+    }
+
+    /**
      * Cancel order
      */
     public function cancelOrder($id)

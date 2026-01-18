@@ -268,43 +268,118 @@
             padding-left: 20px;
         }
 
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(10px, 10px);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-menu-mobile {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            z-index: 999;
+            max-height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+
+        .nav-menu-mobile.active {
+            display: flex;
+        }
+
+        .nav-menu-mobile .nav-links {
+            flex-direction: column;
+            gap: 0;
+            width: 100%;
+        }
+
+        .nav-menu-mobile .nav-links a {
+            padding: 12px 16px;
+            border-radius: 8px;
+            width: 100%;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .nav-menu-mobile .search-container {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
         @media (max-width: 768px) {
             nav {
-                flex-wrap: wrap;
                 padding: 12px 20px;
                 gap: 12px;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .hamburger-menu {
+                display: flex;
+                order: 3;
             }
 
             .nav-left {
                 flex: 1;
-                gap: 15px;
+                gap: 0;
                 order: 1;
-            }
-
-            .nav-center {
-                order: 3;
-                flex: 1 1 100%;
-                margin-top: 12px;
-            }
-
-            .search-container {
-                max-width: 100%;
-            }
-
-            .nav-right {
-                flex: 1;
-                gap: 10px;
-                order: 2;
-                justify-content: flex-end;
+                display: flex;
+                align-items: center;
             }
 
             .nav-links {
-                gap: 15px;
+                display: none;
             }
 
-            .nav-links a {
-                font-size: 13px;
-                padding: 6px 10px;
+            .nav-center {
+                display: none;
+            }
+
+            .nav-menu-mobile {
+                display: none;
+            }
+
+            .nav-menu-mobile.active {
+                display: flex;
+            }
+
+            .nav-right {
+                flex: 0;
+                gap: 10px;
+                order: 2;
+                justify-content: flex-end;
             }
 
             .logo img {
@@ -315,6 +390,12 @@
                 padding: 8px 16px;
                 font-size: 13px;
             }
+
+            .cart-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 11px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -322,22 +403,8 @@
                 padding: 10px 15px;
             }
 
-            .nav-links {
-                gap: 10px;
-            }
-
-            .nav-links a {
-                font-size: 12px;
-                padding: 5px 8px;
-            }
-
             .logo img {
                 height: 35px;
-            }
-
-            .search-input {
-                padding: 10px 35px 10px 14px;
-                font-size: 13px;
             }
 
             .login-btn {
@@ -348,12 +415,30 @@
             .user-menu {
                 padding: 6px 12px;
                 gap: 8px;
+                font-size: 0;
             }
 
             .user-avatar {
                 width: 30px;
                 height: 30px;
                 font-size: 12px;
+            }
+
+            .user-menu span:not(.user-avatar) {
+                display: none;
+            }
+
+            .cart-icon {
+                font-size: 20px;
+            }
+
+            .hamburger-menu span {
+                width: 20px;
+                height: 2.5px;
+            }
+
+            .nav-menu-mobile {
+                top: 55px;
             }
         }
     </style>
@@ -369,7 +454,7 @@
             </a>
         </div>
 
-        <!-- Navigation Links -->
+        <!-- Navigation Links (Desktop) -->
         <ul class="nav-links">
             <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="{{ route('home') }}#tools-section">Tools</a></li>
@@ -378,7 +463,7 @@
         </ul>
     </div>
 
-    <!-- CENTER: Search Bar -->
+    <!-- CENTER: Search Bar (Desktop) -->
     <div class="nav-center">
         <div class="search-container">
             <input
@@ -430,6 +515,32 @@
             @endauth
         </div>
     </div>
+
+    <!-- Hamburger Menu (Mobile) -->
+    <button class="hamburger-menu" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile Menu -->
+    <div class="nav-menu-mobile" id="mobileMenu">
+        <div class="search-container">
+            <input
+                type="text"
+                class="search-input"
+                placeholder="Search tools, fertilizers..."
+            >
+            <span class="search-icon">🔍</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ route('home') }}" onclick="closeMobileMenu()">Home</a></li>
+            <li><a href="{{ route('home') }}#tools-section" onclick="closeMobileMenu()">Tools</a></li>
+            <li><a href="{{ route('home') }}#fertilizers-section" onclick="closeMobileMenu()">Fertilizers</a></li>
+            <li><a href="{{ route('home') }}#crop-section" onclick="closeMobileMenu()">Crops</a></li>
+        </ul>
+    </div>
 </nav>
 
 <script>
@@ -437,6 +548,20 @@
         event.stopPropagation();
         const dropdownMenu = document.getElementById('dropdownMenu');
         dropdownMenu.classList.toggle('active');
+    }
+
+    function toggleMobileMenu() {
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.classList.toggle('active');
+        mobileMenu.classList.toggle('active');
+    }
+
+    function closeMobileMenu() {
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
     }
 
     // Close dropdown when clicking outside
@@ -447,12 +572,27 @@
         }
     });
 
-    // Search functionality
-    document.querySelector('.search-input').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            const query = this.value;
-            window.location.href = `/search?q=${encodeURIComponent(query)}`;
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const hamburger = document.querySelector('.hamburger-menu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const nav = document.querySelector('nav');
+
+        if (!event.target.closest('nav')) {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
         }
+    });
+
+    // Search functionality
+    const searchInputs = document.querySelectorAll('.search-input');
+    searchInputs.forEach(input => {
+        input.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value;
+                window.location.href = `/search?q=${encodeURIComponent(query)}`;
+            }
+        });
     });
 </script>
 

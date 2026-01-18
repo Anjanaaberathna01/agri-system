@@ -20,7 +20,7 @@ class AdminUserSeeder extends Seeder
             User::create([
                 'first_name' => 'Admin',
                 'last_name' => 'User',
-                'email' => 'Admin123', // Using email field for username
+                'email' => 'admin@example.com',
                 'password' => Hash::make('12345678'),
                 'role' => 'admin',
                 'is_active' => true,
@@ -28,7 +28,7 @@ class AdminUserSeeder extends Seeder
             ]);
 
             $this->command->info('Admin user created successfully!');
-            $this->command->info('Username: Admin123');
+            $this->command->info('Email: admin@example.com');
             $this->command->info('Password: 12345678');
         } else {
             $this->command->info('Admin user already exists.');

@@ -99,4 +99,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/tools/{id}/edit', [ToolsController::class, 'edit'])->name('tools.edit');
     Route::put('/tools/{id}', [ToolsController::class, 'update'])->name('tools.update');
     Route::delete('/tools/{id}', [ToolsController::class, 'destroy'])->name('tools.destroy');
+
+    // Orders Management
+    Route::get('/orders', [CartController::class, 'adminOrders'])->name('orders');
+    Route::get('/orders/{id}', [CartController::class, 'viewOrder'])->name('order.view');
+    Route::post('/orders/{id}/status', [CartController::class, 'updateOrderStatus'])->name('order.update-status');
 });
+Route::get('/tools/{id}', [ToolsController::class, 'show'])->name('tools.show');

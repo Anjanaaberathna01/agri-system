@@ -15,6 +15,15 @@ class ToolsController extends Controller
 		return view('tools.index', compact('tools'));
 	}
 
+	public function show($id)
+	{
+		$tool = Tool::findOrFail($id);
+		$relatedTools = Tool::where('id', '!=', $id)
+			->orderBy('title')
+			->get();
+		return view('tools.show', compact('tool', 'relatedTools'));
+	}
+
 	// Admin Dashboard
 	public function dashboard()
 	{
@@ -35,7 +44,7 @@ class ToolsController extends Controller
 			'title' => 'required|string|max:255',
 			'price' => 'required|numeric|min:0',
 			'description' => 'required|string',
-			'status' => 'required|in:available,unavailable',
+			'status' => 'required|in:in_stock,limited,unavailable',
 			'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
 		]);
 
@@ -64,7 +73,7 @@ class ToolsController extends Controller
 			'title' => 'required|string|max:255',
 			'price' => 'required|numeric|min:0',
 			'description' => 'required|string',
-			'status' => 'required|in:available,unavailable',
+			'status' => 'required|in:in_stock,limited,unavailable',
 			'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
 		]);
 

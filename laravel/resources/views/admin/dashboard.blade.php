@@ -19,110 +19,6 @@
             min-height: 100vh;
         }
 
-        /* Navbar */
-        .navbar {
-            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-            color: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar-content {
-            max-width: 1600px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .navbar-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-
-        .navbar-brand i {
-            font-size: 32px;
-        }
-
-        .navbar-menu {
-            display: flex;
-            align-items: center;
-            gap: 2.5rem;
-            flex: 1;
-            justify-content: center;
-        }
-
-        .navbar-menu a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-        }
-
-        .navbar-menu a:hover {
-            opacity: 0.8;
-            transform: translateY(-2px);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-        }
-
-        .user-avatar {
-            width: 36px;
-            height: 36px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-        }
-
-        .logout-btn {
-            padding: 0.6rem 1.2rem;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1.5px solid white;
-            color: white;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 500;
-        }
-
-        .logout-btn:hover {
-            background: white;
-            color: #4CAF50;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         /* Main Content */
         .dashboard-container {
             max-width: 1600px;
@@ -483,17 +379,6 @@
         }
 
         @media (max-width: 768px) {
-            .navbar-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .navbar-menu {
-                flex-direction: column;
-                gap: 1rem;
-                justify-content: flex-start;
-            }
-
             .dashboard-container {
                 padding: 1rem;
             }
@@ -524,33 +409,7 @@
     </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-content">
-            <div class="navbar-brand">
-                <i class="fas fa-tractor"></i>
-                SpasilaLahan Admin
-            </div>
-            <div class="navbar-menu">
-                <a href="{{ route('home') }}"><i class="fas fa-home"></i> Store</a>
-                <a href="{{ route('admin.dashboard') }}"><i class="fas fa-th-large"></i> Dashboard</a>
-            </div>
-            <div class="user-menu">
-                <div class="user-info">
-                    <div class="user-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span>{{ Auth::user()->first_name }}</span>
-                </div>
-                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="logout-btn">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.admin_nav')
 
     <div class="dashboard-container">
         <!-- Dashboard Header -->
@@ -636,7 +495,11 @@
                             <tr>
                                 <td>
                                     @if($tool->image)
-                                        <img src="{{ asset('storage/' . $tool->image) }}" alt="{{ $tool->title }}" class="item-image">
+                                        @if(strpos($tool->image, 'images/tools') !== false)
+                                            <img src="{{ asset($tool->image) }}" alt="{{ $tool->title }}" class="item-image">
+                                        @else
+                                            <img src="{{ asset('storage/' . $tool->image) }}" alt="{{ $tool->title }}" class="item-image">
+                                        @endif
                                     @else
                                         <div class="item-image" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
                                             <i class="fas fa-image" style="color: #ccc;"></i>
@@ -644,10 +507,16 @@
                                     @endif
                                 </td>
                                 <td><strong>{{ $tool->title }}</strong></td>
-                                <td><strong>${{ number_format($tool->price, 2) }}</strong></td>
+                                <td><strong>Rs {{ number_format($tool->price, 2) }}</strong></td>
                                 <td>
-                                    <span class="status-badge {{ $tool->status === 'available' ? 'available' : 'unavailable' }}">
-                                        {{ ucfirst($tool->status) }}
+                                    <span class="status-badge {{ $tool->status === 'in_stock' ? 'available' : 'unavailable' }}">
+                                        @if($tool->status === 'in_stock')
+                                            In Stock
+                                        @elseif($tool->status === 'limited')
+                                            Limited
+                                        @else
+                                            Unavailable
+                                        @endif
                                     </span>
                                 </td>
                                 <td>{{ Str::limit($tool->description, 40) }}</td>
@@ -706,7 +575,7 @@
                     <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Control crop information</p>
                 </a>
 
-                <a href="{{ route('home') }}" class="quick-action-card orders">
+                <a href="{{ route('admin.orders') }}" class="quick-action-card orders">
                     <i class="fas fa-shopping-cart" style="color: #9C27B0;"></i>
                     <h3>View Orders</h3>
                     <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Check customer orders</p>

@@ -290,7 +290,8 @@
                         Status <span class="required">*</span>
                     </label>
                     <select id="status" name="status" class="form-control" required>
-                        <option value="available" {{ old('status', $tool->status) == 'available' ? 'selected' : '' }}>Available</option>
+                        <option value="in_stock" {{ old('status', $tool->status) == 'in_stock' ? 'selected' : '' }}>In Stock</option>
+                        <option value="limited" {{ old('status', $tool->status) == 'limited' ? 'selected' : '' }}>Limited Stock</option>
                         <option value="unavailable" {{ old('status', $tool->status) == 'unavailable' ? 'selected' : '' }}>Unavailable</option>
                     </select>
                 </div>
@@ -316,7 +317,7 @@
 
                     @if($tool->image)
                         <div class="current-image">
-                            <img src="{{ asset('storage/' . $tool->image) }}" alt="{{ $tool->title }}">
+                            <img src="{{ asset($tool->image) }}" alt="{{ $tool->title }}">
                             <p><i class="fas fa-info-circle"></i> Current image - upload a new one to replace it</p>
                         </div>
                     @endif

@@ -270,7 +270,8 @@
                         Status <span class="required">*</span>
                     </label>
                     <select id="status" name="status" class="form-control" required>
-                        <option value="available" {{ old('status') == 'available' ? 'selected' : '' }}>Available</option>
+                        <option value="in_stock" {{ old('status') == 'in_stock' ? 'selected' : '' }}>In Stock</option>
+                        <option value="limited" {{ old('status') == 'limited' ? 'selected' : '' }}>Limited Stock</option>
                         <option value="unavailable" {{ old('status') == 'unavailable' ? 'selected' : '' }}>Unavailable</option>
                     </select>
                 </div>
