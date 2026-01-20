@@ -420,24 +420,22 @@
 
         init() {
             this.container = document.getElementById('fertilizersContainer');
+            if (this.container) {
+                // Ensure smooth scrolling without relying on physical axes properties
+                this.container.style.scrollBehavior = 'smooth';
+            }
             initFertilizerGalleries();
         },
 
         scrollLeft() {
             if (this.container) {
-                this.container.scrollBy({
-                    behavior: 'smooth',
-                    left: this.scrollAmount
-                });
+                this.container.scrollBy(this.scrollAmount, 0);
             }
         },
 
         scrollRight() {
             if (this.container) {
-                this.container.scrollBy({
-                    behavior: 'smooth',
-                    left: -this.scrollAmount
-                });
+                this.container.scrollBy(-this.scrollAmount, 0);
             }
         }
     };
