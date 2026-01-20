@@ -70,13 +70,13 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #667eea;
-            background: rgba(102, 126, 234, 0.08);
+            color: #ff9500;
+            background: rgba(255, 149, 0, 0.08);
         }
 
         .nav-links a:hover::after {
@@ -108,9 +108,9 @@
 
         .search-input:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #ff7c00;
             background: white;
-            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            box-shadow: 0 0 0 4px rgba(255, 124, 0, 0.1);
         }
 
         .search-input::placeholder {
@@ -152,12 +152,12 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
         }
 
         .login-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.4);
         }
 
         .user-menu {

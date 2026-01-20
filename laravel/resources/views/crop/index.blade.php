@@ -177,28 +177,34 @@
             </div>
 
             <script>
+                // Crops Page - Scroll Functions
                 const CropApp = {
                     container: null,
                     scrollAmount: 350,
 
                     init() {
                         this.container = document.getElementById('cropContainer');
+                        if (this.container) {
+                            // Ensure smooth scrolling without relying on physical axes properties
+                            this.container.style.scrollBehavior = 'smooth';
+                        }
                         initCropGalleries();
                     },
 
                     scrollLeft() {
                         if (this.container) {
-                            this.container.scrollBy({ left: -this.scrollAmount, behavior: 'smooth' });
+                            this.container.scrollBy(-this.scrollAmount, 0);
                         }
                     },
 
                     scrollRight() {
                         if (this.container) {
-                            this.container.scrollBy({ inset-inline-start: this.scrollAmount, behavior: 'smooth' });
+                            this.container.scrollBy(this.scrollAmount, 0);
                         }
                     }
                 };
 
+                // Expose CropApp globally
                 window.CropApp = CropApp;
 
                 function initCropGalleries() {

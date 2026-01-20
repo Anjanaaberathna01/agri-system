@@ -91,9 +91,38 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image">Main Image</label>
-                    <input type="file" id="image" name="image" accept="image/*">
-                    <div class="help">Optional. Upload a main crop image.</div>
+                    <label>Crop Images <span style="color: #999; font-weight: 400;">(Up to 4 images)</span></label>
+                    <div style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Upload up to 4 crop images to showcase from different angles</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <!-- Image 1 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 1 (Primary)</label>
+                            <input type="file" id="image1" name="image" accept="image/*" onchange="previewCropImage(1)" style="padding: 0.5rem; border: 2px dashed #dee2e6; border-radius: 8px; width: 100%;">
+                            <div id="cropPreview1" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 2</label>
+                            <input type="file" id="image2" name="image2" accept="image/*" onchange="previewCropImage(2)" style="padding: 0.5rem; border: 2px dashed #dee2e6; border-radius: 8px; width: 100%;">
+                            <div id="cropPreview2" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 3 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 3</label>
+                            <input type="file" id="image3" name="image3" accept="image/*" onchange="previewCropImage(3)" style="padding: 0.5rem; border: 2px dashed #dee2e6; border-radius: 8px; width: 100%;">
+                            <div id="cropPreview3" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 4 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 4</label>
+                            <input type="file" id="image4" name="image4" accept="image/*" onchange="previewCropImage(4)" style="padding: 0.5rem; border: 2px dashed #dee2e6; border-radius: 8px; width: 100%;">
+                            <div id="cropPreview4" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="actions">
@@ -101,6 +130,21 @@
                     <a href="{{ route('admin.dashboard') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a>
                 </div>
             </form>
+
+            <script>
+                function previewCropImage(imageNum) {
+                    const input = document.getElementById(`image${imageNum}`);
+                    const preview = document.getElementById(`cropPreview${imageNum}`);
+
+                    if (input.files && input.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            preview.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; height: auto; border-radius: 8px; max-height: 150px;">`;
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
         </div>
     </div>
 </body>

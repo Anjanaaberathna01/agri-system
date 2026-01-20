@@ -291,23 +291,64 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image">
-                        Tool Image
+                    <label>
+                        Tool Images <span class="required">(Up to 4 images)</span>
                     </label>
-                    <div class="file-input-wrapper">
-                        <input
-                            type="file"
-                            id="image"
-                            name="image"
-                            accept="image/*"
-                            onchange="previewImage(event)"
-                        >
-                        <label for="image" class="file-input-label">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <span>Click to upload image (JPEG, PNG, JPG, GIF - Max 2MB)</span>
-                        </label>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem; font-weight: normal;">Upload up to 4 product images to showcase your tool from different angles</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <!-- Image 1 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 1 (Primary) <span class="required">*</span></label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="image1" name="image" accept="image/*" onchange="previewImage(1)">
+                                <label for="image1" class="file-input-label" id="imageLabel1">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview1" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 2</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(2)">
+                                <label for="image2" class="file-input-label" id="imageLabel2">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview2" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 3 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 3</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(3)">
+                                <label for="image3" class="file-input-label" id="imageLabel3">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview3" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 4 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem; font-weight: 500;">Image 4</label>
+                            <div class="file-input-wrapper">
+                                <input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(4)">
+                                <label for="image4" class="file-input-label" id="imageLabel4">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview4" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
                     </div>
-                    <img id="imagePreview" class="image-preview" alt="Image preview">
                 </div>
 
                 <div class="button-group">
@@ -323,19 +364,22 @@
     </div>
 
     <script>
-        function previewImage(event) {
-            const preview = document.getElementById('imagePreview');
-            const file = event.target.files[0];
-            const label = document.querySelector('.file-input-label span');
+        function previewImage(imageNum) {
+            const input = document.getElementById(`image${imageNum}`);
+            const preview = document.getElementById(`preview${imageNum}`);
+            const label = document.getElementById(`imageLabel${imageNum}`);
 
-            if (file) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    preview.src = e.target.result;
-                    preview.style.display = 'block';
+                    preview.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; height: auto; border-radius: 8px; max-height: 150px;">`;
+                    label.innerHTML = `
+                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                        <span style="font-size: 0.9rem; color: #28a745; font-weight: 600;">Selected</span>
+                    `;
                 };
                 reader.readAsDataURL(file);
-                label.textContent = file.name;
             }
         }
     </script>

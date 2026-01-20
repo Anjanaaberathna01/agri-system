@@ -93,7 +93,7 @@
 
         .toggle {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             padding: 6px;
             background: #f1f5f9;
             border-radius: 12px;
@@ -286,6 +286,9 @@
                 <button type="button" class="login-type-btn" onclick="switchLoginType(event, 'admin')">
                     <i class="fas fa-user-shield"></i> Admin
                 </button>
+                <button type="button" class="login-type-btn" onclick="switchLoginType(event, 'supplier')">
+                    <i class="fas fa-truck"></i> Supplier
+                </button>
             </div>
 
             @if(session('success'))
@@ -370,6 +373,7 @@
         const usernameGroup = document.getElementById('usernameGroup');
         const emailInput = document.getElementById('emailInput');
         const usernameInput = document.getElementById('usernameInput');
+        const loginForm = document.getElementById('loginForm');
 
         buttons.forEach(btn => btn.classList.remove('active'));
         if (evt && evt.target) {
@@ -383,11 +387,19 @@
             usernameGroup.style.display = 'block';
             emailInput.removeAttribute('required');
             usernameInput.setAttribute('required', 'required');
+            loginForm.action = "{{ route('login.store') }}";
+        } else if (type === 'supplier') {
+            emailGroup.style.display = 'block';
+            usernameGroup.style.display = 'none';
+            emailInput.setAttribute('required', 'required');
+            usernameInput.removeAttribute('required');
+            loginForm.action = "{{ route('supplier.login') }}";
         } else {
             emailGroup.style.display = 'block';
             usernameGroup.style.display = 'none';
             emailInput.setAttribute('required', 'required');
             usernameInput.removeAttribute('required');
+            loginForm.action = "{{ route('login.store') }}";
         }
     }
 </script>

@@ -278,16 +278,61 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="image">Product Image</label>
-                    <div class="file-upload">
-                        <input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)">
-                        <label for="image" class="file-upload-label">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <span>Click to upload or drag and drop (JPG, PNG, GIF - Max 2MB)</span>
-                        </label>
-                    </div>
-                    <div class="image-preview" id="imagePreview">
-                        <img id="previewImg" src="" alt="Preview">
+                    <label>Product Images <span style="color: #999;">(Up to 4 images)</span></label>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Upload up to 4 product images to showcase your fertilizer from different angles</p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+                        <!-- Image 1 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem;">Image 1 (Primary)</label>
+                            <div class="file-upload">
+                                <input type="file" id="image1" name="image" accept="image/*" onchange="previewImage(1)">
+                                <label for="image1" class="file-upload-label" id="fileLabel1">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview1" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem;">Image 2</label>
+                            <div class="file-upload">
+                                <input type="file" id="image2" name="image2" accept="image/*" onchange="previewImage(2)">
+                                <label for="image2" class="file-upload-label" id="fileLabel2">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview2" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 3 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem;">Image 3</label>
+                            <div class="file-upload">
+                                <input type="file" id="image3" name="image3" accept="image/*" onchange="previewImage(3)">
+                                <label for="image3" class="file-upload-label" id="fileLabel3">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview3" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
+
+                        <!-- Image 4 -->
+                        <div>
+                            <label style="font-size: 0.9rem; margin-bottom: 0.4rem;">Image 4</label>
+                            <div class="file-upload">
+                                <input type="file" id="image4" name="image4" accept="image/*" onchange="previewImage(4)">
+                                <label for="image4" class="file-upload-label" id="fileLabel4">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span style="font-size: 0.9rem;">Click to upload</span>
+                                </label>
+                            </div>
+                            <div id="preview4" style="margin-top: 0.5rem; text-align: center;"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -304,42 +349,24 @@
     </div>
 
     <script>
-        function previewImage(event) {
-            const file = event.target.files[0];
-            const preview = document.getElementById('imagePreview');
-            const previewImg = document.getElementById('previewImg');
+        function previewImage(imageNum) {
+            const input = document.getElementById(`image${imageNum}`);
+            const preview = document.getElementById(`preview${imageNum}`);
+            const label = document.getElementById(`fileLabel${imageNum}`);
 
-            if (file) {
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    previewImg.src = e.target.result;
-                    preview.classList.add('active');
+                    preview.innerHTML = `<img src="${e.target.result}" style="max-width: 100%; height: auto; border-radius: 8px; max-height: 150px;">`;
+                    label.innerHTML = `
+                        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+                        <span style="font-size: 0.9rem; color: #28a745; font-weight: 600;">Selected</span>
+                    `;
                 };
                 reader.readAsDataURL(file);
-            } else {
-                preview.classList.remove('active');
             }
         }
-
-        // Drag and drop
-        const fileInput = document.getElementById('image');
-        const fileLabel = document.querySelector('.file-upload-label');
-
-        fileLabel.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            fileLabel.style.background = '#e8f5e9';
-        });
-
-        fileLabel.addEventListener('dragleave', () => {
-            fileLabel.style.background = '#f0f7f0';
-        });
-
-        fileLabel.addEventListener('drop', (e) => {
-            e.preventDefault();
-            fileLabel.style.background = '#f0f7f0';
-            fileInput.files = e.dataTransfer.files;
-            previewImage({ target: { files: e.dataTransfer.files } });
-        });
     </script>
 </body>
 </html>

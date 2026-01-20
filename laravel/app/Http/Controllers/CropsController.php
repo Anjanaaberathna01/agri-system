@@ -20,9 +20,10 @@ class CropsController extends Controller
     /**
      * Display a specific crop.
      */
-    public function show(Crop $crop)
+    public function show(Crop $crop): \Illuminate\View\View
     {
-        return view('crop.show', compact('crop'));
+        $relatedCrops = Crop::whereNotIn('id', [$crop->id])->latest()->get();
+        return view('crop.show', compact('crop', 'relatedCrops'));
     }
 
     /**
@@ -55,13 +56,20 @@ class CropsController extends Controller
             'rating' => 'nullable|integer|min:1|max:5',
             'reviews' => 'nullable|integer|min:0',
             'status' => 'required|in:in_stock,limited,unavailable,in-stock,limited-stock',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image' => 'nullable|image|max:2048',
+            'image2' => 'nullable|image|max:2048',
+            'image3' => 'nullable|image|max:2048',
+            'image4' => 'nullable|image|max:2048',
         ]);
 
         $validated['status'] = str_replace('-', '_', $validated['status']);
 
-        if ($request->hasFile('image')) {
-            $validated['image_folder'] = $request->file('image')->store('crops', 'public');
+        // Handle all 4 images
+        for ($i = 1; $i <= 4; $i++) {
+            $imageField = $i === 1 ? 'image' : 'image' . $i;
+            if ($request->hasFile($imageField)) {
+                $validated[$imageField] = $request->file($imageField)->store('crops', 'public');
+            }
         }
 
         Crop::create($validated);
@@ -90,7 +98,7 @@ class CropsController extends Controller
             'rating' => 'nullable|integer|min:1|max:5',
             'reviews' => 'nullable|integer|min:0',
             'status' => 'required|in:in_stock,limited,unavailable,in-stock,limited-stock',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'image' => 'nullable|image|max:2048',
         ]);
 
         $validated['status'] = str_replace('-', '_', $validated['status']);
@@ -110,7 +118,7 @@ class CropsController extends Controller
     /**
      * Delete crop.
      */
-    public function destroy(Crop $crop)
+    public function destroy(Crop $crop): \Illuminate\Http\RedirectResponse
     {
         if ($crop->image_folder) {
             Storage::disk('public')->delete($crop->image_folder);

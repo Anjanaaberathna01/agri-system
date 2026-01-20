@@ -32,7 +32,7 @@ class ProfileController extends Controller
             'phone' => 'nullable|string|max:20',
             'mobile_number_2' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:500',
-            'profile_photo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'profile_photo' => 'nullable|image|max:2048',
         ]);
 
         // Handle profile photo upload

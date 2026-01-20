@@ -15,5 +15,9 @@ class Crop extends Model
         'reviews',
         'status',
         'image_folder',
+        'image',
+        'image2',
+        'image3',
+        'image4',
     ];
 }

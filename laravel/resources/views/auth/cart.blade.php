@@ -423,7 +423,7 @@
 
                             <div class="item-actions" style="min-inline-size:110px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
                                 <div class="item-total" style="margin-block-end:8px;">Rs. {{ number_format($item['price'] * $item['quantity'], 2) }}</div>
-                                <a href="{{ route('cart.remove', $key) }}" class="item-remove" onclick="return confirm('Remove this item?')">Remove</a>
+                                <a href="{{ route('cart.remove', $key) }}" class="item-remove" onclick="return confirm('Remove this item?')" style="text-decoration: none">Remove</a>
                             </div>
                         </div>
                     @endforeach
@@ -456,9 +456,9 @@
 
                 @if(!empty($cart))
                 <div style="display: flex; flex-direction: column; gap: 12px; margin-block-start: 24px;">
-                    <a class="checkout-btn" href="{{ route('auth.check_out') }}" style="margin-block-end:0;">Proceed to Checkout</a>
-                    <a href="{{ route('home') }}" class="continue-shopping" style="margin-block-end:0;">Continue Shopping</a>
-                    <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-block-start:0;">Clear Cart</a>
+                    <a class="checkout-btn" href="{{ route('auth.check_out') }}" style="margin-block-end:0; text-decoration: none; text-align: center;">Proceed to Checkout</a>
+                    <a href="{{ route('home') }}" class="continue-shopping" style="margin-block-end:0; text-decoration: none">Continue Shopping</a>
+                    <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-block-start:0; text-decoration: none">Clear Cart</a>
                 </div>
                 @endif
             </div>

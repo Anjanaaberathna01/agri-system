@@ -11,14 +11,14 @@
         body { background-color: #f8f9fa; }
         .container { max-inline-size: 1200px; margin: 0 auto; padding: 2rem; }
         .breadcrumb { margin-block-end: 2rem; display: flex; gap: 0.5rem; align-items: center; color: #666; }
-        .breadcrumb a { color: #4CAF50; text-decoration: none; font-weight: 500; }
+        .breadcrumb a { color: #6ba545; text-decoration: none; font-weight: 500; }
         .breadcrumb a:hover { text-decoration: underline; }
         .breadcrumb span { color: #999; }
 
         .product-section { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); margin-block-end: 2rem; }
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 
-        .product-image { position: relative; inline-size: 100%; block-size: 400px; background: linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-image { position: relative; inline-size: 100%; block-size: 400px; background: linear-gradient(135deg, #6ba545 0%, #4a7c2c 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .product-image img { inline-size: 100%; block-size: 100%; object-fit: cover; }
         .product-image-nav { position: absolute; inset-block-start: 50%; transform: translateY(-50%); inline-size: 42px; block-size: 42px; border-radius: 50%; border: none; background: rgba(0, 0, 0, 0.35); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; z-index: 2; }
         .product-image-nav:hover { background: rgba(0, 0, 0, 0.55); }
@@ -26,7 +26,7 @@
         .product-image-nav.right { inset-inline-end: 12px; }
 
         .product-details h1 { font-size: 2rem; color: #333; margin-block-end: 1rem; font-weight: 700; }
-        .price { font-size: 2rem; color: #2e7d32; font-weight: 700; margin-block-end: 1rem; }
+        .price { font-size: 2rem; color: #2d5016; font-weight: 700; margin-block-end: 1rem; }
         .status-badge { display: inline-block; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; margin-block-end: 1.5rem; font-size: 0.9rem; }
         .status-badge.in_stock { background: #d4f4d8; color: #0d5a0d; }
         .status-badge.limited { background: #fff3cd; color: #664d00; }
@@ -39,16 +39,16 @@
         .meta-item value { font-size: 1.1rem; color: #333; font-weight: 500; }
 
         .action-buttons { display: flex; gap: 1rem; margin-block-end: 2rem; flex-wrap: wrap; }
-        .quantity-selector { display: flex; align-items: center; gap: 0; border: 2px solid #4CAF50; border-radius: 8px; overflow: hidden; }
+        .quantity-selector { display: flex; align-items: center; gap: 0; border: 2px solid #6ba545; border-radius: 8px; overflow: hidden; }
         .qty-btn { inline-size: 40px; block-size: 40px; border: none; background: #f0f0f0; cursor: pointer; font-weight: 600; color: #333; transition: all 0.3s ease; }
-        .qty-btn:hover { background: #4CAF50; color: white; }
+        .qty-btn:hover { background: #6ba545; color: white; }
         .qty-input { inline-size: 60px; border: none; text-align: center; font-size: 1rem; font-weight: 600; background: white; }
         .qty-input:focus { outline: none; }
 
         .btn { padding: 0.75rem 2rem; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-flex; align-items: center; gap: 0.8rem; }
-        .btn-primary { background: linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%); color: white; box-shadow: 0 4px 12px rgba(102, 187, 106, 0.3); flex: 1; justify-content: center; min-inline-size: 200px; }
-        .btn-primary:hover { box-shadow: 0 6px 16px rgba(102, 187, 106, 0.4); transform: translateY(-2px); }
-        .btn-outline { background: white; color: #2e7d32; border: 2px solid #4CAF50; flex: 1; justify-content: center; min-inline-size: 200px; }
+        .btn-primary { background: linear-gradient(135deg, #6ba545 0%, #4a7c2c 100%); color: white; box-shadow: 0 4px 12px rgba(107, 165, 69, 0.3); flex: 1; justify-content: center; min-inline-size: 200px; }
+        .btn-primary:hover { box-shadow: 0 6px 16px rgba(107, 165, 69, 0.4); transform: translateY(-2px); }
+        .btn-outline { background: white; color: #2d5016; border: 2px solid #6ba545; flex: 1; justify-content: center; min-inline-size: 200px; }
         .btn-outline:hover { background: #f0f0f0; }
 
         .related-products { margin-block-start: 3rem; }
@@ -56,11 +56,11 @@
         .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .product-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; cursor: pointer; text-decoration: none; color: inherit; }
         .product-card:hover { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); transform: translateY(-5px); }
-        .product-card-image { inline-size: 100%; block-size: 200px; background: linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .product-card-image { inline-size: 100%; block-size: 200px; background: linear-gradient(135deg, #6ba545 0%, #4a7c2c 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .product-card-image img { inline-size: 100%; block-size: 100%; object-fit: cover; }
         .product-card-body { padding: 1.5rem; }
         .product-card-title { font-size: 1rem; font-weight: 600; color: #333; margin-block-end: 0.5rem; }
-        .product-card-price { font-size: 1.25rem; color: #2e7d32; font-weight: 700; }
+        .product-card-price { font-size: 1.25rem; color: #2d5016; font-weight: 700; }
 
         @media (max-inline-size: 768px) {
             .product-grid { grid-template-columns: 1fr; gap: 1.5rem; }
@@ -89,7 +89,7 @@
         <div class="breadcrumb">
             <a href="{{ route('home') }}">Home</a>
             <span>></span>
-            <a href="{{ route('crops.index') }}">Crops</a>
+            <a href="{{ route('home') }}#crops-section">Crops</a>
             <span>></span>
             <span>{{ $crop->name }}</span>
         </div>
@@ -117,7 +117,6 @@
                     }
 
                     $status = str_replace('-', '_', $crop->status);
-                    $relatedCrops = \App\Models\Crop::where('id', '!=', $crop->id)->latest()->get();
                 @endphp
 
                 <div class="product-image">

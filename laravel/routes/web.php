@@ -3,20 +3,22 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\SupplierAuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\FertilizersController;
 use App\Http\Controllers\CropsController;
+use App\Http\Controllers\SupplierController;
 use App\Models\Tool;
 use App\Models\Fertilizer;
 use App\Models\Crop;
 
 // Home page (first page)
 Route::get('/', function () {
-    $tools = Tool::orderBy('title')->get();
-    $fertilizers = Fertilizer::orderBy('title')->get();
-    $crops = Crop::orderBy('name')->get();
+    $tools = Tool::orderBy('title', 'asc')->get();
+    $fertilizers = Fertilizer::orderBy('title', 'asc')->get();
+    $crops = Crop::orderBy('name', 'asc')->get();
     return view('home', compact('tools', 'fertilizers', 'crops'));
 })->name('home');
 
@@ -39,43 +41,13 @@ Route::middleware('auth')->group(function () {
 
 // Tools Routes
 Route::get('/tools', [ToolsController::class, 'index'])->name('tools.index');
-Route::get('/tools/rake', function () {return view('tools.rake.index');})->name('tools.rake');
-Route::get('/tools/spading_fork', function () {return view('tools.spading_fork.index');})->name('tools.spading_fork');
-Route::get('/tools/scythe', function () {return view('tools.scythe.index');})->name('tools.scythe');
-Route::get('/tools/weeding_hoe', function () {return view('tools.weeding_hoe.index');})->name('tools.weeding_hoe');
-Route::get('/tools/sickle', function () {return view('tools.sickle.index');})->name('tools.sickle');
-Route::get('/tools/spreyer', function () {return view('tools.spreyer.index');})->name('tools.spreyer');
-Route::get('/tools/irrigation_pump', function () {return view('tools.irrigation_pump.index');})->name('tools.irrigation_pump');
-Route::get('/tools/lawn_mower', function () {return view('tools.lawn_mower.index');})->name('tools.lawn_mower');
-Route::get('/tools/sprinkler', function () {return view('tools.sprinkler.index');})->name('tools.sprinkler');
-Route::get('/tools/seed_drill', function () {return view('tools.Seed_Drill.index');})->name('tools.seed_drill');
-
+Route::get('/tools/{id}', [ToolsController::class, 'show'])->name('tools.show');
 // Fertilizers Routes
 Route::get('/fertilizers', [FertilizersController::class, 'index'])->name('fertilizers.index');
 Route::get('/fertilizers/{id}', [FertilizersController::class, 'show'])->name('fertilizers.show');
-Route::get('/fertilizers/gypsum', function () {return view('fertilizers.gypsum.index');})->name('fertilizers.gypsum');
-Route::get('/fertilizers/urea', function () {return view('fertilizers.urea.index');})->name('fertilizers.urea');
-Route::get('/fertilizers/boron', function () {return view('fertilizers.boron.index');})->name('fertilizers.boron');
-Route::get('/fertilizers/magnesium', function () {return view('fertilizers.magnesium.index');})->name('fertilizers.magnesium');
-Route::get('/fertilizers/mixed', function () {return view('fertilizers.mixed.index');})->name('fertilizers.mixed');
-Route::get('/fertilizers/molybdenum', function () {return view('fertilizers.molybdenum.index');})->name('fertilizers.molybdenum');
-Route::get('/fertilizers/zinc', function () {return view('fertilizers.zinc.index');})->name('fertilizers.zinc');
-Route::get('/fertilizers/phosphate', function () {return view('fertilizers.phosphate.index');})->name('fertilizers.phosphate');
-Route::get('/fertilizers/potassium', function () {return view('fertilizers.potassium.index');})->name('fertilizers.potassium');
-Route::get('/fertilizers/sulfur', function () {return view('fertilizers.sulfur.index');})->name('fertilizers.sulfur');
 
 // Crops Routes
 Route::get('/crops', [CropsController::class, 'index'])->name('crops.index');
-Route::get('/crops/blackcowpea', function () {return view('crop.blackcowpea.index');})->name('crops.blackcowpea');
-Route::get('/crops/corn', function () {return view('crop.corn.index');})->name('crops.corn');
-Route::get('/crops/peanut', function () {return view('crop.peanut.index');})->name('crops.peanut');
-Route::get('/crops/redpepper', function () {return view('crop.redpepper.index');})->name('crops.redpepper');
-Route::get('/crops/sorghum', function () {return view('crop.sorghum.index');})->name('crops.sorghum');
-Route::get('/crops/sunflower', function () {return view('crop.sunflower.index');})->name('crops.sunflower');
-Route::get('/crops/mung', function () {return view('crop.mung.index');})->name('crops.mung');
-Route::get('/crops/cowpea', function () {return view('crop.cowpea.index');})->name('crops.cowpea');
-Route::get('/crops/fieldpea', function () {return view('crop.fieldpea.index');})->name('crops.fieldpea');
-Route::get('/crops/chikpea', function () {return view('crop.chikpea.index');})->name('crops.chikpea');
 Route::get('/crops/{crop}', [CropsController::class, 'show'])->name('crops.show');
 
 // Cart Routes
@@ -122,9 +94,48 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::put('/crops/{crop}', [CropsController::class, 'update'])->name('crops.update');
     Route::delete('/crops/{crop}', [CropsController::class, 'destroy'])->name('crops.destroy');
 
+    // Suppliers Management (admin-only add)
+    Route::get('/suppliers', [SupplierController::class, 'index'])->name('suppliers.index');
+    Route::get('/suppliers/create', [SupplierController::class, 'create'])->name('suppliers.create');
+    Route::post('/suppliers', [SupplierController::class, 'store'])->name('suppliers.store');
+    Route::get('/suppliers/{id}/edit', [SupplierController::class, 'edit'])->name('suppliers.edit');
+    Route::put('/suppliers/{id}', [SupplierController::class, 'update'])->name('suppliers.update');
+    Route::delete('/suppliers/{id}', [SupplierController::class, 'destroy'])->name('suppliers.destroy');
+
     // Orders Management
     Route::get('/orders', [CartController::class, 'adminOrders'])->name('orders');
     Route::get('/orders/{id}', [CartController::class, 'viewOrder'])->name('order.view');
     Route::post('/orders/{id}/status', [CartController::class, 'updateOrderStatus'])->name('order.update-status');
+
+    // Product Requests Management
+    Route::get('/product-requests', [\App\Http\Controllers\Admin\ProductRequestController::class, 'index'])->name('product-requests.index');
+    Route::get('/product-requests/{id}', [\App\Http\Controllers\Admin\ProductRequestController::class, 'show'])->name('product-requests.show');
+    Route::post('/product-requests/{id}/approve', [\App\Http\Controllers\Admin\ProductRequestController::class, 'approve'])->name('product-requests.approve');
+    Route::post('/product-requests/{id}/reject', [\App\Http\Controllers\Admin\ProductRequestController::class, 'reject'])->name('product-requests.reject');
 });
+
+// Supplier Routes
+Route::prefix('supplier')->name('supplier.')->group(function () {
+    Route::post('/login', [SupplierAuthController::class, 'login'])->name('login');
+    Route::post('/logout', [SupplierAuthController::class, 'logout'])->name('logout');
+
+    Route::middleware(['auth:supplier'])->group(function () {
+        Route::get('/dashboard', function () {
+            return view('supplier.dashboard');
+        })->name('dashboard');
+
+        Route::get('/change-password', [SupplierAuthController::class, 'showChangePasswordForm'])->name('change-password');
+        Route::post('/change-password', [SupplierAuthController::class, 'changePassword'])->name('change-password.update');
+
+        // Product Requests Routes
+        Route::get('/requests', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'index'])->name('requests.index');
+        Route::get('/requests/create', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'create'])->name('requests.create');
+        Route::post('/requests', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'store'])->name('requests.store');
+        Route::get('/requests/{id}', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'show'])->name('requests.show');
+        Route::get('/requests/{id}/edit', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'edit'])->name('requests.edit');
+        Route::put('/requests/{id}', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'update'])->name('requests.update');
+        Route::delete('/requests/{id}', [\App\Http\Controllers\Supplier\ProductRequestController::class, 'destroy'])->name('requests.destroy');
+    });
+});
+
 Route::get('/tools/{id}', [ToolsController::class, 'show'])->name('tools.show');

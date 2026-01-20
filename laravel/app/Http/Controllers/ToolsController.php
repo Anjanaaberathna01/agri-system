@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Tool;
 use App\Models\Fertilizer;
 use App\Models\Crop;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,9 +31,10 @@ class ToolsController extends Controller
 	public function dashboard()
 	{
 		$tools = Tool::orderBy('created_at', 'desc')->get();
-		$fertilizers = \App\Models\Fertilizer::orderBy('created_at', 'desc')->get();
-		$crops = \App\Models\Crop::orderBy('created_at', 'desc')->get();
-		return view('admin.dashboard', compact('tools', 'fertilizers', 'crops'));
+		$fertilizers = Fertilizer::orderBy('created_at', 'desc')->get();
+		$crops = Crop::orderBy('created_at', 'desc')->get();
+		$suppliers = Supplier::orderBy('created_at', 'desc')->get();
+		return view('admin.dashboard', compact('tools', 'fertilizers', 'crops', 'suppliers'));
 	}
 
 	// Admin - List all tools
@@ -56,11 +58,18 @@ class ToolsController extends Controller
 			'price' => 'required|numeric|min:0',
 			'description' => 'required|string',
 			'status' => 'required|in:in_stock,limited,unavailable',
-			'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+			'image' => 'nullable|image|max:2048',
+			'image2' => 'nullable|image|max:2048',
+			'image3' => 'nullable|image|max:2048',
+			'image4' => 'nullable|image|max:2048',
 		]);
 
-		if ($request->hasFile('image')) {
-			$validated['image'] = $request->file('image')->store('tools', 'public');
+		// Handle all 4 images
+		for ($i = 1; $i <= 4; $i++) {
+			$imageField = $i === 1 ? 'image' : 'image' . $i;
+			if ($request->hasFile($imageField)) {
+				$validated[$imageField] = $request->file($imageField)->store('tools', 'public');
+			}
 		}
 
 		Tool::create($validated);
@@ -85,7 +94,7 @@ class ToolsController extends Controller
 			'price' => 'required|numeric|min:0',
 			'description' => 'required|string',
 			'status' => 'required|in:in_stock,limited,unavailable',
-			'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+			'image' => 'nullable|image|max:2048'
 		]);
 
 		if ($request->hasFile('image')) {

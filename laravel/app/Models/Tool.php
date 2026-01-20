@@ -13,6 +13,9 @@ class Tool extends Model
         'title',
         'price',
         'image',
+        'image2',
+        'image3',
+        'image4',
         'description',
         'status',
     ];

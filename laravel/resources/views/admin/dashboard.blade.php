@@ -16,12 +16,12 @@
 
         body {
             background-color: #f5f7fa;
-            min-height: 100vh;
+            min-block-size: 100vh;
         }
 
         /* Main Content */
         .dashboard-container {
-            max-width: 1600px;
+            max-inline-size: 1600px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -31,13 +31,13 @@
             color: white;
             padding: 2.5rem;
             border-radius: 15px;
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
             box-shadow: 0 8px 16px rgba(76, 175, 80, 0.3);
         }
 
         .dashboard-header h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            margin-block-end: 0.5rem;
             font-weight: 700;
         }
 
@@ -50,7 +50,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-block-end: 3rem;
         }
 
         .stat-card {
@@ -62,7 +62,7 @@
             align-items: center;
             gap: 1.5rem;
             transition: all 0.3s ease;
-            border-top: 4px solid;
+            border-block-start: 4px solid;
         }
 
         .stat-card:hover {
@@ -71,24 +71,28 @@
         }
 
         .stat-card.tools {
-            border-top-color: #FA891A;
+            border-block-start-color: #FA891A;
         }
 
         .stat-card.fertilizers {
-            border-top-color: #4CAF50;
+            border-block-start-color: #4CAF50;
         }
 
         .stat-card.crops {
-            border-top-color: #2196F3;
+            border-block-start-color: #2196F3;
         }
 
         .stat-card.orders {
-            border-top-color: #9C27B0;
+            border-block-start-color: #9C27B0;
+        }
+
+        .stat-card.suppliers {
+            border-block-start-color: #3949ab;
         }
 
         .stat-icon {
-            width: 70px;
-            height: 70px;
+            inline-size: 70px;
+            block-size: 70px;
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -114,10 +118,14 @@
             background: linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%);
         }
 
+        .stat-icon.suppliers {
+            background: linear-gradient(135deg, #3949ab 0%, #283593 100%);
+        }
+
         .stat-content h3 {
             font-size: 2.2rem;
             color: #333;
-            margin-bottom: 0.3rem;
+            margin-block-end: 0.3rem;
             font-weight: 700;
         }
 
@@ -131,16 +139,16 @@
             padding: 2.5rem;
             border-radius: 15px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            margin-bottom: 2.5rem;
+            margin-block-end: 2.5rem;
         }
 
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 2px solid #f0f0f0;
+            margin-block-end: 2rem;
+            padding-block-end: 1.5rem;
+            border-block-end: 2px solid #f0f0f0;
         }
 
         .section-header h2 {
@@ -205,9 +213,9 @@
         }
 
         .management-table {
-            width: 100%;
+            inline-size: 100%;
             border-collapse: collapse;
-            margin-top: 0;
+            margin-block-start: 0;
         }
 
         .management-table thead {
@@ -216,16 +224,16 @@
 
         .management-table th {
             padding: 1.2rem;
-            text-align: left;
+            text-align: start;
             font-weight: 700;
             color: #333;
-            border-bottom: 2px solid #dee2e6;
+            border-block-end: 2px solid #dee2e6;
             font-size: 0.95rem;
         }
 
         .management-table td {
             padding: 1.2rem;
-            border-bottom: 1px solid #dee2e6;
+            border-block-end: 1px solid #dee2e6;
             color: #555;
         }
 
@@ -234,8 +242,8 @@
         }
 
         .item-image {
-            width: 50px;
-            height: 50px;
+            inline-size: 50px;
+            block-size: 50px;
             object-fit: cover;
             border-radius: 8px;
         }
@@ -268,7 +276,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-block-start: 2rem;
         }
 
         .quick-action-card {
@@ -280,7 +288,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
-            border-top: 4px solid;
+            border-block-start: 4px solid;
         }
 
         .quick-action-card:hover {
@@ -289,24 +297,24 @@
         }
 
         .quick-action-card.tools {
-            border-top-color: #FA891A;
+            border-block-start-color: #FA891A;
         }
 
         .quick-action-card.fertilizers {
-            border-top-color: #4CAF50;
+            border-block-start-color: #4CAF50;
         }
 
         .quick-action-card.crops {
-            border-top-color: #2196F3;
+            border-block-start-color: #2196F3;
         }
 
         .quick-action-card.orders {
-            border-top-color: #9C27B0;
+            border-block-start-color: #9C27B0;
         }
 
         .quick-action-card i {
             font-size: 2.8rem;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             display: block;
         }
 
@@ -325,14 +333,14 @@
         .empty-state i {
             font-size: 3.5rem;
             color: #ddd;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             display: block;
         }
 
         .alert {
             padding: 1.2rem 1.5rem;
             border-radius: 8px;
-            margin-bottom: 1.5rem;
+            margin-block-end: 1.5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -353,7 +361,7 @@
         .alert-success {
             background-color: #d4edda;
             color: #155724;
-            border-left: 4px solid #28a745;
+            border-inline-start: 4px solid #28a745;
         }
 
         .alert i {
@@ -378,7 +386,7 @@
             text-decoration: underline;
         }
 
-        @media (max-width: 768px) {
+        @media (max-inline-size: 768px) {
             .dashboard-container {
                 padding: 1rem;
             }
@@ -466,7 +474,94 @@
                     <p>Total Orders</p>
                 </div>
             </div>
+
+            <div class="stat-card suppliers">
+                <div class="stat-icon suppliers">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>{{ \App\Models\Supplier::count() }}</h3>
+                    <p>Registered Suppliers</p>
+                </div>
+            </div>
+
+            <div class="stat-card" style="border-block-start-color: #ff9800;">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%); color: white;">
+                    <i class="fas fa-inbox"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>{{ \App\Models\ProductRequest::where('status', 'pending')->count() }}</h3>
+                    <p>Pending Product Requests</p>
+                    <a href="{{ route('admin.product-requests.index') }}" style="color: #ff9800; font-size: 0.85rem; text-decoration: none; font-weight: 600;">
+                        <i class="fas fa-arrow-right"></i> Review Now
+                    </a>
+                </div>
+            </div>
         </div>
+
+        <!-- Product Requests Section -->
+        @if(\App\Models\ProductRequest::where('status', 'pending')->count() > 0)
+        <div class="management-section" style="border-left: 4px solid #ff9800;">
+            <div class="section-header" style="background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%); color: white; padding: 1.5rem; border-radius: 12px;">
+                <h2><i class="fas fa-inbox"></i> Pending Product Requests</h2>
+                <a href="{{ route('admin.product-requests.index') }}" class="btn" style="background: white; color: #ff9800; font-weight: 600;">
+                    <i class="fas fa-list"></i> View All Requests
+                </a>
+            </div>
+
+            <div class="table-responsive" style="margin-top: 1.5rem;">
+                <table class="management-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Supplier</th>
+                            <th>Type</th>
+                            <th>Price</th>
+                            <th>Submitted</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach(\App\Models\ProductRequest::where('status', 'pending')->latest()->take(5)->get() as $request)
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                    @if($request->image)
+                                        <img src="{{ asset('storage/' . $request->image) }}" alt="{{ $request->title }}" class="item-image">
+                                    @else
+                                        <div style="width: 50px; height: 50px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+                                            <i class="fas fa-image" style="color: #999;"></i>
+                                        </div>
+                                    @endif
+                                    <strong>{{ $request->title }}</strong>
+                                </div>
+                            </td>
+                            <td>{{ $request->supplier->full_name }}</td>
+                            <td>
+                                @if($request->product_type === 'tools')
+                                    <span class="badge" style="background: #fff3e0; color: #e65100; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Tools</span>
+                                @elseif($request->product_type === 'fertilizer')
+                                    <span class="badge" style="background: #e8f5e9; color: #2e7d32; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Fertilizer</span>
+                                @else
+                                    <span class="badge" style="background: #e3f2fd; color: #1565c0; padding: 0.4rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600;">Crops</span>
+                                @endif
+                            </td>
+                            <td>Rs {{ number_format($request->price, 2) }}</td>
+                            <td>{{ $request->created_at->diffForHumans() }}</td>
+                            <td>
+                                <div style="display: flex; gap: 0.5rem;">
+                                    <a href="{{ route('admin.product-requests.index') }}" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.5rem 1rem;">
+                                        <i class="fas fa-eye"></i> Review
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        @endif
 
         <!-- Tools Management Section -->
         <div class="management-section">
@@ -540,7 +635,7 @@
                     </table>
                 </div>
                 @if($tools->count() > 5)
-                    <p style="text-align: right; margin-top: 1rem;">
+                    <p style="text-align: end; margin-block-start: 1rem;">
                         <a href="{{ route('admin.tools.index') }}" class="view-all-link">View all {{ $tools->count() }} tools →</a>
                     </p>
                 @endif
@@ -624,7 +719,7 @@
                     </table>
                 </div>
                 @if($fertilizers->count() > 5)
-                    <p style="text-align: right; margin-top: 1rem;">
+                    <p style="text-align: end; margin-block-start: 1rem;">
                         <a href="{{ route('admin.fertilizers.index') }}" class="view-all-link">View all {{ $fertilizers->count() }} fertilizers →</a>
                     </p>
                 @endif
@@ -723,7 +818,7 @@
                     </table>
                 </div>
                 @if($crops->count() > 5)
-                    <p style="text-align: right; margin-top: 1rem;">
+                    <p style="text-align: end; margin-block-start: 1rem;">
                         <a href="{{ route('admin.crops.index') }}" class="view-all-link">View all {{ $crops->count() }} crops →</a>
                     </p>
                 @endif
@@ -735,33 +830,111 @@
             @endif
         </div>
 
+        <!-- Suppliers Management Section -->
+        <div class="management-section">
+            <div class="section-header">
+                <h2><i class="fas fa-users"></i> Suppliers Management</h2>
+                <a href="{{ route('admin.suppliers.create') }}" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Add New Supplier
+                </a>
+            </div>
+
+            @if($suppliers->count() > 0)
+                <div class="table-responsive">
+                    <table class="management-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Product Type</th>
+                                <th>Country</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($suppliers->take(5) as $supplier)
+                            <tr>
+                                <td><strong>#{{ $supplier->id }}</strong></td>
+                                <td><strong>{{ $supplier->first_name }} {{ $supplier->last_name }}</strong></td>
+                                <td>{{ $supplier->email }}</td>
+                                <td>{{ $supplier->phone }}</td>
+                                <td>
+                                    @if($supplier->product_type === 'tools')
+                                        <span class="status-badge" style="background-color: #fff3e0; color: #e65100;">Tools</span>
+                                    @elseif($supplier->product_type === 'fertilizer')
+                                        <span class="status-badge" style="background-color: #e8f5e9; color: #2e7d32;">Fertilizer</span>
+                                    @else
+                                        <span class="status-badge" style="background-color: #e3f2fd; color: #1565c0;">Crops</span>
+                                    @endif
+                                </td>
+                                <td>{{ $supplier->country }}</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <a href="{{ route('admin.suppliers.edit', $supplier->id) }}" class="btn btn-warning btn-sm">
+                                            <i class="fas fa-edit"></i> Edit
+                                        </a>
+                                        <form action="{{ route('admin.suppliers.destroy', $supplier->id) }}" method="POST" style="display: inline;" onsubmit="return confirm('Delete this supplier?');">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">
+                                                <i class="fas fa-trash"></i> Delete
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+                @if($suppliers->count() > 5)
+                    <p style="text-align: end; margin-block-start: 1rem;">
+                        <a href="{{ route('admin.suppliers.index') }}" class="view-all-link">View all {{ $suppliers->count() }} suppliers →</a>
+                    </p>
+                @endif
+            @else
+                <div class="empty-state">
+                    <i class="fas fa-users"></i>
+                    <p>No suppliers added yet. Click "Add New Supplier" to get started.</p>
+                </div>
+            @endif
+        </div>
+
         <!-- Quick Actions Section -->
         <div class="management-section">
-            <h2 style="margin-bottom: 2rem; font-size: 1.6rem; color: #333;"><i class="fas fa-bolt" style="color: #4CAF50; margin-right: 0.8rem;"></i> Quick Management</h2>
+            <h2 style="margin-block-end: 2rem; font-size: 1.6rem; color: #333;"><i class="fas fa-bolt" style="color: #4CAF50; margin-inline-end: 0.8rem;"></i> Quick Management</h2>
 
             <div class="quick-actions">
                 <a href="{{ route('admin.tools.index') }}" class="quick-action-card tools">
                     <i class="fas fa-plus-circle" style="color: #FA891A;"></i>
                     <h3>Add Tools</h3>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Add new agricultural tools</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-block-start: 0.5rem;">Add new agricultural tools</p>
+                </a>
+
+                <a href="{{ route('admin.suppliers.index') }}" class="quick-action-card" style="border-block-start-color:#3949ab;">
+                    <i class="fas fa-users" style="color: #3949ab;"></i>
+                    <h3>Manage Suppliers</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-block-start: 0.5rem;">View and manage suppliers</p>
                 </a>
 
                 <a href="{{ route('admin.fertilizers.index') }}" class="quick-action-card fertilizers">
                     <i class="fas fa-droplet" style="color: #4CAF50;"></i>
                     <h3>Add Fertilizers</h3>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Add new fertilizer products</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-block-start: 0.5rem;">Add new fertilizer products</p>
                 </a>
 
                 <a href="{{ route('admin.crops.index') }}" class="quick-action-card crops">
                     <i class="fas fa-leaf" style="color: #2196F3;"></i>
                     <h3>Manage Crops</h3>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Control crop information</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-block-start: 0.5rem;">Control crop information</p>
                 </a>
 
                 <a href="{{ route('admin.orders') }}" class="quick-action-card orders">
                     <i class="fas fa-shopping-cart" style="color: #9C27B0;"></i>
                     <h3>View Orders</h3>
-                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem;">Check customer orders</p>
+                    <p style="font-size: 0.85rem; color: #666; margin-block-start: 0.5rem;">Check customer orders</p>
                 </a>
             </div>
         </div>

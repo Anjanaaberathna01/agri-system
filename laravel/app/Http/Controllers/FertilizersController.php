@@ -45,11 +45,18 @@ class FertilizersController extends Controller
             'price' => 'required|numeric|min:0',
             'description' => 'required|string',
             'status' => 'required|in:in_stock,limited,unavailable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'nullable|image|max:2048',
+            'image2' => 'nullable|image|max:2048',
+            'image3' => 'nullable|image|max:2048',
+            'image4' => 'nullable|image|max:2048',
         ]);
 
-        if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('fertilizers', 'public');
+        // Handle all 4 images
+        for ($i = 1; $i <= 4; $i++) {
+            $imageField = $i === 1 ? 'image' : 'image' . $i;
+            if ($request->hasFile($imageField)) {
+                $validated[$imageField] = $request->file($imageField)->store('fertilizers', 'public');
+            }
         }
 
         Fertilizer::create($validated);
@@ -74,7 +81,7 @@ class FertilizersController extends Controller
             'price' => 'required|numeric|min:0',
             'description' => 'required|string',
             'status' => 'required|in:in_stock,limited,unavailable',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'nullable|image|max:2048'
         ]);
 
         if ($request->hasFile('image')) {
