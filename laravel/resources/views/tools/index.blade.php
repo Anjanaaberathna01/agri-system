@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 100%;
+            max-inline-size: 100%;
             padding: 2rem 0;
         }
 
@@ -30,11 +30,11 @@
             padding: 2rem 2rem;
             text-align: center;
             background: white;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
         }
 
         .header-section h1 {
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             color: #333;
             font-size: 2.5rem;
             font-weight: 700;
@@ -59,7 +59,7 @@
 
         /* Custom Scrollbar */
         .tools-scroll-container::-webkit-scrollbar {
-            height: 8px;
+            block-size: 8px;
         }
 
         .tools-scroll-container::-webkit-scrollbar-track {
@@ -80,8 +80,8 @@
         .tools-row {
             display: flex;
             gap: 1.5rem;
-            min-width: min-content;
-            padding-bottom: 1rem;
+            min-inline-size: min-content;
+            padding-block-end: 1rem;
         }
 
         /* Tool Card */
@@ -105,10 +105,10 @@
 
         .tool-card-image-nav {
             position: absolute;
-            top: 50%;
+            inset-block-start: 50%;
             transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
+            inline-size: 36px;
+            block-size: 36px;
             border-radius: 50%;
             border: none;
             background: rgba(0, 0, 0, 0.35);
@@ -126,17 +126,17 @@
         }
 
         .tool-card-image-nav.left {
-            left: 10px;
+            inset-inline-start: 10px;
         }
 
         .tool-card-image-nav.right {
-            right: 10px;
+            inset-inline-end: 10px;
         }
 
         .tool-card-image-wrapper {
             position: relative;
-            width: 100%;
-            height: 200px;
+            inline-size: 100%;
+            block-size: 200px;
             background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             display: flex;
             align-items: center;
@@ -146,13 +146,13 @@
         }
 
         .tool-card-image {
-            width: 100%;
-            height: 100%;
+            inline-size: 100%;
+            block-size: 100%;
         }
 
         .tool-card-image img {
-            width: 100%;
-            height: 100%;
+            inline-size: 100%;
+            block-size: 100%;
             object-fit: cover;
         }
 
@@ -167,14 +167,14 @@
             font-size: 1.125rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 0.75rem;
+            margin-block-end: 0.75rem;
         }
 
         .tool-description {
             font-size: 0.85rem;
             color: #666;
             line-height: 1.4;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             flex-grow: 1;
         }
 
@@ -182,13 +182,13 @@
             font-size: 1.5rem;
             color: #F25912;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-block-end: 0.5rem;
         }
 
         .tool-status {
             font-size: 0.85rem;
             color: #666;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
         }
 
         .tool-status.in_stock {
@@ -203,7 +203,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-            margin-top: auto;
+            margin-block-start: auto;
         }
 
         .btn {
@@ -247,22 +247,22 @@
             text-align: center;
             padding: 3rem 2rem;
             color: #666;
-            width: 100%;
+            inline-size: 100%;
         }
 
         .empty-state i {
             font-size: 3.5rem;
             color: #ddd;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             display: block;
         }
 
         /* Scroll Indicators */
         .scroll-indicator {
             position: absolute;
-            top: 50%;
-            width: 40px;
-            height: 40px;
+            inset-block-start: 50%;
+            inline-size: 40px;
+            block-size: 40px;
             background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             border: none;
             border-radius: 50%;
@@ -283,15 +283,15 @@
         }
 
         .scroll-left {
-            left: 1rem;
+            inset-inline-start: 1rem;
         }
 
         .scroll-right {
-            right: 1rem;
+            inset-inline-end: 1rem;
         }
 
         .quantity-input {
-            width: 60px;
+            inline-size: 60px;
             padding: 0.5rem;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -305,7 +305,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-inline-size: 768px) {
             .tool-card {
                 flex: 0 0 280px;
             }
@@ -323,13 +323,13 @@
             }
 
             .scroll-indicator {
-                width: 35px;
-                height: 35px;
+                inline-size: 35px;
+                block-size: 35px;
                 font-size: 1rem;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-inline-size: 480px) {
             .tool-card {
                 flex: 0 0 240px;
             }
@@ -347,8 +347,8 @@
             }
 
             .scroll-indicator {
-                width: 32px;
-                height: 32px;
+                inline-size: 32px;
+                block-size: 32px;
                 font-size: 0.9rem;
             }
         }
@@ -362,7 +362,6 @@
 <div class="tools-scroll-container" id="toolsContainer">
     <div class="tools-row">
         @forelse($tools as $index => $tool)
-        <a href="{{ route('tools.show', $tool->id) }}" style="text-decoration: none; color: inherit;">
         <div class="tool-card">
             @php
                 $galleryFolder = $tool->title;
@@ -383,39 +382,43 @@
                 }
             @endphp
 
-            <div class="tool-card-image-wrapper">
-                @if(count($galleryUrls) > 1)
-                    <button type="button" class="tool-card-image-nav left" onclick="event.preventDefault(); event.stopPropagation(); changeToolImage('tool-image-{{ $tool->id }}', -1);">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                @endif
+            <a href="{{ route('tools.show', $tool->id) }}" style="text-decoration: none; color: inherit; display: block;">
+                <div class="tool-card-image-wrapper">
+                    @if(count($galleryUrls) > 1)
+                        <button type="button" class="tool-card-image-nav left" onclick="event.preventDefault(); event.stopPropagation(); changeToolImage('tool-image-{{ $tool->id }}', -1);">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    @endif
 
-                @if($primaryImage)
-                    <img
-                        id="tool-image-{{ $tool->id }}"
-                        class="tool-card-image"
-                        data-gallery="true"
-                        data-images='@json($galleryUrls)'
-                        data-index="0"
-                        src="{{ $primaryImage }}"
-                        alt="{{ $tool->title }}"
-                    >
-                @else
-                    <i class="fas fa-image"></i>
-                @endif
+                    @if($primaryImage)
+                        <img
+                            id="tool-image-{{ $tool->id }}"
+                            class="tool-card-image"
+                            data-gallery="true"
+                            data-images='@json($galleryUrls)'
+                            data-index="0"
+                            src="{{ $primaryImage }}"
+                            alt="{{ $tool->title }}"
+                        >
+                    @else
+                        <i class="fas fa-image"></i>
+                    @endif
 
-                @if(count($galleryUrls) > 1)
-                    <button type="button" class="tool-card-image-nav right" onclick="event.preventDefault(); event.stopPropagation(); changeToolImage('tool-image-{{ $tool->id }}', 1);">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                @endif
-            </div>
+                    @if(count($galleryUrls) > 1)
+                        <button type="button" class="tool-card-image-nav right" onclick="event.preventDefault(); event.stopPropagation(); changeToolImage('tool-image-{{ $tool->id }}', 1);">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    @endif
+                </div>
+            </a>
 
             <div class="tool-card-body">
-                <h5 class="tool-title">{{ $tool->title }}</h5>
-                <p class="tool-description">
-                    {{ Str::limit($tool->description, 100) }}
-                </p>
+                <a href="{{ route('tools.show', $tool->id) }}" style="text-decoration: none; color: inherit;">
+                    <h5 class="tool-title">{{ $tool->title }}</h5>
+                    <p class="tool-description">
+                        {{ Str::limit($tool->description, 100) }}
+                    </p>
+                </a>
                 <div class="tool-price">Rs {{ number_format($tool->price, 2) }}</div>
                 <p class="tool-status {{ $tool->status }}">
                     @if($tool->status === 'in_stock')
@@ -426,23 +429,25 @@
                         ✗ Out of Stock
                     @endif
                 </p>
-                <div class="tool-buttons" onclick="event.preventDefault(); event.stopPropagation();">
+                <div class="tool-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" class="cart-form">
                         @csrf
-                        <input type="hidden" name="tool_id" value="{{ $tool->id }}">
+                        <input type="hidden" name="id" value="{{ $tool->id }}">
+                        <input type="hidden" name="name" value="{{ $tool->title }}">
+                        <input type="hidden" name="type" value="tool">
                         <input type="hidden" name="price" value="{{ $tool->price }}">
+                        <input type="hidden" name="image" value="1.jpg">
                         <input type="number" name="quantity" value="1" min="1" class="quantity-input">
                         <button type="submit" class="btn btn-primary" style="flex: 1;">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </form>
-                    <a href="#" class="btn btn-outline" onclick="event.preventDefault(); event.stopPropagation();">
+                    <a href="#" class="btn btn-outline" onclick="event.preventDefault();">
                         <i class="fas fa-heart"></i> Wishlist
                     </a>
                 </div>
             </div>
         </div>
-        </a>
         @empty
         <div class="empty-state">
             <i class="fas fa-tools"></i>

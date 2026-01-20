@@ -19,13 +19,13 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-inline-size: 1200px;
             margin: 0 auto;
             padding: 2rem;
         }
 
         .breadcrumb {
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
             display: flex;
             gap: 0.5rem;
             align-items: center;
@@ -51,7 +51,7 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
         }
 
         .product-grid {
@@ -63,8 +63,8 @@
 
         .product-image {
             position: relative;
-            width: 100%;
-            height: 400px;
+            inline-size: 100%;
+            block-size: 400px;
             background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             border-radius: 12px;
             display: flex;
@@ -74,17 +74,17 @@
         }
 
         .product-image img {
-            width: 100%;
-            height: 100%;
+            inline-size: 100%;
+            block-size: 100%;
             object-fit: cover;
         }
 
         .product-image-nav {
             position: absolute;
-            top: 50%;
+            inset-block-start: 50%;
             transform: translateY(-50%);
-            width: 42px;
-            height: 42px;
+            inline-size: 42px;
+            block-size: 42px;
             border-radius: 50%;
             border: none;
             background: rgba(0, 0, 0, 0.35);
@@ -102,17 +102,17 @@
         }
 
         .product-image-nav.left {
-            left: 12px;
+            inset-inline-start: 12px;
         }
 
         .product-image-nav.right {
-            right: 12px;
+            inset-inline-end: 12px;
         }
 
         .product-details h1 {
             font-size: 2rem;
             color: #333;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             font-weight: 700;
         }
 
@@ -120,7 +120,7 @@
             font-size: 2rem;
             color: #F25912;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
         }
 
         .status-badge {
@@ -128,7 +128,7 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-weight: 600;
-            margin-bottom: 1.5rem;
+            margin-block-end: 1.5rem;
             font-size: 0.9rem;
         }
 
@@ -150,14 +150,14 @@
         .description {
             color: #555;
             line-height: 1.8;
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
             font-size: 1rem;
         }
 
         .product-meta {
             display: flex;
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
             flex-wrap: wrap;
         }
 
@@ -169,7 +169,7 @@
         .meta-item label {
             font-size: 0.85rem;
             color: #999;
-            margin-bottom: 0.3rem;
+            margin-block-end: 0.3rem;
             font-weight: 600;
         }
 
@@ -182,7 +182,7 @@
         .action-buttons {
             display: flex;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
             flex-wrap: wrap;
         }
 
@@ -196,8 +196,8 @@
         }
 
         .qty-btn {
-            width: 40px;
-            height: 40px;
+            inline-size: 40px;
+            block-size: 40px;
             border: none;
             background: #f0f0f0;
             cursor: pointer;
@@ -212,7 +212,7 @@
         }
 
         .qty-input {
-            width: 60px;
+            inline-size: 60px;
             border: none;
             text-align: center;
             font-size: 1rem;
@@ -244,7 +244,7 @@
             box-shadow: 0 4px 12px rgba(238, 153, 68, 0.3);
             flex: 1;
             justify-content: center;
-            min-width: 200px;
+            min-inline-size: 200px;
         }
 
         .btn-primary:hover {
@@ -258,7 +258,7 @@
             border: 2px solid #F87B1B;
             flex: 1;
             justify-content: center;
-            min-width: 200px;
+            min-inline-size: 200px;
         }
 
         .btn-outline:hover {
@@ -266,13 +266,13 @@
         }
 
         .related-products {
-            margin-top: 3rem;
+            margin-block-start: 3rem;
         }
 
         .related-products h2 {
             font-size: 1.75rem;
             color: #333;
-            margin-bottom: 1.5rem;
+            margin-block-end: 1.5rem;
             font-weight: 700;
         }
 
@@ -299,8 +299,8 @@
         }
 
         .product-card-image {
-            width: 100%;
-            height: 200px;
+            inline-size: 100%;
+            block-size: 200px;
             background: linear-gradient(135deg, #ee9944 0%, #FF9013 100%);
             display: flex;
             align-items: center;
@@ -309,8 +309,8 @@
         }
 
         .product-card-image img {
-            width: 100%;
-            height: 100%;
+            inline-size: 100%;
+            block-size: 100%;
             object-fit: cover;
         }
 
@@ -322,7 +322,7 @@
             font-size: 1rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 0.5rem;
+            margin-block-end: 0.5rem;
         }
 
         .product-card-price {
@@ -331,7 +331,7 @@
             font-weight: 700;
         }
 
-        @media (max-width: 768px) {
+        @media (max-inline-size: 768px) {
             .product-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -346,7 +346,7 @@
             }
 
             .product-image {
-                height: 300px;
+                block-size: 300px;
             }
 
             .action-buttons {
@@ -354,11 +354,11 @@
             }
 
             .btn {
-                width: 100%;
+                inline-size: 100%;
             }
 
             .quantity-selector {
-                width: 100%;
+                inline-size: 100%;
             }
 
             .container {
@@ -366,7 +366,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-inline-size: 480px) {
             .product-section {
                 padding: 1rem;
             }
@@ -380,7 +380,7 @@
             }
 
             .product-image {
-                height: 250px;
+                block-size: 250px;
             }
 
             .product-meta {
@@ -495,7 +495,9 @@
                                 <input type="number" id="quantity" name="quantity" value="1" min="1" class="qty-input">
                                 <button type="button" class="qty-btn" onclick="increaseQty()">+</button>
                             </div>
-                            <input type="hidden" name="tool_id" value="{{ $tool->id }}">
+                            <input type="hidden" name="id" value="{{ $tool->id }}">
+                            <input type="hidden" name="name" value="{{ $tool->title }}">
+                            <input type="hidden" name="type" value="tool">
                             <input type="hidden" name="price" value="{{ $tool->price }}">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-shopping-cart"></i> Add to Cart

@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 100%;
+            max-inline-size: 100%;
             padding: 2rem 0;
         }
 
@@ -30,11 +30,11 @@
             padding: 2rem 2rem;
             text-align: center;
             background: white;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
         }
 
         .header-section h1 {
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             color: #333;
             font-size: 2.5rem;
             font-weight: 700;
@@ -59,7 +59,7 @@
 
         /* Custom Scrollbar */
         .fertilizers-scroll-container::-webkit-scrollbar {
-            height: 8px;
+            block-size: 8px;
         }
 
         .fertilizers-scroll-container::-webkit-scrollbar-track {
@@ -80,8 +80,8 @@
         .fertilizers-row {
             display: flex;
             gap: 1.5rem;
-            min-width: min-content;
-            padding-bottom: 1rem;
+            min-inline-size: min-content;
+            padding-block-end: 1rem;
         }
 
         /* Fertilizer Card */
@@ -105,10 +105,10 @@
 
         .fertilizer-card-image-nav {
             position: absolute;
-            top: 50%;
+            inset-block-start: 50%;
             transform: translateY(-50%);
-            width: 36px;
-            height: 36px;
+            inline-size: 36px;
+            block-size: 36px;
             border-radius: 50%;
             border: none;
             background: rgba(0, 0, 0, 0.35);
@@ -126,17 +126,17 @@
         }
 
         .fertilizer-card-image-nav.left {
-            left: 10px;
+            inset-inline-start: 10px;
         }
 
         .fertilizer-card-image-nav.right {
-            right: 10px;
+            inset-inline-end: 10px;
         }
 
         .fertilizer-card-image-wrapper {
             position: relative;
-            width: 100%;
-            height: 200px;
+            inline-size: 100%;
+            block-size: 200px;
             background: linear-gradient(135deg, #66bb6a 0%, #4CAF50 100%);
             display: flex;
             align-items: center;
@@ -146,13 +146,13 @@
         }
 
         .fertilizer-card-image {
-            width: 100%;
-            height: 100%;
+            inline-size: 100%;
+            block-size: 100%;
         }
 
         .fertilizer-card-image img {
-            width: 100%;
-            height: 100%;
+            inline-size: 100%;
+            block-size: 100%;
             object-fit: cover;
         }
 
@@ -167,14 +167,14 @@
             font-size: 1.125rem;
             font-weight: 600;
             color: #333;
-            margin-bottom: 0.75rem;
+            margin-block-end: 0.75rem;
         }
 
         .fertilizer-description {
             font-size: 0.85rem;
             color: #666;
             line-height: 1.4;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             flex-grow: 1;
         }
 
@@ -182,13 +182,13 @@
             font-size: 1.5rem;
             color: #2e7d32;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-block-end: 0.5rem;
         }
 
         .fertilizer-status {
             font-size: 0.85rem;
             color: #666;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
         }
 
         .fertilizer-status.in_stock {
@@ -203,7 +203,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.75rem;
-            margin-top: auto;
+            margin-block-start: auto;
         }
 
         .fertilizer-btn {
@@ -247,18 +247,18 @@
             text-align: center;
             padding: 3rem 2rem;
             color: #666;
-            width: 100%;
+            inline-size: 100%;
         }
 
         .empty-state i {
             font-size: 3.5rem;
             color: #ddd;
-            margin-bottom: 1rem;
+            margin-block-end: 1rem;
             display: block;
         }
 
         .quantity-input {
-            width: 60px;
+            inline-size: 60px;
             padding: 0.5rem;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -272,7 +272,7 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-inline-size: 768px) {
             .fertilizer-card {
                 flex: 0 0 280px;
             }
@@ -290,7 +290,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-inline-size: 480px) {
             .fertilizer-card {
                 flex: 0 0 240px;
             }
@@ -317,7 +317,6 @@
 <div class="fertilizers-scroll-container" id="fertilizersContainer">
     <div class="fertilizers-row">
         @forelse($fertilizers as $index => $fertilizer)
-        <a href="{{ route('fertilizers.show', $fertilizer->id) }}" style="text-decoration: none; color: inherit;">
         <div class="fertilizer-card">
             @php
                 $galleryFolder = $fertilizer->title;
@@ -338,39 +337,43 @@
                 }
             @endphp
 
-            <div class="fertilizer-card-image-wrapper">
-                @if(count($galleryUrls) > 1)
-                    <button type="button" class="fertilizer-card-image-nav left" onclick="event.preventDefault(); event.stopPropagation(); changeFertilizerImage('fertilizer-image-{{ $fertilizer->id }}', -1);">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                @endif
+            <a href="{{ route('fertilizers.show', $fertilizer->id) }}" style="text-decoration: none; color: inherit; display: block;">
+                <div class="fertilizer-card-image-wrapper">
+                    @if(count($galleryUrls) > 1)
+                        <button type="button" class="fertilizer-card-image-nav left" onclick="event.preventDefault(); event.stopPropagation(); changeFertilizerImage('fertilizer-image-{{ $fertilizer->id }}', -1);">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                    @endif
 
-                @if($primaryImage)
-                    <img
-                        id="fertilizer-image-{{ $fertilizer->id }}"
-                        class="fertilizer-card-image"
-                        data-gallery="true"
-                        data-images='@json($galleryUrls)'
-                        data-index="0"
-                        src="{{ $primaryImage }}"
-                        alt="{{ $fertilizer->title }}"
-                    >
-                @else
-                    <i class="fas fa-image"></i>
-                @endif
+                    @if($primaryImage)
+                        <img
+                            id="fertilizer-image-{{ $fertilizer->id }}"
+                            class="fertilizer-card-image"
+                            data-gallery="true"
+                            data-images='@json($galleryUrls)'
+                            data-index="0"
+                            src="{{ $primaryImage }}"
+                            alt="{{ $fertilizer->title }}"
+                        >
+                    @else
+                        <i class="fas fa-image"></i>
+                    @endif
 
-                @if(count($galleryUrls) > 1)
-                    <button type="button" class="fertilizer-card-image-nav right" onclick="event.preventDefault(); event.stopPropagation(); changeFertilizerImage('fertilizer-image-{{ $fertilizer->id }}', 1);">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                @endif
-            </div>
+                    @if(count($galleryUrls) > 1)
+                        <button type="button" class="fertilizer-card-image-nav right" onclick="event.preventDefault(); event.stopPropagation(); changeFertilizerImage('fertilizer-image-{{ $fertilizer->id }}', 1);">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    @endif
+                </div>
+            </a>
 
             <div class="fertilizer-card-body">
-                <h5 class="fertilizer-title">{{ $fertilizer->title }}</h5>
-                <p class="fertilizer-description">
-                    {{ Str::limit($fertilizer->description, 100) }}
-                </p>
+                <a href="{{ route('fertilizers.show', $fertilizer->id) }}" style="text-decoration: none; color: inherit;">
+                    <h5 class="fertilizer-title">{{ $fertilizer->title }}</h5>
+                    <p class="fertilizer-description">
+                        {{ Str::limit($fertilizer->description, 100) }}
+                    </p>
+                </a>
                 <div class="fertilizer-price">Rs {{ number_format($fertilizer->price, 2) }}</div>
                 <p class="fertilizer-status {{ $fertilizer->status }}">
                     @if($fertilizer->status === 'in_stock')
@@ -381,23 +384,24 @@
                         ✗ Out of Stock
                     @endif
                 </p>
-                <div class="fertilizer-buttons" onclick="event.preventDefault(); event.stopPropagation();">
+                <div class="fertilizer-buttons">
                     <form action="{{ route('cart.add') }}" method="POST" class="cart-form">
                         @csrf
-                        <input type="hidden" name="fertilizer_id" value="{{ $fertilizer->id }}">
+                        <input type="hidden" name="id" value="{{ $fertilizer->id }}">
+                        <input type="hidden" name="name" value="{{ $fertilizer->title }}">
+                        <input type="hidden" name="type" value="fertilizer">
                         <input type="hidden" name="price" value="{{ $fertilizer->price }}">
                         <input type="number" name="quantity" value="1" min="1" class="quantity-input">
                         <button type="submit" class="fertilizer-btn fertilizer-btn-primary" style="flex: 1;">
                             <i class="fas fa-shopping-cart"></i> Add to Cart
                         </button>
                     </form>
-                    <a href="#" class="fertilizer-btn fertilizer-btn-outline" onclick="event.preventDefault(); event.stopPropagation();">
+                    <a href="#" class="fertilizer-btn fertilizer-btn-outline" onclick="event.preventDefault();">
                         <i class="fas fa-heart"></i> Wishlist
                     </a>
                 </div>
             </div>
         </div>
-        </a>
         @empty
         <div class="empty-state">
             <i class="fas fa-droplet"></i>
@@ -422,8 +426,8 @@
         scrollLeft() {
             if (this.container) {
                 this.container.scrollBy({
-                    left: -this.scrollAmount,
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    left: this.scrollAmount
                 });
             }
         },
@@ -431,8 +435,8 @@
         scrollRight() {
             if (this.container) {
                 this.container.scrollBy({
-                    left: this.scrollAmount,
-                    behavior: 'smooth'
+                    behavior: 'smooth',
+                    left: -this.scrollAmount
                 });
             }
         }

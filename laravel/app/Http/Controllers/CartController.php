@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use app\Models\User;
 
 class CartController extends Controller
 {
@@ -44,6 +45,7 @@ class CartController extends Controller
             'type' => 'required|string|in:tool,fertilizer,crop',
             'price' => 'required|numeric',
             'quantity' => 'integer|min:1',
+            'image' => 'nullable|string',
         ]);
 
         $cart = session()->get('cart', []);
@@ -53,12 +55,16 @@ class CartController extends Controller
         if (isset($cart[$itemKey])) {
             $cart[$itemKey]['quantity'] += $validated['quantity'] ?? 1;
         } else {
+            // Set default image filename based on type
+            $defaultImage = '1.jpg';
+
             $cart[$itemKey] = [
                 'id' => $validated['id'],
                 'name' => $validated['name'],
                 'type' => $validated['type'],
                 'price' => $validated['price'],
                 'quantity' => $validated['quantity'] ?? 1,
+                'image' => $validated['image'] ?? $defaultImage,
             ];
         }
 
@@ -124,6 +130,11 @@ class CartController extends Controller
      */
     public function placeOrder(Request $request)
     {
+        /** @var \Illuminate\Contracts\Auth\Guard $auth */
+        $auth = auth();
+        /** @var \App\Models\User $user */
+        $user = $auth->user();
+
         $validated = $request->validate([
             'payment_method' => 'required|string|in:visa,paypal,cod',
             'cod_fee' => 'nullable|numeric',
@@ -148,15 +159,15 @@ class CartController extends Controller
 
         // Create order
         $order = Order::create([
-            'user_id' => auth()->id(),
+            'user_id' => $user->id,
             'order_number' => $orderNumber,
             'total_amount' => $total,
             'cod_fee' => $codFee,
             'payment_method' => $validated['payment_method'],
             'status' => 'pending',
             'items' => $cart,
-            'shipping_address' => auth()->user()->address . ', ' . auth()->user()->city . ', ' . auth()->user()->state . ', ' . auth()->user()->postal_code,
-            'phone' => auth()->user()->phone,
+            'shipping_address' => $user->address . ', ' . $user->city . ', ' . $user->state . ', ' . $user->postal_code,
+            'phone' => $user->phone,
         ]);
 
         // Clear cart
@@ -170,7 +181,12 @@ class CartController extends Controller
      */
     public function orders()
     {
-        $orders = Order::where('user_id', auth()->id())
+        /** @var \Illuminate\Contracts\Auth\Guard $auth */
+        $auth = auth();
+        /** @var \App\Models\User $user */
+        $user = $auth->user();
+
+        $orders = Order::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get();
 
@@ -182,10 +198,15 @@ class CartController extends Controller
      */
     public function viewOrder($id)
     {
+        /** @var \Illuminate\Contracts\Auth\Guard $auth */
+        $auth = auth();
+        /** @var \App\Models\User $user */
+        $user = $auth->user();
+
         $order = Order::with('user')->findOrFail($id);
-        
+
         // Check if user is admin or order belongs to user
-        if (auth()->user()->role !== 'admin' && $order->user_id !== auth()->id()) {
+        if ($user->role !== 'admin' && $order->user_id !== $user->id) {
             abort(403, 'Unauthorized');
         }
 
@@ -197,10 +218,15 @@ class CartController extends Controller
      */
     public function updateOrderStatus(Request $request, $id)
     {
+        /** @var \Illuminate\Contracts\Auth\Guard $auth */
+        $auth = auth();
+        /** @var \App\Models\User $user */
+        $user = $auth->user();
+
         $order = Order::findOrFail($id);
 
         // Verify user is admin
-        if (auth()->user()->role !== 'admin') {
+        if ($user->role !== 'admin') {
             abort(403, 'Unauthorized');
         }
 
@@ -218,8 +244,13 @@ class CartController extends Controller
      */
     public function adminOrders()
     {
+        /** @var \Illuminate\Contracts\Auth\Guard $auth */
+        $auth = auth();
+        /** @var \App\Models\User $user */
+        $user = $auth->user();
+
         // Verify user is admin
-        if (auth()->user()->role !== 'admin') {
+        if ($user->role !== 'admin') {
             abort(403, 'Unauthorized');
         }
 
@@ -235,8 +266,13 @@ class CartController extends Controller
      */
     public function cancelOrder($id)
     {
+        /** @var \Illuminate\Contracts\Auth\Guard $auth */
+        $auth = auth();
+        /** @var \App\Models\User $user */
+        $user = $auth->user();
+
         $order = Order::where('id', $id)
-            ->where('user_id', auth()->id())
+            ->where('user_id', $user->id)
             ->first();
 
         if (!$order) {

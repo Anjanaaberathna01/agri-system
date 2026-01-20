@@ -449,7 +449,7 @@
     <!-- LEFT SIDE: Logo -->
     <div class="nav-left">
         <div class="logo">
-            <a href="{{ route('login') }}">
+            <a href="{{ route('home') }}">
                 <img src="{{ asset('images/logo/logo.png') }}" alt="SpasilaLahanPetani Logo">
             </a>
         </div>

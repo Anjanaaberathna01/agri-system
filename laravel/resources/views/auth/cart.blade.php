@@ -18,11 +18,11 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: #f5f7fa;
-            min-height: 100vh;
+            min-block-size: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-inline-size: 1200px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -32,14 +32,14 @@
             color: white;
             padding: 30px;
             border-radius: 15px;
-            margin-bottom: 40px;
+            margin-block-end: 40px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 {
             font-size: 32px;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-block-end: 5px;
         }
 
         .header p {
@@ -68,18 +68,18 @@
 
         .empty-cart-icon {
             font-size: 80px;
-            margin-bottom: 20px;
+            margin-block-end: 20px;
         }
 
         .empty-cart h2 {
             font-size: 24px;
             color: #333;
-            margin-bottom: 10px;
+            margin-block-end: 10px;
         }
 
         .empty-cart p {
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-block-end: 20px;
         }
 
         .empty-cart a {
@@ -105,7 +105,7 @@
             padding: 20px;
             border: 2px solid #f0f0f0;
             border-radius: 12px;
-            margin-bottom: 15px;
+            margin-block-end: 15px;
             align-items: center;
             transition: all 0.3s ease;
         }
@@ -116,8 +116,8 @@
         }
 
         .item-image {
-            width: 100px;
-            height: 100px;
+            inline-size: 100px;
+            block-size: 100px;
             background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             border-radius: 10px;
             display: flex;
@@ -131,7 +131,7 @@
             font-size: 16px;
             font-weight: 600;
             color: #333;
-            margin-bottom: 5px;
+            margin-block-end: 5px;
         }
 
         .item-type {
@@ -142,13 +142,13 @@
             border-radius: 4px;
             font-size: 12px;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-block-end: 10px;
         }
 
         .item-price {
             font-size: 14px;
             color: #666;
-            margin-bottom: 10px;
+            margin-block-end: 10px;
         }
 
         .item-quantity {
@@ -158,7 +158,7 @@
         }
 
         .item-quantity input {
-            width: 60px;
+            inline-size: 60px;
             padding: 6px;
             border: 2px solid #e0e0e0;
             border-radius: 6px;
@@ -218,24 +218,24 @@
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            height: fit-content;
+            block-size: fit-content;
             position: sticky;
-            top: 100px;
+            inset-block-start: 100px;
         }
 
         .summary-title {
             font-size: 20px;
             font-weight: 700;
             color: #333;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
+            margin-block-end: 20px;
+            padding-block-end: 15px;
+            border-block-end: 2px solid #f0f0f0;
         }
 
         .summary-row {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 15px;
+            margin-block-end: 15px;
             font-size: 14px;
         }
 
@@ -243,9 +243,9 @@
             font-size: 18px;
             font-weight: 700;
             color: #333;
-            padding-top: 15px;
-            border-top: 2px solid #f0f0f0;
-            margin-top: 15px;
+            padding-block-start: 15px;
+            border-block-start: 2px solid #f0f0f0;
+            margin-block-start: 15px;
         }
 
         .summary-row.total .price {
@@ -253,7 +253,7 @@
         }
 
         .checkout-btn {
-            width: 100%;
+            inline-size: 100%;
             padding: 15px;
             background: linear-gradient(135deg, #ff9500 0%, #ff7c00 100%);
             color: white;
@@ -263,7 +263,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            margin-block-start: 20px;
             box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
         }
 
@@ -273,7 +273,7 @@
         }
 
         .continue-shopping {
-            width: 100%;
+            inline-size: 100%;
             padding: 12px;
             background: #f0f0f0;
             color: #333;
@@ -283,7 +283,7 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-block-start: 10px;
             text-decoration: none;
             display: block;
             text-align: center;
@@ -296,7 +296,7 @@
         .alert {
             padding: 15px 20px;
             border-radius: 8px;
-            margin-bottom: 20px;
+            margin-block-end: 20px;
             font-size: 14px;
         }
 
@@ -306,7 +306,7 @@
             border: 1px solid #c3e6cb;
         }
 
-        @media (max-width: 768px) {
+        @media (max-inline-size: 768px) {
             .cart-layout {
                 grid-template-columns: 1fr;
             }
@@ -323,7 +323,7 @@
                 grid-column: 1 / -1;
                 flex-direction: row;
                 justify-content: space-between;
-                margin-top: 10px;
+                margin-block-start: 10px;
             }
         }
     </style>
@@ -356,7 +356,7 @@
                 @else
                     @foreach($cart as $key => $item)
                         <div class="cart-item" style="align-items: flex-start;">
-                            <div class="item-image" style="display: flex; align-items: center; justify-content: center; min-width: 100px; min-height: 100px;">
+                            <div class="item-image" style="display: flex; align-items: center; justify-content: center; min-inline-size: 100px; min-block-size: 100px;">
                                 @php
                                     if ($item['type'] === 'tool') {
                                         $imageFolder = 'tools';
@@ -365,27 +365,64 @@
                                     } else {
                                         $imageFolder = 'crop';
                                     }
-                                    $itemSubfolder = isset($item['name']) ? strtolower($item['name']) : '';
-                                    $imageFile = !empty($item['image']) ? $item['image'] : '1.jpg';
+
+                                    // Use the item name as the subfolder (case-sensitive to match folder names)
+                                    $itemSubfolder = isset($item['name']) ? $item['name'] : '';
+
+                                    // Check for different image file extensions
+                                    $imagePath = null;
+                                    $imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'svg', 'gif', 'avif'];
+
+                                    if (!empty($item['image'])) {
+                                        // Use the provided image name
+                                        $testPath = 'images/' . $imageFolder . '/' . $itemSubfolder . '/' . $item['image'];
+                                        if (file_exists(public_path($testPath))) {
+                                            $imagePath = $testPath;
+                                        }
+                                    }
+
+                                    // If no image found, try common filenames with different extensions
+                                    if (!$imagePath) {
+                                        foreach ($imageExtensions as $ext) {
+                                            $testPath = 'images/' . $imageFolder . '/' . $itemSubfolder . '/1.' . $ext;
+                                            if (file_exists(public_path($testPath))) {
+                                                $imagePath = $testPath;
+                                                break;
+                                            }
+                                        }
+                                    }
                                 @endphp
-                                <img src="{{ asset('images/' . $imageFolder . '/' . $itemSubfolder . '/' . $imageFile) }}" alt="{{ $item['name'] }}" style="width:90px;height:90px;border-radius:10px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+
+                                @if($imagePath)
+                                    <img src="{{ asset($imagePath) }}" alt="{{ $item['name'] }}" style="inline-size:90px;block-size:90px;border-radius:10px;object-fit:cover;box-shadow:0 2px 8px rgba(0,0,0,0.07);">
+                                @else
+                                    <div style="inline-size:90px;block-size:90px;border-radius:10px;background:linear-gradient(135deg,#ff9500 0%,#ff7c00 100%);display:flex;align-items:center;justify-content:center;color:white;font-size:2rem;">
+                                        @if($item['type'] === 'tool')
+                                            🛠️
+                                        @elseif($item['type'] === 'fertilizer')
+                                            🌱
+                                        @else
+                                            🌾
+                                        @endif
+                                    </div>
+                                @endif
                             </div>
 
-                            <div class="item-details" style="padding-left:10px;flex:1;">
-                                <h3 style="margin-bottom:6px;">{{ $item['name'] }}</h3>
-                                <span class="item-type" style="margin-bottom:6px;">{{ ucfirst($item['type']) }}</span>
-                                <div class="item-price" style="margin-bottom:8px;">Rs. {{ number_format($item['price'], 2) }}</div>
-                                <form action="{{ route('cart.update', $key) }}" method="POST" class="item-quantity" style="margin-bottom:8px;">
+                            <div class="item-details" style="padding-inline-start:10px;flex:1;">
+                                <h3 style="margin-block-end:6px;">{{ $item['name'] }}</h3>
+                                <span class="item-type" style="margin-block-end:6px;">{{ ucfirst($item['type']) }}</span>
+                                <div class="item-price" style="margin-block-end:8px;">Rs. {{ number_format($item['price'], 2) }}</div>
+                                <form action="{{ route('cart.update', $key) }}" method="POST" class="item-quantity" style="margin-block-end:8px;">
                                     @csrf
                                     @method('PUT')
-                                    <label style="margin-right:4px;">Qty:</label>
-                                    <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" required style="width:50px;">
-                                    <button type="submit" style="margin-left:6px;">Update</button>
+                                    <label style="margin-inline-end:4px;">Qty:</label>
+                                    <input type="number" name="quantity" value="{{ $item['quantity'] }}" min="1" required style="inline-size:50px;">
+                                    <button type="submit" style="margin-inline-start:6px;">Update</button>
                                 </form>
                             </div>
 
-                            <div class="item-actions" style="min-width:110px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
-                                <div class="item-total" style="margin-bottom:8px;">Rs. {{ number_format($item['price'] * $item['quantity'], 2) }}</div>
+                            <div class="item-actions" style="min-inline-size:110px;display:flex;flex-direction:column;align-items:flex-end;gap:10px;">
+                                <div class="item-total" style="margin-block-end:8px;">Rs. {{ number_format($item['price'] * $item['quantity'], 2) }}</div>
                                 <a href="{{ route('cart.remove', $key) }}" class="item-remove" onclick="return confirm('Remove this item?')">Remove</a>
                             </div>
                         </div>
@@ -418,10 +455,10 @@
                 </div>
 
                 @if(!empty($cart))
-                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
-                    <a class="checkout-btn" href="{{ route('auth.check_out') }}" style="margin-bottom:0;">Proceed to Checkout</a>
-                    <a href="{{ route('home') }}" class="continue-shopping" style="margin-bottom:0;">Continue Shopping</a>
-                    <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-top:0;">Clear Cart</a>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-block-start: 24px;">
+                    <a class="checkout-btn" href="{{ route('auth.check_out') }}" style="margin-block-end:0;">Proceed to Checkout</a>
+                    <a href="{{ route('home') }}" class="continue-shopping" style="margin-block-end:0;">Continue Shopping</a>
+                    <a href="{{ route('cart.clear') }}" class="continue-shopping" onclick="return confirm('Clear your entire cart?')" style="background: #ffebee; color: #d32f2f; margin-block-start:0;">Clear Cart</a>
                 </div>
                 @endif
             </div>

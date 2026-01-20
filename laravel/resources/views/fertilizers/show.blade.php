@@ -81,10 +81,10 @@
 
         .product-image-nav {
             position: absolute;
-            top: 50%;
+            inset-block-start: 50%;
             transform: translateY(-50%);
-            width: 42px;
-            height: 42px;
+            inline-size: 42px;
+            block-size: 42px;
             border-radius: 50%;
             border: none;
             background: rgba(0, 0, 0, 0.35);
@@ -102,11 +102,11 @@
         }
 
         .product-image-nav.left {
-            left: 12px;
+            inset-inline-start: 12px;
         }
 
         .product-image-nav.right {
-            right: 12px;
+            inset-inline-end: 12px;
         }
 
         .product-details h1 {
@@ -331,7 +331,7 @@
             font-weight: 700;
         }
 
-        @media (max-width: 768px) {
+        @media (max-inline-size: 768px) {
             .product-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -346,7 +346,7 @@
             }
 
             .product-image {
-                height: 300px;
+                block-size: 300px;
             }
 
             .action-buttons {
@@ -366,7 +366,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-inline-size: 480px) {
             .product-section {
                 padding: 1rem;
             }
@@ -380,7 +380,7 @@
             }
 
             .product-image {
-                height: 250px;
+                block-size: 250px;
             }
 
             .product-meta {
@@ -495,7 +495,9 @@
                                 <input type="number" id="quantity" name="quantity" value="1" min="1" class="qty-input">
                                 <button type="button" class="qty-btn" onclick="increaseQty()">+</button>
                             </div>
-                            <input type="hidden" name="fertilizer_id" value="{{ $fertilizer->id }}">
+                            <input type="hidden" name="id" value="{{ $fertilizer->id }}">
+                            <input type="hidden" name="name" value="{{ $fertilizer->title }}">
+                            <input type="hidden" name="type" value="fertilizer">
                             <input type="hidden" name="price" value="{{ $fertilizer->price }}">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fas fa-shopping-cart"></i> Add to Cart

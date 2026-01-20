@@ -16,12 +16,12 @@
 
         body {
             background-color: #f5f7fa;
-            min-height: 100vh;
+            min-block-size: 100vh;
             padding: 2rem;
         }
 
         .container {
-            max-width: 800px;
+            max-inline-size: 800px;
             margin: 0 auto;
         }
 
@@ -30,13 +30,13 @@
             color: white;
             padding: 2rem;
             border-radius: 12px;
-            margin-bottom: 2rem;
+            margin-block-end: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .header h1 {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
+            margin-block-end: 0.5rem;
         }
 
         .header p {
@@ -51,12 +51,12 @@
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-block-end: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-block-end: 0.5rem;
             font-weight: 500;
             color: #333;
         }
@@ -66,7 +66,7 @@
         }
 
         .form-control {
-            width: 100%;
+            inline-size: 100%;
             padding: 0.75rem;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
@@ -81,7 +81,7 @@
         }
 
         textarea.form-control {
-            min-height: 120px;
+            min-block-size: 120px;
             resize: vertical;
         }
 
@@ -93,12 +93,12 @@
             position: relative;
             overflow: hidden;
             display: inline-block;
-            width: 100%;
+            inline-size: 100%;
         }
 
         .file-input-wrapper input[type=file] {
             position: absolute;
-            left: -9999px;
+            inset-inline-start: -9999px;
         }
 
         .file-input-label {
@@ -119,7 +119,7 @@
         }
 
         .file-input-label i {
-            margin-right: 0.5rem;
+            margin-inline-end: 0.5rem;
             color: #FA891A;
         }
 
