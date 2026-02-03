@@ -312,7 +312,7 @@
 
         <div class="welcome-card">
             <h2>Welcome to Your Supplier Dashboard</h2>
-            <p>Manage your supplier profile and track your product supplies for SpasilaLahanPetani platform.</p>
+            <p>Manage your supplier profile and track your product supplies for Govi Saviya LK platform.</p>
         </div>
 
         <!-- Add Product Request Button -->

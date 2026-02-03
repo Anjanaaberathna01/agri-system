@@ -52,6 +52,6 @@ class RegisterController extends Controller
         // Log in the user
         Auth::login($user);
 
-        return redirect('/')->with('success', 'Registration successful! Welcome to SpasilaLahanPetani!');
+        return redirect('/')->with('success', 'Registration successful! Welcome to Govi Saviya LK!');
     }
 }

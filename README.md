@@ -1,4 +1,4 @@
-# 🌾 SpasilaLahanPetani
+# 🌾 Govi Saviya LK
 
 > A modern Laravel-based agriculture marketplace connecting farmers with tools, fertilizers, and crops.
 

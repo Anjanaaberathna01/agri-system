@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register | SpasilaLahanPetani</title>
+    <title>Register | Govi Saviya LK</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -125,7 +125,7 @@
     <div class="header">
         <div class="brand">
             <div class="brand-mark"><i class="fas fa-seedling"></i></div>
-            <div class="brand-name">SpasilaLahan</div>
+            <div class="brand-name">Govi Saviya LK</div>
         </div>
         <span style="color:#9ca3af;font-weight:600;">Join the growers community</span>
     </div>
@@ -186,7 +186,7 @@
 
         <div class="right">
             <div class="glow"></div>
-            <h2>SpasilaLahanPetani</h2>
+            <h2>Govi Saviya LK</h2>
             <p>Get premium agri supplies, curated for quality, delivered with care.</p>
             <img class="hero" src="{{ asset('images/login/farmers.avif') }}" alt="Farmers Illustration">
         </div>

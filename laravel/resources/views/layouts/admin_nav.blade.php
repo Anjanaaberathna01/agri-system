@@ -266,7 +266,7 @@
     <div class="navbar-content">
         <div class="navbar-brand">
             <i class="fas fa-tractor"></i>
-            SpasilaLahan Admin
+            Govi Saviya LK Admin
         </div>
         <div class="navbar-menu">
             <a href="{{ route('home') }}"><i class="fas fa-home"></i> Store</a>

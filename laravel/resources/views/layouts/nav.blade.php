@@ -450,7 +450,7 @@
     <div class="nav-left">
         <div class="logo">
             <a href="{{ route('home') }}">
-                <img src="{{ asset('images/logo/logo.png') }}" alt="SpasilaLahanPetani Logo">
+                <img src="{{ asset('images/logo/logo.png') }}" alt="Govi Saviya LK Logo">
             </a>
         </div>
 

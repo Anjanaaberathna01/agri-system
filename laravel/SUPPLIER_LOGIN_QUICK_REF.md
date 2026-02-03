@@ -166,5 +166,5 @@ database/
 ---
 
 **Created:** January 20, 2026
-**System:** SpasilaLahanPetani - Agricultural Platform
+**System:** Govi Saviya LK - Agricultural Platform
 **Component:** Supplier Authentication with Mandatory First Login Password Change

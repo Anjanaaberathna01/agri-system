@@ -1,4 +1,4 @@
-# SpasilaLahanPetani - Agricultural Supply Management System
+# Govi Saviya LK - Agricultural Supply Management System
 
 A modern web application for managing and selling agricultural products including crops, fertilizers, and farming tools.
 
